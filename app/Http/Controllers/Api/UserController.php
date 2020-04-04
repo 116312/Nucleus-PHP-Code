@@ -83,4 +83,52 @@ class UserController extends Controller
         }
     
     }
+
+
+
+
+
+
+
+
+
+
+
+    public function login(Request $request){
+        $user = User::where('email',$request->email)->first();
+
+        if($user == null){
+            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
+        }
+        else{
+            if(Hash::check($request->password, $user->password)){
+                $devices = $user->userDevices()->get();
+                if($devices->count() < 2){
+                    $check_device = $devices->firstWhere('device_id',$request->device_id);
+                    if($check_device != null){
+                        return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$user]);
+                    }
+                    else{
+                        UserDevice::insert(['user_id' => $user->id,'device_id' => $request->device_id,'created_at' =>Carbon::now()]);
+                        return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$user]);
+                    }
+                }
+                else{
+                    $check_device = $devices->firstWhere('device_id',$request->device_id);
+                    if($check_device != null){
+                        return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$user]);
+                    }
+                    else{
+
+                        return Response::json(['code' => 200,'status' => true, 'message' => 'User login un-successfully for security reason','data'=>[]]);
+                    }
+                }
+
+
+            }
+            else{
+                return Response::json(['code' => 400,'status' => false, 'message' => 'Invalid email or password']);
+            }
+        }
+    }
 }
