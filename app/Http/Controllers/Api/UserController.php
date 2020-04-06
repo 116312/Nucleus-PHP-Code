@@ -8,6 +8,7 @@ use Response;
 use App\User;
 use App\UserDevice;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
