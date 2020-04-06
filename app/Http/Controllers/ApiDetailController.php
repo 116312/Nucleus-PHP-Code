@@ -21,4 +21,11 @@ class ApiDetailController extends Controller
         return view('api.login');
     }
 
+
+
+    public function socialLoginForm(){
+       
+        return view('api.social-login');
+    }
+
 }
