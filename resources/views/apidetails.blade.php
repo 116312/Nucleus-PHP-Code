@@ -23,6 +23,7 @@
     <div>
         <p><a href="{{url('/api-details/register-form')}}">Register</a></p>
         <p><a href="{{url('/api-details/login-form')}}">User Login</a></p>
+        <p><a href="{{url('/api-details/social-login-form')}}">Social Login</a></p>
        
     </div>
    
