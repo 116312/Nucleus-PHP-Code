@@ -17,6 +17,18 @@
                         <span>Users</span>
                     </a>
                 </li>
+
+                <li >
+                    <a href="{{ route('logout') }}"  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        <i class="material-icons">input</i>
+                        <span>Sign Out</span>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
+                    </a>
+                </li>
                 
                
                 
