@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 
