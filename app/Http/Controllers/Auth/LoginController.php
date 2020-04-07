@@ -37,8 +37,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-<<<<<<< HEAD
-=======
 
 
 
@@ -64,5 +62,5 @@ class LoginController extends Controller
     }
 
 
->>>>>>> 7803513800b26d9aa30e350fd7b408348d51ef7d
+
 }
