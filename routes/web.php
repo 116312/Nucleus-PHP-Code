@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
 
@@ -48,6 +48,10 @@ Route::group(['prefix' => 'api-details'],function (){
  
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 

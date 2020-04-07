@@ -14,7 +14,7 @@ class ChangeMobileNoInUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-             $table->bigInteger('contact_no')->nullable()->change();
+             $table->string('contact_no')->nullable()->change();
         });
     }
 
@@ -26,7 +26,7 @@ class ChangeMobileNoInUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+            $table->dropColumn('contact_no');
         });
     }
 }
