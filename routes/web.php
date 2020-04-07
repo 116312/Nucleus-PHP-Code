@@ -18,6 +18,23 @@ Route::get('/', function () {
 });
 
 
+Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm');
+Route::post('/login/admin', 'Auth\LoginController@adminLogin');
+
+
+Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
+
+    Route::get('dashboard','DashboardController@dashboard');
+   
+
+});
+
+
+
+
+
+
+
 
 Route::group(['prefix' => 'api-details'],function (){
 
@@ -31,3 +48,7 @@ Route::group(['prefix' => 'api-details'],function (){
  
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
