@@ -28,7 +28,7 @@
 <body class="login-page">
 <div class="login-box">
     <div class="logo">
-        <a href="javascript:void(0);">Study<b>2</b>Win</a>
+        <a href="javascript:void(0);">Nucleus</a>
         {{--<small>Admin BootStrap Based - Material Design</small>--}}
     </div>
     <div class="card">

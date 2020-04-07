@@ -25,6 +25,7 @@ Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
     Route::get('dashboard','DashboardController@dashboard');
+    Route::get('all-users','UserController@allUsers');
    
 
 });
