@@ -26,6 +26,13 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
     Route::get('dashboard','DashboardController@dashboard');
     Route::get('all-users','UserController@allUsers');
+
+
+//************************** Workout  Categories ********************************************* //
+
+    Route::get('add-cate','CategoryController@add');
+    Route::post('store-cate','CategoryController@store');
+    Route::get('show-cate','CategoryController@show');
    
 
 });
