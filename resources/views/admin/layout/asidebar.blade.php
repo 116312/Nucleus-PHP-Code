@@ -18,6 +18,21 @@
                     </a>
                 </li>
 
+                <li class="{{(isset($page) && $page && $page == 'Workout-cate' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">format_quote</i>
+                        <span>Workout Categories</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-cate' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-cate') }}">Add Categories</a>
+                        </li>
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-cate' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-cate') }}">Show Categories</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li >
                     <a href="{{ route('logout') }}"  onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
