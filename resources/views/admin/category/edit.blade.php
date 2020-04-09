@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Workout Category')
+@section('title', 'Edit Workout Category')
 @section('admin-section')
 
     <section class="content">
@@ -13,39 +13,43 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               Add New Category Here
+                               Edit Workout Category Here
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-cate')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-cate').'/'.$category->id}}" enctype="multipart/form-data">
                                 @csrf
 
 
                                 <label for="course_name">Category Name</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="name" id="category_name"
+                                        <input type="text" required name="name"  value = "{{$category->name}}" id="category_name"
                                                class="form-control">
                                     </div>
                                 </div>
                                 <label for="course_name">Category Sequence Number</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="sequence_number" id="sequence_number"
+                                        <input type="text" required name="sequence_number" value = "{{$category->sequence_no}}" id="sequence_number"
                                                class="form-control">
                                     </div>
                                 </div>
                                  <label for="course_name">Female Category Image</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="file" required name="female_image" id="female_image"
+                                           <img src="{{$category->femalecategoryimage->image}}" height="100" width="100">
+        
+                   
+                                        <input type="file"  name="female_image" id="female_image"
                                                class="form-control">
                                     </div>
                                 </div>
                                  <label for="course_name">Male Category Image</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="file" required name="male_image" id="male_image"
+                                        <img src="{{$category->malecategoryimage->image}}" height="100" width="100">
+                                        <input type="file"  name="male_image" id="male_image"
                                                class="form-control">
                                     </div>
                                 </div>
@@ -53,7 +57,8 @@
                                  <label for="course_name">Unspecified Category Image</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="file" required name="unspecified_image" id="male_image"
+                                        <img src="{{$category->unspecifiedcategoryimage->image}}" height="100" width="100">
+                                        <input type="file"  name="unspecified_image" id="male_image"
                                                class="form-control">
                                     </div>
                                 </div>

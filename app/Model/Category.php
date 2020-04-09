@@ -19,4 +19,17 @@ class Category extends Model
     {
         return $this->hasOne('App\Model\MaleCategoryImage','category_id');
     }
+
+
+      public function unspecifiedcategoryimage()
+    {
+        return $this->hasOne('App\Model\UnspecifiedCategoryImage','category_id');
+    }
+
+
+
+       public function promotionalcategory()
+    {
+        return $this->hasOne('App\Model\PromotionalCategory','category_id');
+    }
 }

@@ -33,6 +33,25 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::get('add-cate','CategoryController@add');
     Route::post('store-cate','CategoryController@store');
     Route::get('show-cate','CategoryController@show');
+    Route::get('edit-cate/{id}','CategoryController@edit');
+    Route::post('update-cate/{id}','CategoryController@update');
+    Route::post('delete-cate/{id}','CategoryController@delete');
+
+
+
+
+
+
+
+
+//****************************** Promotional Categories ********************************//
+
+    Route::get('add-promo_cate','PromotionalCategoryController@add');
+    Route::post('store-promo_cate','PromotionalCategoryController@store');
+    Route::get('show-promo_cate','PromotionalCategoryController@show');
+    Route::get('edit-promo_cate/{id}','PromotionalCategoryController@edit');
+    Route::post('update-promo_cate/{id}','PromotionalCategoryController@update');
+    Route::post('delete-promo_cate/{id}','PromotionalCategoryController@delete');
    
 
 });

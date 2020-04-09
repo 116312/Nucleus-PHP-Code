@@ -31,10 +31,6 @@
                                 <tr>
                                     <td>S No.</td>
                                     <td>Category Name</td>
-                                    <td>Sequence Number</td>
-                                    <td>Image for Male</td>
-                                    <td>Image for Female</td>
-                                    <td>Image for Unspecified</td>
                                     <td>Action</td>
 
                                    
@@ -42,18 +38,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                               @foreach($categories as $key => $cate)
+                               @foreach($promotionalcategories as $key => $promo)
                                    <tr>
                                        <td>{{$key + 1}}</td>
-                                       <td>{{$cate->name}}</td>
-                                       <td>{{$cate->sequence_no}}</td>
-                                       <td><img style="float:left!important" src="{{$cate->malecategoryimage->image}}" height="100" width="100"></td>
-                                        <td><img style="float:left!important" src="{{$cate->femalecategoryimage->image}}" height="100" width="100"></td>
-                                        <td><img style="float:left!important" src="{{$cate->unspecifiedcategoryimage->image}}" height="100" width="100"></td>
-                                          <form class="form-horizontal" method="post" action="{{url('admin/delete-cate').'/'.$cate->id}}" role="form">
+                                       <td>{{$promo->category->name}}</td>
+                                       <td>{{$promo->category->sequence_no}}</td>
+                                     
+                                          <form class="form-horizontal" method="post" action="{{url('admin/delete-promo_cate').'/'.$promo->id}}" role="form">
                                     @csrf
                                  <td>
-                                        <a href="{{url('admin/edit-cate').'/'.$cate->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/edit-promo_cate').'/'.$promo->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                     </td>
                                 </form>
