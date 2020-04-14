@@ -72,6 +72,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('register-form','ApiDetailController@registerForm');
   Route::get('login-form','ApiDetailController@loginForm');
   Route::get('social-login-form','ApiDetailController@socialLoginForm');
+  Route::get('get-all-categories-form','ApiDetailController@getcategoryForm');
  
 
 });

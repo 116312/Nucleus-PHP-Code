@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class ApiDetailController extends Controller
 {
@@ -26,6 +27,17 @@ class ApiDetailController extends Controller
     public function socialLoginForm(){
        
         return view('api.social-login');
+    }
+
+
+
+    public function getcategoryForm(){
+  
+
+      $users =User::all(); 
+       
+       return view('api.get-all-category-form',compact('users'));
+
     }
 
 }

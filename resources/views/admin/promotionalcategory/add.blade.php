@@ -20,14 +20,16 @@
                             <form method="post"  id="form_validation" action="{{url('admin/store-promo_cate')}}" enctype="multipart/form-data">
                                 @csrf
 
-									<label for="article_category_type">Workout Category</label>
+									<label for="article_category_type">Select Type Of Promotion</label>
 		                                <div class="form-group">
 		                                    <div class="form-line">
-		                                        <select class="form-control show-tick" required name="category_id[]" multiple>
+		                                        <select class="form-control show-tick" required name="promotion_type" multiple>
 		                                            <option value="">-- Please select --</option>
-		                                            @foreach($categories as $key =>$cate)
-		                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
-		                                               @endforeach
+		                                            
+		                                                <option value="category">Workout Category</option>
+                                                        <option value="challenge">Nucleus Challenge</option>
+                                                        <option value="video">Video</option>
+		                                             
 		                                        </select>
 		                                    </div>
 		                                </div>
