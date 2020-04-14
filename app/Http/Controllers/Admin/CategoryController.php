@@ -20,7 +20,7 @@ class CategoryController extends Controller
    $sub_page ='add-cate';
 
 
-   return view('admin.category.add',compact('page','sub_page'));
+   return view('admin.workoutcategory.add',compact('page','sub_page'));
 
    }
 
@@ -119,7 +119,7 @@ class CategoryController extends Controller
        $categories = Category::with('femalecategoryimage','malecategoryimage','unspecifiedcategoryimage')->get();
 
 
-       return view('admin.category.show',compact('page','sub_page','categories'));
+       return view('admin.workoutcategory.show',compact('page','sub_page','categories'));
 
     }
 
@@ -133,7 +133,7 @@ class CategoryController extends Controller
        $category = Category::where('id',$id)->with('femalecategoryimage','malecategoryimage','unspecifiedcategoryimage')->first();
 
 
-       return view('admin.category.edit',compact('page','sub_page','category'));
+       return view('admin.workoutcategory.edit',compact('page','sub_page','category'));
 
     }
 
