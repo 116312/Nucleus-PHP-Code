@@ -38,6 +38,15 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::post('delete-cate/{id}','CategoryController@delete');
 
 
+// *********************** Challenge Catgeory ***********************************************//
+
+    
+    Route::get('add-chall-cate','ChallengeCategoryController@add');
+    Route::post('store-chall-cate','ChallengeCategoryController@store');
+    Route::get('show-chall-cate','ChallengeCategoryController@show');
+    Route::get('edit-chall-cate/{id}','ChallengeCategoryController@edit');
+    Route::post('update-chall-cate/{id}','ChallengeCategoryController@update');
+    Route::post('delete-chall-cate/{id}','ChallengeCategoryController@delete');
 
 
 
