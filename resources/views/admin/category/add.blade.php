@@ -38,14 +38,14 @@
                                  <label for="course_name">Female Category Image</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="file" required name="female_image" id="female_image"
+                                        <input type="file"  name="female_image" id="female_image"
                                                class="form-control">
                                     </div>
                                 </div>
                                  <label for="course_name">Male Category Image</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="file" required name="male_image" id="male_image"
+                                        <input type="file"  name="male_image" id="male_image"
                                                class="form-control">
                                     </div>
                                 </div>

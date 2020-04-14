@@ -26,6 +26,12 @@
         <p><a href="{{url('/api-details/social-login-form')}}">Social Login</a></p>
        
     </div>
+        <h3>Categories</h3>
+    <div>
+ 
+    <p><a href="{{url('/api-details/get-all-categories-form')}}">Get All Categories</a></p>
+      
+   </div>
    
 
 

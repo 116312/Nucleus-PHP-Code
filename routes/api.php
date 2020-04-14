@@ -29,4 +29,13 @@ Route::group(['namespace' => 'Api'],function (){
     Route::post('social-login','UserController@socialLogin');
 
 
+
+
+
+
+//********************** Categories Api *******************************//
+
+Route::post('get-all-categories','CategoryController@getallcatgory');    
+
+
 });

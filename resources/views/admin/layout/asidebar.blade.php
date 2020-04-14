@@ -34,6 +34,27 @@
                     </ul>
                 </li>
 
+
+                 <li class="{{(isset($page) && $page && $page == 'challenges-cate' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">format_quote</i>
+                        <span>Challenges Category</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-chall-cate' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-chall-cate') }}">Add Categories</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-chall-cate' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-chall-cate') }}">Show Categories</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
+
                   <li class="{{(isset($page) && $page && $page == 'promo-cate' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">format_quote</i>
