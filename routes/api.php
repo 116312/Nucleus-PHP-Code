@@ -35,7 +35,13 @@ Route::group(['namespace' => 'Api'],function (){
 
 //********************** Categories Api *******************************//
 
-Route::post('get-all-categories','CategoryController@getallcatgory');    
+Route::post('get-all-categories','CategoryController@getallcatgory');
+
+
+
+//************************** Challenges Api ***********************//
+
+Route::get('get-all-nucleus-challenges','NucleusChallengeController@getallchallenges');  
 
 
 });

@@ -49,7 +49,15 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::post('delete-chall-cate/{id}','ChallengeCategoryController@delete');
 
 
+//************************************ Nucleus Challenges **************************************//
 
+
+    Route::get('add-nuc-chall','NucleusChallengeController@add');
+    Route::post('store-nuc-chall','NucleusChallengeController@store');
+    Route::get('show-nuc-chall','NucleusChallengeController@show');
+    Route::get('edit-nuc-chall/{id}','NucleusChallengeController@edit');
+    Route::post('update-nuc-chall/{id}','NucleusChallengeController@update');
+    Route::post('delete-nuc-chall/{id}','NucleusChallengeController@delete'); 
 
 
 

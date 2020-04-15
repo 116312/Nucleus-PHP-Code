@@ -52,6 +52,23 @@
                 </li>
 
 
+                <li class="{{(isset($page) && $page && $page == 'nucleus-challenges' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">format_quote</i>
+                        <span>Nucleus Challenges</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-nuc-chall' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-nuc-chall') }}">Add Challenges</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-nuc-chall' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-nuc-chall') }}">Show Challenges</a>
+                        </li>
+                    </ul>
+                </li>
+
+
 
 
 
