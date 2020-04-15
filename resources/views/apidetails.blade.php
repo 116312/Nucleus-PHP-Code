@@ -32,6 +32,17 @@
     <p><a href="{{url('/api-details/get-all-categories-form')}}">Get All Categories</a></p>
       
    </div>
+
+ 
+ <h3>All Challenges</h3>
+     <div>
+        <h1>
+    URL:: {{url('/').'/api/get-all-nucleus-challenges'}}
+
+</h1>
+    <p><a href="{{url('/api/get-all-nucleus-challenges')}}">Get All Challenges</a></p>
+      
+   </div>
    
 
 
