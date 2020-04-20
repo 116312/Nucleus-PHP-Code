@@ -11,11 +11,34 @@ class PromotionalManagementController extends Controller
 {
     public function getallpromotions(){
 
+        $data = [];
         
+        $combinepromotions = PromotionManagement::all();
 
-        $promotions = PromotionManagement::all();
+        foreach($combinepromotions as $key => $promo)
+        { 
+           if($promo->promo_type == 'category'){
 
-         return Response::json(['code' => 200,'status' => true, 'message' => 'All Promotions','data'=>$promotions]);
+               $data[$key] = PromotionManagement::where('id',$promo->id)->with('promocategory.category','promofiles')->first();
+
+           }
+
+           if($promo->promo_type == 'challenge'){
+         
+               $data[$key]= PromotionManagement::where('id', $promo->id)->with('promochallenges.nucleuschallenge.challengecategory','promofiles')->first();
+           }
+
+
+
+            $data[$key] = PromotionManagement::where('id',$promo->id)->with('promofiles')->first();
+
+
+        }
+
+
+
+
+         return Response::json(['code' => 200,'status' => true, 'message' => 'All Promotions','data'=>$data]);
 
 
     }
