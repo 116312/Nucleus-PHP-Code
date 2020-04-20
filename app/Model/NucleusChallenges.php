@@ -29,6 +29,9 @@ public function challengecategory()
     {
         return $this->belongsTo('App\Model\ChallengeCategory','challenge_category_id');
     }
-
+       public function promotionalchallenges()
+    {
+        return $this->hasMany('App\Model\PromotionNucleusChallenge','nucleus_challenge_id');
+    }
 
 }

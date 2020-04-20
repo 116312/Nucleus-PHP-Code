@@ -72,19 +72,70 @@
 
 
 
-                  <li class="{{(isset($page) && $page && $page == 'promo-cate' ? 'active' : '')}}">
+                  <li class="{{(isset($page) && $page && $page == 'promo-management' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">format_quote</i>
-                        <span>Promotional Categories</span>
+                        <span>Promotion Management</span>
                     </a>
                     <ul class="ml-menu">
+                         <li class="{{(isset($subapage) && $subpage && $subapage == 'promo-category' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">label_outline</i>
+                        <span>Workout Category For Promotion</span>
+                    </a>
+
+                      <ul class="ml-menu">
                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-promo' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-promo_cate') }}">Add Categories</a>
+                            <a href="{{ url('admin/add-promo_cate') }}">Add Workout Categories for Promotion</a>
                         </li>
 
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-promo' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-promo_cate') }}">Show Categories</a>
+                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-promo' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-promo_cate') }}">Show Workout Categories for Promotion</a>
+                         </li>
+
+                       </ul>
+                    </li>
+
+                    <li class="{{(isset($subapage) && $subpage && $subapage == 'promo-challenge' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">label_outline</i>
+                        <span>Challenge For Promotion</span>
+                    </a>
+                    
+                      <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-promo-chall' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-promo_chall') }}">Add Challenges for Promotion</a>
                         </li>
+
+                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-promo' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-promo_chall') }}">Show Challenges for Promotion</a>
+                         </li>
+
+                       </ul>
+                    </li>
+                    <li class="{{(isset($subapage) && $subpage && $subapage == 'promo-video' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">label_outline</i>
+                        <span>Video</span>
+                    </a>
+                    
+                      <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-promo-video' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-promo_video') }}">Add Videos for Promotion</a>
+                        </li>
+
+                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-promo-video' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-promo_video') }}">Show Videos for Promotion</a>
+                         </li>
+
+                       </ul>
+                    </li>
+                    
+
+
+
+
+
                     </ul>
                 </li>
 

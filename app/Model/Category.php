@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-     protected $table= 'categories';
+     protected $table = 'categories';
 
 
      public function femalecategoryimage()
@@ -30,6 +30,6 @@ class Category extends Model
 
        public function promotionalcategory()
     {
-        return $this->hasOne('App\Model\PromotionalCategory','category_id');
+        return $this->hasMany('App\Model\PromotionWorkoutCategory','category_id');
     }
 }

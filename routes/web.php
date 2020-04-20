@@ -61,14 +61,38 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//*************************** Promotional Managemant ***************************************//
+
+    Route::get('add-promo_cate','PromotionManagementController@addCategory');
+    Route::post('store-promo','PromotionManagementController@store');
+    Route::get('show-promo_cate','PromotionManagementController@showCategory'); 
+    Route::get('edit-promo_cate/{id}','PromotionManagementController@editCategory');
+    Route::post('update-promo/{id}','PromotionManagementController@update');
+
+
+
+    Route::get('add-promo_chall','PromotionManagementController@addChallenge');
+    Route::get('show-promo_chall','PromotionManagementController@showChallenge');
+    Route::get('edit-promo_chall/{id}','PromotionManagementController@editChallenge');
+    Route::post('delete-promo/{id}','PromotionManagementController@delete');
+
+
+
+
+    Route::get('add-promo_video','PromotionManagementController@addVideo');
+    Route::get('show-promo_video','PromotionManagementController@showVideo');
+    Route::get('edit-promo_video/{id}','PromotionManagementController@editVideo');   
+
+
+
 //****************************** Promotional Categories ********************************//
 
-    Route::get('add-promo_cate','PromotionalCategoryController@add');
-    Route::post('store-promo_cate','PromotionalCategoryController@store');
-    Route::get('show-promo_cate','PromotionalCategoryController@show');
-    Route::get('edit-promo_cate/{id}','PromotionalCategoryController@edit');
-    Route::post('update-promo_cate/{id}','PromotionalCategoryController@update');
-    Route::post('delete-promo_cate/{id}','PromotionalCategoryController@delete');
+    // Route::get('add-promo_cate','PromotionalCategoryController@add');
+    // Route::post('store-promo_cate','PromotionalCategoryController@store');
+    // Route::get('show-promo_cate','PromotionalCategoryController@show');
+    // Route::get('edit-promo_cate/{id}','PromotionalCategoryController@edit');
+    // Route::post('update-promo_cate/{id}','PromotionalCategoryController@update');
+    // Route::post('delete-promo_cate/{id}','PromotionalCategoryController@delete');
    
 
 });
