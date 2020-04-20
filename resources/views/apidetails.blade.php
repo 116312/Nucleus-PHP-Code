@@ -43,6 +43,18 @@
     <p><a href="{{url('/api/get-all-nucleus-challenges')}}">Get All Challenges</a></p>
       
    </div>
+
+
+
+   <h3>All Promotions</h3>
+     <div>
+        <h1>
+    URL:: {{url('/').'/api/get-all-promotions'}}
+
+</h1>
+    <p><a href="{{url('/api/get-all-promotions')}}">Get All Promotions</a></p>
+      
+   </div>
    
 
 
