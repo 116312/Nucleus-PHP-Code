@@ -41,7 +41,13 @@ Route::post('get-all-categories','CategoryController@getallcatgory');
 
 //************************** Challenges Api ***********************//
 
-Route::get('get-all-nucleus-challenges','NucleusChallengeController@getallchallenges');  
+Route::get('get-all-nucleus-challenges','NucleusChallengeController@getallchallenges'); 
+
+
+
+//********************************** Promotions Api *******************//
+
+Route::get('get-all-promotions','PromotionalManagementController@getallpromotions'); 
 
 
 });
