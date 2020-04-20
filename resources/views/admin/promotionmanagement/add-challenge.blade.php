@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Workout Category')
+@section('title', 'Add Promotion Challenge')
 @section('admin-section')
 
     <section class="content">
@@ -17,22 +17,29 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-promo_cate')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/store-promo')}}" enctype="multipart/form-data">
                                 @csrf
-
-									<label for="article_category_type">Select Type Of Promotion</label>
+               <input type="hidden"  name="promo_type" value= "challenge" id="promo_type" class="form-control">
+									<label for="article_category_type">Select Workout Category</label>
 		                                <div class="form-group">
 		                                    <div class="form-line">
-		                                        <select class="form-control show-tick" required name="promotion_type" multiple>
+		                                        <select class="form-control show-tick" required name="challenge_id" >
 		                                            <option value="">-- Please select --</option>
-		                                            
-		                                                <option value="category">Workout Category</option>
-                                                        <option value="challenge">Nucleus Challenge</option>
-                                                        <option value="video">Video</option>
+		                                               @foreach($challenges as $key => $chall)
+		                                                <option value="{{$chall->id}}">{{$chall->name}}&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;{{$chall->challengecategory->name}}</option>
+                                                      @endforeach
 		                                             
 		                                        </select>
 		                                    </div>
 		                                </div>
+
+                                          <label for="course_name">Promotion Challenge Image</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="file"  name="promo_file" id="image"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
 									                              
 
                                 

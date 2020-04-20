@@ -17,6 +17,8 @@ class NucleusChallengeController extends Controller
 
     	$page = 'nucleus-challenges';
 
+        $subapage = 'promo-category';
+
     	$subpage = 'add-nuc-chall';
 
     	$challenges_categories = ChallengeCategory::all();
