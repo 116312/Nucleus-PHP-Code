@@ -44,7 +44,7 @@ class PromotionalManagementController extends Controller
 
         }
 
-       dd($data);
+      
        
 
          return Response::json(['code' => 200,'status' => true, 'message' => 'All Promotions','data'=>$data]);
