@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\PromotionManagement;
+use App\Model\PromotionWorkoutCategory;
 use Response;
 
 class PromotionalManagementController extends Controller
@@ -12,8 +13,12 @@ class PromotionalManagementController extends Controller
     public function getallpromotions(){
 
         $data = [];
-        
+       
+
+    
         $combinepromotions = PromotionManagement::all();
+
+
 
         foreach($combinepromotions as $key => $promo)
         { 
@@ -25,18 +30,22 @@ class PromotionalManagementController extends Controller
 
            if($promo->promo_type == 'challenge'){
          
-               $data[$key]= PromotionManagement::where('id', $promo->id)->with('promochallenges.nucleuschallenge.challengecategory','promofiles')->first();
+               $data[$key]= PromotionManagement::where('id', $promo->id)->with('promochallenges.nucleuschallenge','promofiles')->first();
            }
 
+           if($promo->promo_type == 'video'){
 
+                 $data[$key] = PromotionManagement::where('id',$promo->id)->with('promofiles')->first();
 
-            $data[$key] = PromotionManagement::where('id',$promo->id)->with('promofiles')->first();
+           }
+
+            
 
 
         }
 
-
-
+       dd($data);
+       
 
          return Response::json(['code' => 200,'status' => true, 'message' => 'All Promotions','data'=>$data]);
 
