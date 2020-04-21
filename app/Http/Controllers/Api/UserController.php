@@ -9,6 +9,7 @@ use App\User;
 use App\UserDevice;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Storage;
 
 class UserController extends Controller
 {
@@ -184,5 +185,54 @@ class UserController extends Controller
             $user = User::find($id);
             return Response::json(['code' => 200,'status' => true, 'message' => 'User register successfully','data'=>$user]);
         }
+    }
+
+
+
+
+
+    public function updateprofile(Request $request){
+
+
+        $imagePath = '';
+
+         if($request->hasFile('image')){
+          
+            $ext = $request->image->getClientOriginalExtension();
+            $path = Storage::putFileAs('users', $request->image,time().uniqid().".".$ext);
+
+            $imagePath = $path;
+    
+
+                  }
+
+
+
+        $data = [
+         'name' => $request->name,
+         'contact_no' => $request->contact_no, 
+         'gender'=> $request->gender,
+         'weight'=> $request->weight,
+         'height'=>$request->height,
+         'age'=>$request->age,
+         'image' => $imagePath,
+         'updated_at'=>Carbon::now(),
+          ];
+
+       User::where('id',$request->user_id)->update($data);
+
+
+        return Response::json(['code' => 200,'status' => true, 'message' => 'User data updated successfully','data'=>$data]);
+
+
+    }
+
+
+
+    public function getprofile(Request $request){
+
+    $profile =  User::where('id',$request->user_id)->first();
+  return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile]);
+
     }
 }

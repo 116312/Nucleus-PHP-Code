@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 use Illuminate\Support\Facades\Route;
 
@@ -114,6 +114,8 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('login-form','ApiDetailController@loginForm');
   Route::get('social-login-form','ApiDetailController@socialLoginForm');
   Route::get('get-all-categories-form','ApiDetailController@getcategoryForm');
+  Route::get('edit-profile-form','ApiDetailController@geteditForm');
+  Route::get('get-profile-form','ApiDetailController@getprofileForm');
  
 
 });

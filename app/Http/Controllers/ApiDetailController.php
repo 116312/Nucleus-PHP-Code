@@ -42,6 +42,36 @@ class ApiDetailController extends Controller
 
 
 
+    public function geteditForm(){
+
+         $users = User::all();
+
+
+
+         return view('api.get-edit-form',compact('users'));
+
+
+
+
+
+    }
+
+
+    public function getprofileForm(){
+      
+      $users = User::all();
+
+
+return view('api.get-profile-form',compact('users'));
+
+
+
+
+
+    }
+
+
+
    
 
 }
