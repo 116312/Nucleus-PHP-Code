@@ -26,8 +26,9 @@ Route::group(['namespace' => 'Api'],function (){
 
    Route::post('register-user','UserController@register');
    Route::post('login-user','UserController@login');
-    Route::post('social-login','UserController@socialLogin');
-
+   Route::post('social-login','UserController@socialLogin');
+   Route::post('update-profile','UserController@updateprofile');
+   Route::post('get-user-profile','UserController@getprofile');
 
 
 

@@ -37,7 +37,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    
 
+
+    public function getImageAttribute($value){
+
+
+        if($value == null){
+
+            return $value;
+        }
+        else{
+
+            
+            return asset('storage/'.$value);
+        }
+}
 
     public function userDevices(){
         return $this->hasMany(UserDevice::class,'user_id');

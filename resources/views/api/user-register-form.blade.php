@@ -17,7 +17,9 @@
 
 </h1>
 <form method="POST" enctype="multipart/form-data" action="{{url('/api/register-user')}}" >
+   
 
+   
 
     User Name(name) ::*<input type="text"  name="name" required>
     <br />
