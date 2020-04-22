@@ -42,7 +42,13 @@
     Weight(age) ::*<input type="text" value ="{{$user->weight}}"  name="weight" >
     <br />
     <br />
+    Weight(weight_unit)::*<input type="text" value ="{{$user->weight}}"  name="weight_unit" >
+    <br />
+    <br />
     Height(height) ::*<input type="text" value ="{{$user->height}}"  name="height" >
+    <br />
+    <br />
+    Weight(height_unit)::*<input type="text" value ="{{$user->weight}}"  name="height_unit" >
     <br />
     <br />
     Image(image)::*<input type="file"  name="image" >
