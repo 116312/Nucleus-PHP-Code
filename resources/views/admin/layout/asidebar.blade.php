@@ -33,6 +33,22 @@
                         </li>
                     </ul>
                 </li>
+                <li class="{{(isset($page) && $page && $page == 'premium-workout' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">format_quote</i>
+                        <span>Premium Workouts</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-premium') }}">Add Premium Workout</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-premium') }}">Show Premium Workout</a>
+                        </li>
+                    </ul>
+                </li>
+
 
 
                  <li class="{{(isset($page) && $page && $page == 'challenges-cate' ? 'active' : '')}}">

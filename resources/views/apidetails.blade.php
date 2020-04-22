@@ -24,8 +24,8 @@
         <p><a href="{{url('/api-details/register-form')}}">Register</a></p>
         <p><a href="{{url('/api-details/login-form')}}">User Login</a></p>
         <p><a href="{{url('/api-details/social-login-form')}}">Social Login</a></p>
-         <p><a href="{{url('/api-details/edit-profile-form')}}">Edit Profile</a></p>
-          <p><a href="{{url('/api-details/get-profile-form')}}">Get Profile</a></p>
+        <p><a href="{{url('/api-details/edit-profile-form')}}">Edit Profile</a></p>
+        <p><a href="{{url('/api-details/get-profile-form')}}">Get Profile</a></p>
        
     </div>
         <h3>Categories</h3>

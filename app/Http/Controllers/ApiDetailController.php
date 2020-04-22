@@ -62,7 +62,7 @@ class ApiDetailController extends Controller
       $users = User::all();
 
 
-return view('api.get-profile-form',compact('users'));
+      return view('api.get-profile-form',compact('users'));
 
 
 
