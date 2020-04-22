@@ -26,6 +26,9 @@
         </select>
     <br />
     <br />
+    Name (name) ::*<input type="text" value ="{{$user->name}}" name="name" >
+    <br />
+    <br />
     Contact Number (contact_no) ::*<input type="text" value ="{{$user->contact_no}}" name="contact_no" >
     <br />
     <br />
