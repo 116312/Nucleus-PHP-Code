@@ -33,21 +33,43 @@
                         </li>
                     </ul>
                 </li>
-                <li class="{{(isset($page) && $page && $page == 'premium-workout' ? 'active' : '')}}">
+
+                
+                 <li class="{{(isset($page) && $page && $page == 'workout-type' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">format_quote</i>
-                        <span>Premium Workouts</span>
+                        <span>Workout Types</span>
                     </a>
                     <ul class="ml-menu">
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-premium') }}">Add Premium Workout</a>
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-workout-type' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-workout-type') }}">Add Workout Type</a>
                         </li>
 
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-premium') }}">Show Premium Workout</a>
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-workout-type' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-workout-type') }}">Show Workout Type</a>
                         </li>
                     </ul>
                 </li>
+
+
+                <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">format_quote</i>
+                        <span>Workout Details</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-workout-details') }}">Add Workout Details</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-workout-details') }}">Show Workout Details </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+               
 
 
 
