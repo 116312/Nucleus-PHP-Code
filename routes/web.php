@@ -38,6 +38,30 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::post('delete-cate/{id}','CategoryController@delete');
 
 
+
+
+//************************* Workout Type *****************************************//
+  
+  Route::get('add-workout-type','WorkoutTypeController@add');
+  Route::post('store-workout-type','WorkoutTypeController@store');
+  Route::get('show-workout-type','WorkoutTypeController@show');
+  Route::get('edit-workout-type/{id}','WorkoutTypeController@edit');
+  Route::post('update-workout-type/{id}','WorkoutTypeController@update');
+  Route::post('delete-workout-type/{id}','WorkoutTypeController@delete');    
+
+
+
+
+//***************************** Workout Details ******************************************//
+
+  Route::get('add-workout-details','WorkoutDetailsController@add');
+  Route::post('store-workout-details','WorkoutDetailsController@store');
+  Route::get('show-workout-details','WorkoutDetailsController@show');
+  Route::get('edit-workout-details/{id}','WorkoutDetailsController@edit');
+  Route::post('update-workout-details/{id}','WorkoutDetailsController@update');
+  Route::post('delete-workout-details/{id}','WorkoutDetailsController@delete'); 
+
+
 // *********************** Challenge Catgeory ***********************************************//
 
     
@@ -49,7 +73,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::post('delete-chall-cate/{id}','ChallengeCategoryController@delete');
 
 
-//************************************ Nucleus Challenges **************************************//
+//************************************ Nucleus Challenges**************************************//
 
 
     Route::get('add-nuc-chall','NucleusChallengeController@add');
