@@ -20,7 +20,7 @@
 
                 <li class="{{(isset($page) && $page && $page == 'workout-cate' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">format_quote</i>
+                        <i class="material-icons">collections_bookmark</i>
                         <span>Workout Categories</span>
                     </a>
                     <ul class="ml-menu">
@@ -34,10 +34,10 @@
                     </ul>
                 </li>
 
-                
+
                  <li class="{{(isset($page) && $page && $page == 'workout-type' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">format_quote</i>
+                        <i class="material-icons">widgets</i>
                         <span>Workout Types</span>
                     </a>
                     <ul class="ml-menu">
@@ -52,9 +52,44 @@
                 </li>
 
 
+                 <li class="{{(isset($page) && $page && $page == 'workout-level' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">filter list</i>
+                        <span>Workout Levels</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-workout-level' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-workout-level') }}">Add Workout Level</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-workout-level' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-workout-level') }}">Show Workout Level</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="{{(isset($page) && $page && $page == 'language' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">language</i>
+                        <span>Languages</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-language' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-language') }}">Add Language</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-language' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-language') }}">Show Language</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+
                 <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">format_quote</i>
+                        <i class="material-icons">details</i>
                         <span>Workout Details</span>
                     </a>
                     <ul class="ml-menu">
@@ -75,7 +110,7 @@
 
                  <li class="{{(isset($page) && $page && $page == 'challenges-cate' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">format_quote</i>
+                        <i class="material-icons">golf_course</i>
                         <span>Challenges Category</span>
                     </a>
                     <ul class="ml-menu">
