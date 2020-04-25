@@ -40,6 +40,64 @@
                                                class="form-control">
                                     </div>
                                 </div>
+                                <label for="course_name">Workout Level</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                       <select class="form-control show-tick" required name="challenge_id" >
+                                                    <option value="">-- Please select --</option>
+                                                    <option value="">All Levels</option>
+                                                    <option value="">Advance</option>
+                                                    <option value="">Beginner</option>
+                                                </select>
+                                    </div>
+                                </div>
+                                <label for="course_name">Language</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" required name="challenge_id" >
+                                                    <option value="">-- Please select --</option>
+                                                    <option value="">English</option>
+                                                    <option value="">Spanish</option>
+                                                    <option value="">French</option>
+                                                </select>
+                                    </div>
+                                </div>
+                                <label for="course_name">Subtitle</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <label for="course_name">Voice Guidance</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <label for="course_name">Trainer Name</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <label for="course_name">Workout Description</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <label for="course_name">Expert Tips (pre - post workout )</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                </div>
+
                                 
                                
 

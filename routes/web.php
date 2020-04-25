@@ -49,6 +49,29 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
   Route::post('update-workout-type/{id}','WorkoutTypeController@update');
   Route::post('delete-workout-type/{id}','WorkoutTypeController@delete');    
 
+//************************ Workout Level *******************************************?//
+  
+  Route::get('add-workout-level','WorkoutLevelController@add');
+  Route::post('store-workout-level','WorkoutLevelController@store');
+  Route::get('show-workout-level','WorkoutLevelController@show');
+  Route::get('edit-workout-level/{id}','WorkoutLevelController@edit');
+  Route::post('update-workout-level/{id}','WorkoutLevelController@update');
+  Route::post('delete-workout-level/{id}','WorkoutLevelController@delete'); 
+
+
+
+//************************************** Language ************************************************//
+
+
+   Route::get('add-language','LanguageController@add');
+   Route::post('store-language','LanguageController@store');
+   Route::get('show-language','LanguageController@show');
+   Route::get('edit-language/{id}','LanguageController@edit');
+   Route::post('update-language/{id}','LanguageController@update');
+   Route::post('delete-language/{id}','LanguageController@delete'); 
+
+
+
 
 
 

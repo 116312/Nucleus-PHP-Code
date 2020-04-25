@@ -25,7 +25,7 @@ class CategoryController extends Controller
 
 
 
-      if($user->gender == 'female'){
+      if($user->gender == 'Female'){
              
          $categories = Category::orderBy('sequence_no', 'asc')->with('femalecategoryimage')->get();
 
@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
 
 
-      if($user->gender == 'male'){
+      if($user->gender == 'Male'){
 
           $categories = Category::orderBy('sequence_no', 'asc')->with('malecategoryimage')->get();
 
