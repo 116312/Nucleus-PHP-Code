@@ -72,6 +72,41 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//********************************** GIF *********************************************************//
+    
+
+
+   Route::get('add-gif','GifController@add');
+   Route::post('store-gif','GifController@store');
+   Route::get('show-gif','GifController@show');
+   Route::get('edit-gif/{id}','GifController@edit');
+   Route::post('update-gif/{id}','GifController@update');
+   Route::post('delete-gif/{id}','GifController@delete');
+
+
+
+//****************************** Premium Videos *************************************************//
+  Route::get('add-premium-videos','PremiumVideosController@add');
+   Route::post('store-premium-videos','PremiumVideosController@store');
+   Route::get('show-premium-videos','PremiumVideosController@show');
+   Route::get('edit-premium-videos/{id}','PremiumVideosController@edit');
+   Route::post('update-premium-videos/{id}','PremiumVideosController@update');
+   Route::post('delete-premium-videos/{id}','PremiumVideosController@delete');
+
+
+
+
+
+
+//************************************** Voice Guidance Type ************************************//
+
+   Route::get('add-voice-guidance-type','VoiceGuidanceTypeController@add');
+   Route::post('store-voice-guidance-type','VoiceGuidanceTypeController@store');
+   Route::get('show-voice-guidance-type','VoiceGuidanceTypeController@show');
+   Route::get('edit-voice-guidance-type/{id}','VoiceGuidanceTypeController@edit');
+   Route::post('update-voice-guidance-type/{id}','VoiceGuidanceTypeController@update');
+   Route::post('delete-voice-guidance-type/{id}','VoiceGuidanceTypeController@delete'); 
+
 
 
 
