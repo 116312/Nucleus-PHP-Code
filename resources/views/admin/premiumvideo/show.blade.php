@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Show Users
+                                Show videos
                             </h2>
                         </div>
                         <div class="body">
@@ -30,8 +30,8 @@
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
-                                    <td>Workout type</td>
-                                    <td>Workout Name</td>
+                                    <td>Name</td>
+                                    <td>Gifs</td>
                                     <td>Action</td>
 
                                    
@@ -40,25 +40,28 @@
                                 </thead>
                                 <tbody>
                                   
-                                        @foreach($workoutdetails as $key => $details)
+                                        @foreach($premium_videos as $key => $video)
                                         <tr>
-                                            <td>{{++$key}}</td>
-                                            <td>{{$details->workouttype->name}}</td>
-                                            <td>{{$details->name}}</td>
+                                          <td>{{++$key}}</td>
+                                          <td>{{$video->name}}</td>
+                                          <td> <video width="320" height="240" controls>
+                                              <source src="{{$video->video}}" type="video/{{$video->extension_type}}">
+                                              
+                                            Your browser does not support the video tag.
+                                            </video>
 
-
-                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-workout-details').'/'.$details->id}}" role="form">
+                                          </td>
+                                         
+                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-videos').'/'.$video->id}}" role="form">
                                     @csrf
-                                                <td>
-                                                     <a href="{{url('admin/edit-workout-details').'/'.$details->id}}"><button type="button" class="btn btn-primary waves-effect">Add Exercise</button></a>
-                                                     <a href="{{url('admin/edit-workout-details').'/'.$details->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                 <td>
+                                        <a href="{{url('admin/edit-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
-                                                </td>
-                                            </form> 
-                                        </tr>
-                                        @endforeach
-                                    
-                              
+                                    </td>
+                                </form>
+                                      
+                                         </tr>
+                                         @endforeach
                                 </tbody>
                             </table>
                         </div>

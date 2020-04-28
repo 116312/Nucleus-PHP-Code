@@ -1,11 +1,11 @@
 @extends('admin.admin-app')
-@section('title', 'Add Workout Type')
+@section('title', 'Add Gif')
 @section('admin-section')
 
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Workout Type</h2>
+                <h2>Gif</h2>
             </div>
             <!-- Vertical Layout -->
             <div class="row clearfix">
@@ -13,30 +13,30 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               Add New Workout Type Here
+                               Add New Gif
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-workout-type')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-gif').'/'.$gif->id}}" enctype="multipart/form-data">
                                 @csrf
 
 
-                                <label for="course_name">Workout Type Name</label>
+                               
+                                 <label for="course_name">Add title of the Gif</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="name" id="name"
+                                        <input type="text" required name="name" value = "{{$gif->name}}" id="language"
                                                class="form-control">
                                     </div>
                                 </div>
-                                 <l]
-                                 1abel for="course_name">Sequence Number</label>
+                                 <label for="course_name">Add Gif</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="sequence_no" id="sequence_no"
+                                          <img src="{{$gif->gif}}" height="100" width="100">
+                                        <input type="file" required name="gif" id="language"
                                                class="form-control">
                                     </div>
                                 </div>
-                                
                                
 
 

@@ -84,10 +84,84 @@
                     </ul>
                 </li>
 
+                 <li class="{{(isset($page) && $page && $page == 'voice-guidance-type' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">record_voice_over</i>
+                        <span>Voice Guidance Type</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-voice-guidance-type' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-voice-guidance-type') }}">Add Guidance Type</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-voice-guidance-type' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-voice-guidance-type') }}">Show Guidance Type</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="{{(isset($page) && $page && $page == 'gif' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">gif</i>
+                        <span>Quick Clips</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-gif' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-gif') }}">Add GIF</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-gif' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-gif') }}">Show GIF</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="{{(isset($page) && $page && $page == 'premium-videos' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings_input_svideo</i>
+                        <span>Premium Videos</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium-videos' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-premium-videos') }}">Add GIF</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium-videos' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-premium-videos') }}">Show GIF</a>
+                        </li>
+                    </ul>
+                </li>
 
 
 
-                <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
+
+
+
+
+
+               <!--  <li class="{{(isset($page) && $page && $page == 'gif-details' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">record_voice_over</i>
+                        <span>Gif Details</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-voice-guidance-type' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-gif-details') }}">Add Details</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-voice-guidance-type' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-gif-details') }}">Show Details</a>
+                        </li>
+                    </ul>
+                </li>
+ -->
+
+                
+
+
+
+
+               <!--  <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">details</i>
                         <span>Workout Details</span>
@@ -101,7 +175,7 @@
                             <a href="{{ url('admin/show-workout-details') }}">Show Workout Details </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
 
                
