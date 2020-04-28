@@ -123,11 +123,11 @@
                     </a>
                     <ul class="ml-menu">
                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium-videos' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-premium-videos') }}">Add GIF</a>
+                            <a href="{{ url('admin/add-premium-videos') }}">Add Videos</a>
                         </li>
 
                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium-videos' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-premium-videos') }}">Show GIF</a>
+                            <a href="{{ url('admin/show-premium-videos') }}">Show videos</a>
                         </li>
                     </ul>
                 </li>
