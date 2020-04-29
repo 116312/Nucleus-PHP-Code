@@ -29,6 +29,7 @@ class ForgotPasswordMail extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.forget-password')->subject('Nucleus App Forget Password');
+        $users = $this->user;
+        return $this->view('emails.forget-password',compact('users'))->subject('Nucleus App Forget Password');
     }
 }
