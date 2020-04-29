@@ -71,6 +71,12 @@ class ApiDetailController extends Controller
     }
 
 
+    public function getforgotpasswordForm(){
+
+          return view('api.forgot-password');
+    }
+
+
 
    
 
