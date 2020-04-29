@@ -246,7 +246,7 @@ class UserController extends Controller
         
         $user = User::where('email',$request->email)->first();
 
-        dd($user);
+       
 
         if($user == null){
             return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
