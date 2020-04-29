@@ -246,13 +246,13 @@ class UserController extends Controller
         
         $user = User::where('email',$request->email)->first();
 
-       
+
 
         if($user == null){
             return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
         }
         else{
-            $token = \Illuminate\Support\Str::random(45);
+            $token = \Illuminate\Support\Str::random(4);
             $user->token = $token;
             $user->save();
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
