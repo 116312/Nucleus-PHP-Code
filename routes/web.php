@@ -199,6 +199,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('edit-profile-form','ApiDetailController@geteditForm');
   Route::get('get-profile-form','ApiDetailController@getprofileForm');
   Route::get('forgot-password-form','ApiDetailController@getforgotpasswordForm');
+   Route::get('reset-password-form','ApiDetailController@getresetpasswordForm');
  
 
 });

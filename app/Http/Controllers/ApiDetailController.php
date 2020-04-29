@@ -77,6 +77,11 @@ class ApiDetailController extends Controller
     }
 
 
+ public function getresetpasswordForm(){
+   $users = User::all();
+
+          return view('api.reset-password',compact('users'));
+    }
 
    
 

@@ -259,4 +259,29 @@ class UserController extends Controller
             return Response::json(['code' => 200,'status' => true, 'message' => 'Reset password link sent successfully to register email address','data'=>[]]);
         }
     }
+
+
+
+    public function resetPassword(Request $request){
+
+          $user = User::where('email',$request->email)->first();
+          if($user == null){
+            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
+        } 
+
+
+        if($user->token !=$request->otp){
+ 
+         return Response::json(['code' => 400,'status' => false, 'message' => 'OTP does not macthed','data'=>[]]);
+        }
+
+        else{
+        
+            $user->password =  bcrypt($request->password);
+            $user->save();
+         
+            return Response::json(['code' => 200,'status' => true, 'message' => 'Password is successfully set','data'=>[]]);
+        }
+
+    }
 }
