@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
+use App\Mail\ForgotPasswordMail;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Response;
 use App\User;
@@ -236,5 +237,26 @@ class UserController extends Controller
     $profile =  User::where('id',$request->user_id)->first();
   return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile]);
 
+    }
+
+
+       public function forgotPassword(Request $request){
+
+
+        
+        $user = User::where('email',$request->email)->first();
+
+        dd($user);
+
+        if($user == null){
+            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
+        }
+        else{
+            $token = \Illuminate\Support\Str::random(45);
+            $user->token = $token;
+            $user->save();
+            Mail::to($user->email)->send(new ForgotPasswordMail($user));
+            return Response::json(['code' => 200,'status' => true, 'message' => 'Reset password link sent successfully to register email address','data'=>[]]);
+        }
     }
 }

@@ -26,6 +26,7 @@
         <p><a href="{{url('/api-details/social-login-form')}}">Social Login</a></p>
         <p><a href="{{url('/api-details/edit-profile-form')}}">Edit Profile</a></p>
         <p><a href="{{url('/api-details/get-profile-form')}}">Get Profile</a></p>
+        <p><a href="{{url('/api-details/forgot-password-form')}}">Forgot Password</a></p>
        
     </div>
         <h3>Categories</h3>
