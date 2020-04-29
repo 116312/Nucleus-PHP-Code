@@ -256,7 +256,7 @@ class UserController extends Controller
             $user->token = $token;
             $user->save();
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
-            return Response::json(['code' => 200,'status' => true, 'message' => 'Reset password link sent successfully to register email address','data'=>[]]);
+            return Response::json(['code' => 200,'status' => true, 'message' => 'Reset password link sent successfully to register email address','data'=>$user);
         }
     }
 
@@ -264,13 +264,14 @@ class UserController extends Controller
 
     public function resetPassword(Request $request){
 
-          $user = User::where('email',$request->email)->first();
+          $user = User::where('id',$request->user_id)->first();
+          
           if($user == null){
             return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
         } 
 
 
-        if($user->token !=$request->otp){
+        if($user->token != $request->otp){
  
          return Response::json(['code' => 400,'status' => false, 'message' => 'OTP does not macthed','data'=>[]]);
         }
