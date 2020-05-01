@@ -64,7 +64,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                          <img src="{{$nucleus_challenge->image}}" height="100" width="100">
-                                        <input type="file" required name="image" id="image"
+                                        <input type="file"  name="image" id="image"
                                                class="form-control">
                                     </div>
                                 </div>
