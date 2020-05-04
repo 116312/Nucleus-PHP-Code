@@ -33,7 +33,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                           <img src="{{$gif->gif}}" height="100" width="100">
-                                        <input type="file" required name="gif" id="language"
+                                        <input type="file"  name="gif" id="language"
                                                class="form-control">
                                     </div>
                                 </div>
