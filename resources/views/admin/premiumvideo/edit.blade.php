@@ -37,7 +37,7 @@
                                               
                                             Your browser does not support the video tag.
                                             </video>
-                                        <input type="file" required name="video" id="language"
+                                        <input type="file"  name="video" id="language"
                                                class="form-control">
                                     </div>
                                 </div>
