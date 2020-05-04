@@ -50,6 +50,8 @@
                                     @csrf
                                  <td>
                                         <a href="{{url('admin/edit-gif').'/'.$gif->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/edit-gif_details').'/'.$gif->id}}"><button type="button" class="btn bg-pink waves-effect">Add Details</button></a>
+                                          <a href="{{url('admin/edit-gif').'/'.$gif->id}}"><button type="button" class="btn bg-orange waves-effect">View Details</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                     </td>
                                 </form>

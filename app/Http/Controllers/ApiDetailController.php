@@ -39,7 +39,13 @@ class ApiDetailController extends Controller
        return view('api.get-all-category-form',compact('users'));
 
     }
+   
+    public function getcategoryexceptallworkout(){
 
+        $users =User::all(); 
+       
+       return view('api.get-all-category-except-all-workout-form',compact('users'));
+    }
 
 
     public function geteditForm(){

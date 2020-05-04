@@ -76,7 +76,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     
 
 
-   Route::get('add-gif','GifController@add');
    Route::post('store-gif','GifController@store');
    Route::get('show-gif','GifController@show');
    Route::get('edit-gif/{id}','GifController@edit');
@@ -94,6 +93,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('delete-premium-videos/{id}','PremiumVideosController@delete');
 
 
+   Route::get('add-gif','GifController@add');
 
 
 
@@ -196,10 +196,11 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('login-form','ApiDetailController@loginForm');
   Route::get('social-login-form','ApiDetailController@socialLoginForm');
   Route::get('get-all-categories-form','ApiDetailController@getcategoryForm');
+  Route::get('get-categories-form','ApiDetailController@getcategoryexceptallworkout');
   Route::get('edit-profile-form','ApiDetailController@geteditForm');
   Route::get('get-profile-form','ApiDetailController@getprofileForm');
   Route::get('forgot-password-form','ApiDetailController@getforgotpasswordForm');
-   Route::get('reset-password-form','ApiDetailController@getresetpasswordForm');
+  Route::get('reset-password-form','ApiDetailController@getresetpasswordForm');
  
 
 });

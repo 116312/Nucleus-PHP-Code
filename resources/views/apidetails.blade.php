@@ -34,6 +34,7 @@
     <div>
  
     <p><a href="{{url('/api-details/get-all-categories-form')}}">Get All Categories</a></p>
+     <p><a href="{{url('/api-details/get-categories-form')}}">Get Categories except all workout category</a></p>
       
    </div>
 
