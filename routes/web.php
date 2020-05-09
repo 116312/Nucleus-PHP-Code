@@ -72,6 +72,27 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+
+//************************ Training Plan *******************************************//
+
+   Route::get('add-training-plan','TrainingPlanController@add');
+   Route::post('store-training-plan','TrainingPlanController@store');
+   Route::get('show-training-plan','TrainingPlanController@show');
+   Route::get('edit-training-plan/{id}','TrainingPlanController@edit');
+   Route::post('update-training-plan/{id}','TrainingPlanController@update');
+   Route::post('delete-training-plan/{id}','TrainingPlanController@delete'); 
+
+
+//***************************** Plan Desription **************************************//
+
+   Route::get('add-plan-description/{training_plan_id}','PlanDescriptionController@add');
+   Route::post('store-plan-description/{training_plan_id}','PlanDescriptionController@store');
+   Route::get('show-plan-description/{training_plan_id}','PlanDescriptionController@show');
+   Route::get('edit-plan-description/{training_plan_id}/{training_plan_description_id}','PlanDescriptionController@edit');
+   Route::post('update-plan-description/{training_plan_id}/{training_plan_description_id}','PlanDescriptionController@update');
+   Route::post('delete-plan-description/{training_plan_id}/{training_plan_description_id}','PlanDescriptionController@delete'); 
+
+
 //********************************** GIF *********************************************************//
     
 

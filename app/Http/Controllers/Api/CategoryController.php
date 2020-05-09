@@ -73,6 +73,9 @@ class CategoryController extends Controller
           $categories = Category::where('name','!=','ALL WORKOUTS')->orderBy('sequence_no', 'asc')->with('malecategoryimage')->get();
 
       }
+      
+
+
       $categories = Category::where('name','!=','ALL WORKOUTS')->orderBy('sequence_no', 'asc')->with('unspecifiedcategoryimage')->get();
     
       return Response::json(['code' => 200,'status' => true, 'message' => 'All categories','data'=>$categories]);
