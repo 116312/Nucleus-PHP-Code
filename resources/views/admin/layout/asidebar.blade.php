@@ -34,6 +34,22 @@
                     </ul>
                 </li>
 
+                <li class="{{(isset($page) && $page && $page == 'training-plan' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Training Plans</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-training-plan' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-training-plan') }}">Add Plans</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-training-plan' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-training-plan') }}">Show Plans</a>
+                        </li>
+                    </ul>
+                </li>
+
 
                  <li class="{{(isset($page) && $page && $page == 'workout-type' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
