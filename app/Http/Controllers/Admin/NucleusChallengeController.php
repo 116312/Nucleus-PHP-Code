@@ -63,6 +63,9 @@ class NucleusChallengeController extends Controller
     'name' => $request->name,
     'points' => $request->points,
     'description' => $request->description,
+    'days_per_week'=>$request->days_per_week,
+    'number_of_weeks'=>$request->number_of_weeks,
+    'season'=>$request->season,
     'image'=> $imagePath ,
     'created_at' => Carbon::now(),
 
@@ -144,7 +147,9 @@ class NucleusChallengeController extends Controller
     'name' => $request->name,
     'points' => $request->points,
     'description' => $request->description,
-   
+    'days_per_week'=>$request->days_per_week,
+    'number_of_weeks'=>$request->number_of_weeks,
+    'season'=>$request->season,
     'created_at' => Carbon::now(),
 
     ];

@@ -1,12 +1,7 @@
 @extends('admin.admin-app')
 @section('title', 'Show All Training Plan Descriptions')
 @section('admin-section')
-    <style type="text/css">
-        #all-user-datatable_wrapper{
-            width: 100%;
-            overflow: auto;
-        }
-    </style>
+    
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -24,12 +19,11 @@
                         </div>
                         <div class="body">
 
-
-
+  <a href="{{url('admin/add-plan-description').'/'.$trainingplan->id}}"><button type="button" class="btn btn-primary waves-effect">Add New  Variation Plan</button></a>
                              <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
                                 <thead>
                                 <tr>
-                                    <td>S No.</td>
+                                    <td>Variation No.</td>
                                
                                     <td>Training Plan Name</td>
                                     <td>Monday</td>

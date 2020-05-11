@@ -43,6 +43,30 @@
                                     </div>
                                 </div>
 
+                                <label for="course_name">Days Per Week</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="days_per_week" id="name"
+                                               class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <label for="course_name">Number of  Weeks</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="number_of_weeks" id="name"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                 <label for="course_name">Season</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="season" id="name"
+                                               class="form-control">
+                                    </div>
+                                </div>
+
                                 <label for="course_name">Add Description</label>
                                 <div class="form-group">
                                     <div class="form-line">

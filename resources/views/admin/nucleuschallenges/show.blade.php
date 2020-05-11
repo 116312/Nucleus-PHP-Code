@@ -33,6 +33,9 @@
                                     <td>Nucleus Challenge Name</td>
                                     <td>Challenge Category Name </td>
                                     <td>Description</td>
+                                    <td>Days Per Week </td>
+                                    <td>Number Of Weeks </td>
+                                    <td>Season</td>
                                     <td>Points</td>
                                     <td>Image</td>
                                     <td>Action</td>
@@ -49,6 +52,9 @@
                                             <td>{{$chall->name}}</td>
                                             <td>{{$chall->challengecategory->name}}</td>
                                             <td>{{$chall->description}}</td>
+                                            <td>{{$chall->days_per_week}}</td>
+                                            <td>{{$chall->number_of_weeks}}</td>
+                                            <td>{{$chall->season}}</td>
                                             <td>{{$chall->points}}</td>
                                              <td><img style="float:left!important" src="{{$chall->image}}" height="100" width="100"></td>
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-nuc-chall').'/'.$chall->id}}" role="form">
