@@ -50,7 +50,31 @@
                                                class="form-control">{!!$nucleus_challenge->description!!} </textarea> 
                                     </div>
                                 </div>
+                                
 
+                                 <label for="course_name">Days Per Week</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="days_per_week"  value ="{{$nucleus_challenge->days_per_week}}" id="name"
+                                               class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <label for="course_name">Number of  Weeks</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="number_of_weeks" value ="{{$nucleus_challenge->number_of_weeks}}"   id="name"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                 <label for="course_name">Season</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="season"  value ="{{$nucleus_challenge->season}}" id="name"
+                                               class="form-control">
+                                    </div>
+                                </div>
 
                                 <label for="course_name">Add Points</label>
                                 <div class="form-group">

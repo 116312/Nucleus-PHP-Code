@@ -1,12 +1,7 @@
 @extends('admin.admin-app')
 @section('title', 'Show All Training Plan')
 @section('admin-section')
-    <style type="text/css">
-        #all-user-datatable_wrapper{
-            width: 100%;
-            overflow: auto;
-        }
-    </style>
+  
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -29,7 +24,7 @@
                              <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
                                 <thead>
                                 <tr>
-                                    <td>S No.</td>
+                                    <td>Plan No.</td>
                                
                                     <td>Training Plan Name</td>
                                     <td>Action</td>
