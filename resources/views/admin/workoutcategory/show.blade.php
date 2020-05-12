@@ -31,6 +31,7 @@
                                 <tr>
                                     <td>S No.</td>
                                     <td>Category Name</td>
+                                    <td>Type</td>
                                     <td>Sequence Number</td>
                                     <td>Image for Male</td>
                                     <td>Image for Female</td>
@@ -46,6 +47,7 @@
                                    <tr>
                                        <td>{{$key + 1}}</td>
                                        <td>{{$cate->name}}</td>
+                                        <td>{{$cate->type}}</td>
                                        <td>{{$cate->sequence_no}}</td>
                                        <td><img style="float:left!important" src="{{$cate->malecategoryimage->image}}" height="100" width="100"></td>
                                         <td><img style="float:left!important" src="{{$cate->femalecategoryimage->image}}" height="100" width="100"></td>
