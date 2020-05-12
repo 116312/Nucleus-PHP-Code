@@ -91,6 +91,7 @@ class CategoryController extends Controller
 
    'sequence_no' => $request->sequence_number,
    'name'    => $request->name,
+   'type'=> $request->type,
    'created_at' =>Carbon::now()
 
 

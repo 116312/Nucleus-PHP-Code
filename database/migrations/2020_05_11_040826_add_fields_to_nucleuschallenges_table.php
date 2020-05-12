@@ -28,7 +28,7 @@ class AddFieldsToNucleuschallengesTable extends Migration
     public function down()
     {
         Schema::table('nucleuschallenges', function (Blueprint $table) {
-             $table->dropColumn('days_per_week');
+            $table->dropColumn('days_per_week');
             $table->dropColumn('number_of_weeks');
             $table->dropColumn('season');
         });

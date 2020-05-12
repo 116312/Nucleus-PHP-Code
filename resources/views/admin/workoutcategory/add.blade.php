@@ -28,6 +28,22 @@
                                                class="form-control">
                                     </div>
                                 </div>
+
+                                <label for="course_name">Category Type</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" required name="type">
+                                                    <option value="">-- Please select --</option>
+                                                  
+                                                       <option value="workout">Workout</option>
+                                                          <option value="other">Other</option>
+                                                   
+                                                      
+                                                     
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <label for="course_name">Category Sequence Number</label>
                                 <div class="form-group">
                                     <div class="form-line">
