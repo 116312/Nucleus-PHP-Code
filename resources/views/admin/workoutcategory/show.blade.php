@@ -1,12 +1,7 @@
 @extends('admin.admin-app')
 @section('title', 'Show All Catgeory')
 @section('admin-section')
-    <style type="text/css">
-        #all-user-datatable_wrapper{
-            width: 100%;
-            overflow: auto;
-        }
-    </style>
+
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
