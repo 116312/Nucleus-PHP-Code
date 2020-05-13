@@ -19,85 +19,50 @@
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/store-workout-details')}}" enctype="multipart/form-data">
                                 @csrf
+                               
+
+                             <label for="article_category_type">Select Workout Category</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="category_id" >
+                                                    <option value="">-- Please select --</option>
+                                                       @foreach($categories as $key => $cate)
+                                                        <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                      @endforeach
+                                                     
+                                                </select>
+                                            </div>
+                                        </div>
 
 
-                                <label for="course_name">Select Workout Type</label>
+
+                             <label for="course_name">Select Workout Type</label>
                                <div class="form-group">
                                     <div class="form-line">
-                                        <select class="form-control show-tick" required name="workout_type_id">
+                                        <select class="form-control show-tick" id="workout_type_id"required name="workout_type_id">
                                             <option value="">-- Please select --</option>
-                                            @foreach($workout_types as $type)
+                                               @foreach($workout_types as $type)
                                                 <option value="{{$type->id}}">{{$type->name}}</option>
                                                 @endforeach
                                             
                                         </select>
                                     </div>
                                 </div>
-                                <label for="course_name">Workout Name</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
-                                               class="form-control">
-                                    </div>
-                                </div>
-                                <label for="course_name">Workout Level</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                       <select class="form-control show-tick" required name="challenge_id" >
-                                                    <option value="">-- Please select --</option>
-                                                    <option value="">All Levels</option>
-                                                    <option value="">Advance</option>
-                                                    <option value="">Beginner</option>
-                                                </select>
-                                    </div>
-                                </div>
-                                <label for="course_name">Language</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <select class="form-control show-tick" required name="challenge_id" >
-                                                    <option value="">-- Please select --</option>
-                                                    <option value="">English</option>
-                                                    <option value="">Spanish</option>
-                                                    <option value="">French</option>
-                                                </select>
-                                    </div>
-                                </div>
-                                <label for="course_name">Subtitle</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
-                                               class="form-control">
-                                    </div>
-                                </div>
-                                <label for="course_name">Voice Guidance</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
-                                               class="form-control">
-                                    </div>
-                                </div>
-                                <label for="course_name">Trainer Name</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
-                                               class="form-control">
-                                    </div>
-                                </div>
-                                <label for="course_name">Workout Description</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
-                                               class="form-control">
-                                    </div>
-                                </div>
-                                <label for="course_name">Expert Tips (pre - post workout )</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
-                                               class="form-control">
-                                    </div>
-                                </div>
 
+
+                              <label for="course_name">Select Workout</label>
+                               <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" id="selected_workout_id"required name="workout_id">
+                                            <option value="">-- Please select --</option>
+                                             
+                                        </select>
+                                    </div>
+                                </div>
+                              
+                               
+                               
+                               
                                 
                                
 
@@ -113,3 +78,51 @@
     </section>
 
 @endsection
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+   
+
+     var workout_type_id = '';
+ $('#workout_type_id').change(function(){
+            workout_type_id  = $("#workout_type_id option:selected").val();
+            console.log(workout_type_id);
+    
+
+   $.ajax({
+
+method: 'POST',
+url: APP_URL + '/' + "admin/get_workouts"+"/"+workout_type_id,
+data: {_token: token
+},
+cache: false,
+
+success: function (response) {
+   
+
+   var workout = $('#select_workout_id');
+
+  workout.empty(); 
+
+ var x = JSON.stringify(response.workouts);
+
+ 
+ var workout = document.getElementById('selected_workout_id');
+      
+              $(workout).append('<option>' + 'Select'+ '</option>');
+    for (var i = 0; i < response.workouts.length; i++) {
+    $(workout).append('<option id=' + response.workouts[i].sysid + ' value=' + response.workouts[i].id + '>' + response.workouts[i].name + '</option>');
+   
+    }
+
+
+}
+
+   });
+
+   }); 
+
+
+});
+    </script>

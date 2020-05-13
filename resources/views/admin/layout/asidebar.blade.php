@@ -50,6 +50,75 @@
                     </ul>
                 </li>
 
+                <!--  <li class="{{(isset($page) && $page && $page == 'training-plan' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Workouts</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-training-plan' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-workout-details') }}">Add Details</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-training-plan' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-training-plan') }}">Show Details</a>
+                        </li>
+                    </ul>
+                </li> -->
+
+                <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">details</i>
+                        <span>Workout Details</span>
+                    </a>
+                    <ul class="ml-menu"> 
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-workout-details') }}">Add Workout Details</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-workout-details') }}">Show Workout Details </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <li class="{{(isset($page) && $page && $page == 'premium-workout-details' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Premium Workouts Details</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-premium-workout-details') }}">Add Details</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-premium-workout-details') }}">Show Details</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="{{(isset($page) && $page && $page == 'quick-clip-workout-details' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Quick Clip Workout Details</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-quick-clip-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-quick-clip-workout-details') }}">Add Details</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-quick-clip-workout-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-quick-clip-workout-details') }}">Show Details</a>
+                        </li>
+                    </ul>
+                </li>
+                 
+                
+
 
                  <li class="{{(isset($page) && $page && $page == 'workout-type' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
@@ -177,23 +246,7 @@
 
 
 
-               <!--  <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">details</i>
-                        <span>Workout Details</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-workout-details' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-workout-details') }}">Add Workout Details</a>
-                        </li>
-
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-workout-details' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-workout-details') }}">Show Workout Details </a>
-                        </li>
-                    </ul>
-                </li> -->
-
-
+                
                
 
 

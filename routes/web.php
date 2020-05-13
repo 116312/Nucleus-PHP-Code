@@ -97,6 +97,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     
 
 
+   Route::get('add-gif','GifController@add');
+
    Route::post('store-gif','GifController@store');
    Route::get('show-gif','GifController@show');
    Route::get('edit-gif/{id}','GifController@edit');
@@ -114,8 +116,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('delete-premium-videos/{id}','PremiumVideosController@delete');
 
 
-   Route::get('add-gif','GifController@add');
-
 
 
 
@@ -130,6 +130,25 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//****************************************** Premium Workout Details***********************************//
+
+   Route::get('add-premium-workout-details','PremiumWorkoutDetailsController@add');
+   Route::post('store-premium-workout-details','PremiumWorkoutDetailsController@store');
+   Route::get('show-premium-workout-details','PremiumWorkoutDetailsController@show');
+   Route::get('edit-premium-workout-details/{id}','PremiumWorkoutDetailsController@edit');
+   Route::post('update-premium-workout-details/{id}','PremiumWorkoutDetailsController@update');
+   Route::post('delete-premium-workout-details/{id}','PremiumWorkoutDetailsController@delete');
+
+//****************************************** QuickClip Workout Details***********************************//
+
+   Route::get('add-quick-clip-workout-details','QuickClipWorkoutDetailsController@add');
+   Route::post('store-quick-clip-workout-details','QuickClipWorkoutDetailsController@store');
+   Route::get('show-quick-clip-workout-details','QuickClipWorkoutDetailsController@show');
+   Route::get('edit-quick-clip-workout-details/{id}','QuickClipWorkoutDetailsController@edit');
+   Route::post('update-quick-clip-workout-details/{id}','QuickClipWorkoutDetailsController@update');
+   Route::post('delete-quick-clip-workout-details/{id}','QuickClipWorkoutDetailsController@delete');
+
+
 
 //***************************** Workout Details ******************************************//
 
@@ -138,7 +157,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
   Route::get('show-workout-details','WorkoutDetailsController@show');
   Route::get('edit-workout-details/{id}','WorkoutDetailsController@edit');
   Route::post('update-workout-details/{id}','WorkoutDetailsController@update');
-  Route::post('delete-workout-details/{id}','WorkoutDetailsController@delete'); 
+  Route::post('delete-workout-details/{id}','WorkoutDetailsController@delete');
+  Route::post('get_workouts/{workout_type_id}','WorkoutDetailsController@getworkouts');
 
 
 // *********************** Challenge Catgeory ***********************************************//
