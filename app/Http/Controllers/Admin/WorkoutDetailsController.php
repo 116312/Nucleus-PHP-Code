@@ -6,6 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\WorkoutType;
 use App\Model\WorkoutDetails;
+use App\Model\Category;
+use App\Model\PremiumWorkoutDetails;
+use App\Model\QuickClipWorkoutDetails;
+
+
+
 use Response;
 use Carbon\Carbon;
 
@@ -18,8 +24,9 @@ class WorkoutDetailsController extends Controller
        $subpage = 'add-workout-details';
 
        $workout_types = WorkoutType::all();
+      $categories = Category::where('type','workout')->get();
 
-       return view('admin.workoutdetails.add',compact('page','subpage','workout_types'));
+       return view('admin.workoutdetails.add',compact('page','subpage','workout_types','categories'));
 
     }
 
@@ -59,5 +66,29 @@ class WorkoutDetailsController extends Controller
 
           $workoutdetails = WorkoutDetails::with(['workouttype'])->get();
           return view('admin.workoutdetails.show',compact('page','subpage','workoutdetails'));
+    }
+
+
+
+    public function getworkouts($workout_type_id){
+
+     $workouttype = WorkoutType::find($workout_type_id);
+
+     if($workouttype->name == 'Premium Workout'){
+
+     $workouts = PremiumWorkoutDetails::all();
+
+     }
+
+     else{
+
+     $workouts = QuickClipWorkoutDetails::all();
+
+     }
+
+
+
+      return response()->json(['workouts'=>$workouts]);
+
     }
 }
