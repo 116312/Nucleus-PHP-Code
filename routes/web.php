@@ -184,6 +184,18 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//************************************ Nucleus Challenges**************************************//
+
+
+    Route::get('add-nucleus-challenge-prize/{challenge_id}','NucleusChallengesPrizeController@add');
+    Route::post('store-nucleus-challenge-prize/{challenge_id}','NucleusChallengesPrizeController@store');
+    Route::get('show-nucleus-challenge-prize/{challenge_id}','NucleusChallengesPrizeController@show');
+    Route::get('edit-nucleus-challenge-prize/{challenge_id}/{id}','NucleusChallengesPrizeController@edit');
+    Route::post('update-nucleus-challenge-prize/{challenge_id}/{id}','NucleusChallengesPrizeController@update');
+    Route::post('delete-nucleus-challenge-prize/{challenge_id}/{id}','NucleusChallengesPrizeController@delete'); 
+
+
+
 //*************************** Promotional Managemant ***************************************//
 
     Route::get('add-promo_cate','PromotionManagementController@addCategory');

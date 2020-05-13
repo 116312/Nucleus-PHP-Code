@@ -67,6 +67,10 @@ class NucleusChallengeController extends Controller
     'number_of_weeks'=>$request->number_of_weeks,
     'season'=>$request->season,
     'image'=> $imagePath ,
+    'windows_start_date'=>$request->windows_start_date,
+    'cut_off_date'=>$request->cut_off_date,
+    'end_date'=>$request->end_date,
+   
     'created_at' => Carbon::now(),
 
     ];
@@ -85,7 +89,7 @@ class NucleusChallengeController extends Controller
 
         $page = 'nucleus-challenges';
 
-    	$subpage = 'add-nuc-chall';
+    	$subpage = 'show-nuc-chall';
 
     	$nucleus_challenges = NucleusChallenges::with('challengecategory')->get();
 
@@ -150,7 +154,11 @@ class NucleusChallengeController extends Controller
     'days_per_week'=>$request->days_per_week,
     'number_of_weeks'=>$request->number_of_weeks,
     'season'=>$request->season,
-    'created_at' => Carbon::now(),
+    'windows_start_date'=>$request->windows_start_date,
+    'cut_off_date'=>$request->cut_off_date,
+    'end_date'=>$request->end_date,
+     
+    'updated_at' => Carbon::now(),
 
     ];
 

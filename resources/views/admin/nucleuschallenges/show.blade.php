@@ -36,8 +36,12 @@
                                     <td>Days Per Week </td>
                                     <td>Number Of Weeks </td>
                                     <td>Season</td>
+                                    <td> Window Start Date </td>
+                                    <td>Window Cut Off Date </td>
+                                    <td>End Date</td> 
                                     <td>Points</td>
                                     <td>Image</td>
+                                    <td>Prize Level </td>
                                     <td>Action</td>
 
                                    
@@ -55,13 +59,20 @@
                                             <td>{{$chall->days_per_week}}</td>
                                             <td>{{$chall->number_of_weeks}}</td>
                                             <td>{{$chall->season}}</td>
+                                            <td>{{$chall->windows_start_date}}</td>
+                                            <td>{{$chall->cut_off_date}}</td>
+                                            <td>{{$chall->end_date}}</td>
                                             <td>{{$chall->points}}</td>
+
                                              <td><img style="float:left!important" src="{{$chall->image}}" height="100" width="100"></td>
+                                                 <td>{{$chall->prize_level}}</td>
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-nuc-chall').'/'.$chall->id}}" role="form">
                                     @csrf
                                                 <td>
-                                                     <a href="{{url('admin/edit-nuc-chall').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
-                                        <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                    <a href="{{url('admin/edit-nuc-chall').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                     <a href="{{url('admin/add-nucleus-challenge-prize').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">Add Prize to Level</button></a>
+                                      <a href="{{url('admin/show-nucleus-challenge-prize').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">View All Added Prize</button></a>
+                                    <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                                 </td>
                                             </form> 
                                         </tr>

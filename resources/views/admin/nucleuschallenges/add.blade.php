@@ -84,13 +84,43 @@
                                     </div>
                                 </div>
 
-                                  <label for="course_name">Add Image</label>
+                                <label for="course_name">Add Image</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="file" required name="image" id="image"
                                                class="form-control">
                                     </div>
                                 </div>
+
+
+                                 <label for="course_name">Windows Start Date</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                       <input type="text" class="datepicker form-control" name ="windows_start_date" placeholder="Please choose a date...">
+                                    </div>
+                                </div>
+
+
+                                <label for="course_name">Challenge Cut Off Date</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                       <input type="text" class="datepicker form-control" name ="cut_off_date" placeholder="Please choose a date...">
+                                    </div>
+                                </div>
+
+                                <label for="course_name">End Date</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                       <input type="text" class="datepicker form-control" name = "end_date" placeholder="Please choose a date...">
+                                    </div>
+                                </div>
+
+                                
+
+
+
+
+
 
 
 
