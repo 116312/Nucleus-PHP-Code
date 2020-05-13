@@ -34,7 +34,18 @@
                                             </div>
                                         </div>
 
-
+                                
+                                 <label for="course_name">Select Workout</label>
+                               <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" id="workout_type_id"required name="workout_type_id">
+                                            <option value="">-- Please select --</option>
+                                            <option value="">Full Body</option>
+                                            <option value="">Jump Start Your Day</option>
+                                               
+                                        </select>
+                                    </div>
+                                </div>
 
                              <label for="course_name">Select Workout Type</label>
                                <div class="form-group">
@@ -49,16 +60,22 @@
                                     </div>
                                 </div>
 
-
-                              <label for="course_name">Select Workout</label>
+                                  <label for="course_name">Add files</label>
                                <div class="form-group">
                                     <div class="form-line">
-                                        <select class="form-control show-tick" id="selected_workout_id"required name="workout_id">
+                                        <select class="form-control show-tick" id="workout_type_id"required name="workout_type_id">
                                             <option value="">-- Please select --</option>
-                                             
+                                             <option value="">-- Quick clips--</option>
+                                              <option value="">-- Premium Videos --</option>
+                                              
+                                            
                                         </select>
                                     </div>
                                 </div>
+
+
+
+                             
                               
                                
                                
@@ -77,8 +94,8 @@
         </div>
     </section>
 
-@endsection
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 
     $(document).ready(function(){
@@ -101,18 +118,21 @@ cache: false,
 success: function (response) {
    
 
-   var workout = $('#select_workout_id');
+  
 
-  workout.empty(); 
 
  var x = JSON.stringify(response.workouts);
 
  
- var workout = document.getElementById('selected_workout_id');
-      
-              $(workout).append('<option>' + 'Select'+ '</option>');
+ var work= document.getElementById('selected_workout_id');
+     
+              $(work).append('<option>' + 'Select'+ '</option>');
     for (var i = 0; i < response.workouts.length; i++) {
-    $(workout).append('<option id=' + response.workouts[i].sysid + ' value=' + response.workouts[i].id + '>' + response.workouts[i].name + '</option>');
+
+    $(work).append('<option id=' + response.workouts[i].sysid + ' value=' + response.workouts[i].id + '>' + response.workouts[i].name + '</option>');
+
+
+   
    
     }
 
@@ -125,4 +145,8 @@ success: function (response) {
 
 
 });
-    </script>
+
+
+</script>
+
+    @endsection

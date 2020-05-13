@@ -9,7 +9,9 @@ class NucleusChallenges extends Model
 
 	 protected $table= 'nucleuschallenges';
 
-
+protected $fillable = [
+        'prize_level', 
+    ];
     public function getImageAttribute($value){
 
 
@@ -34,4 +36,9 @@ public function challengecategory()
         return $this->hasMany('App\Model\PromotionNucleusChallenge','nucleus_challenge_id');
     }
 
+
+     public function nucleuschallengeprize()
+    {
+        return $this->hasMany('App\Model\NucleusChallengesPrize','nucleus_challenge_id');
+    }
 }
