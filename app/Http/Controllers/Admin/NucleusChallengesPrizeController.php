@@ -75,4 +75,19 @@ class NucleusChallengesPrizeController extends Controller
 
 
 
+      public function show($challenge_id){
+
+        $page = 'nucleus-challenges';
+
+    	$subpage = 'show-nuc-chall';
+
+    	$prizes = NucleusChallengesPrize::where('nucleus_challenge_id',$challenge_id)->get();
+
+       return view('admin.nucleuschallengeprize.show',compact('page','subpage','challenge_id','prizes'));
+
+
+      }
+
+
+
 }
