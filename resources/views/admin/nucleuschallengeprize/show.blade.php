@@ -44,10 +44,10 @@
                                             <td>{{$prize->description}}</td>
                                           <td> <img style="float:left!important" src="{{$prize->image}}" height="100" width="100"></td>
                                          
-                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-gif').'/'.$challenge_id.'/'.$prize->id}}" role="form">
+                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-nucleus-challenge-prize').'/'.$challenge_id.'/'.$prize->id}}" role="form">
                                     @csrf
                                  <td>
-                                        <a href="{{url('admin/edit-gif').'/'.$challenge_id.'/'.$prize->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/edit-nucleus-challenge-prize').'/'.$challenge_id.'/'.$prize->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                        
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                     </td>
