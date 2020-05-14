@@ -13,6 +13,13 @@ use Response;
 
 class NucleusChallengesPrizeController extends Controller
 {
+
+   
+
+
+
+
+
     public function add($challenge_id){
 
 
@@ -150,6 +157,18 @@ class NucleusChallengesPrizeController extends Controller
        public function delete($challenge_id,$id){
 
        NucleusChallengesPrize::where('id', $id)->delete();
+         
+       $levels = NucleusChallengesPrize::where('nucleus_challenge_id',$challenge_id)->get();
+
+       $no_of_level = $levels->count();
+
+       $challenge = [
+       'prize_level'=> $no_of_level,
+
+       ];
+
+       NucleusChallenges::find($challenge_id)->update($challenge);
+
         return back()->with('status',100)->with('type','success')->with('message','Nucleus Challenge deleted Successfully');
   
 }
