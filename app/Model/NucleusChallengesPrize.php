@@ -8,7 +8,9 @@ class NucleusChallengesPrize extends Model
 {
    protected $table= 'nucleus_prize';
 
-
+protected $fillable = [
+        'nucleus_challenge_id', 
+    ];
 
  public function getImageAttribute($value){
 
