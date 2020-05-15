@@ -83,6 +83,40 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('delete-training-plan/{id}','TrainingPlanController@delete'); 
 
 
+
+
+
+
+
+//************************ Training Goals *******************************************//
+
+   Route::get('add-training-goals','TrainingGoalsController@add');
+   Route::post('store-training-goals','TrainingGoalsController@store');
+   Route::get('show-training-goals','TrainingGoalsController@show');
+   Route::get('edit-training-goals/{id}','TrainingGoalsController@edit');
+   Route::post('update-training-goals/{id}','TrainingGoalsController@update');
+   Route::post('delete-training-goals/{id}','TrainingGoalsController@delete');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //***************************** Plan Desription **************************************//
 
    Route::get('add-plan-description/{training_plan_id}','PlanDescriptionController@add');
