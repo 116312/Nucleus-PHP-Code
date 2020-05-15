@@ -10,4 +10,11 @@ class TrainingPlan extends Model
 
      protected $fillable = ['name'];
 
+
+
+     public function traininggoalsplan()
+    {
+        return $this->hasMany('App\Model\TrainingGoalsPlan','training_plan_id');
+    }
+
 }

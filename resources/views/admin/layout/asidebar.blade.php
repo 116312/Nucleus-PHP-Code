@@ -50,6 +50,22 @@
                     </ul>
                 </li>
 
+                 <li class="{{(isset($page) && $page && $page == 'training-goals' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Training Goals</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-training-goals' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-training-goals') }}">Add goals</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-training-goals' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-training-goals') }}">Show goals</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <!--  <li class="{{(isset($page) && $page && $page == 'training-plan' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
