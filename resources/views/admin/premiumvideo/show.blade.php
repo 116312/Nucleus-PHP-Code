@@ -45,7 +45,7 @@
                                           <td>{{++$key}}</td>
                                           <td>{{$video->name}}</td>
                                           <td> <video width="320" height="240"  Autoplay=autoplay controls>
-                                              <source src="{{$video->video}}" type="video/mp4" >
+                                               <source src="{{$video->video}}" type="video/mp4" >
                                                <source src="{{$video->video}}" type="video/webm">
                                                 
                                             Your browser does not support the video tag.
