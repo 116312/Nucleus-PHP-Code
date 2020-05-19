@@ -53,10 +53,22 @@
 
    <h3>All Promotions</h3>
      <div>
-        <h1>
+    <h1>
     URL:: {{url('/').'/api/get-all-promotions'}}
 
-</h1>
+    </h1>
+    <p><a href="{{url('/api/get-all-promotions')}}">Get All Promotions</a></p>
+      
+   </div>
+
+
+
+    <h3>Check Video on Video player</h3>
+     <div>
+    <h1>
+    URL:: {{url('/').'/api/check-video'}}
+
+    </h1>
     <p><a href="{{url('/api/get-all-promotions')}}">Get All Promotions</a></p>
       
    </div>
