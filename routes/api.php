@@ -54,4 +54,6 @@ Route::get('get-all-nucleus-challenges','NucleusChallengeController@getallchalle
 Route::get('get-all-promotions','PromotionalManagementController@getallpromotions'); 
 
 
+Route::get('check-video','PromotionalManagementController@checkvideo');
+
 });

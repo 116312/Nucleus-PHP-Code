@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\PromotionManagement;
 use App\Model\PromotionWorkoutCategory;
 use Response;
+use App\Model\PremiumVideos;
 
 class PromotionalManagementController extends Controller
 {
@@ -49,6 +50,17 @@ class PromotionalManagementController extends Controller
 
          return Response::json(['code' => 200,'status' => true, 'message' => 'All Promotions','data'=>$data]);
 
+
+    }
+
+
+
+    public function checkvideo(){
+
+        $video =  PremiumVideos::all();
+
+
+         return Response::json(['code' => 200,'status' => true, 'message' => 'All Promotions','data'=>$video]);
 
     }
 }
