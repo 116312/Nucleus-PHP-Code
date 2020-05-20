@@ -26,6 +26,10 @@
                                 <tr>
                                     <td>S No.</td>
                                     <td>Name</td>
+                                    <td>Workout Category</td>
+                                    <td>Workout Type </td>
+                                    <td>Workout Level </td>
+                                    <td>Workout Description </td>
                                     <td>Image</td>
                                   
 
@@ -39,10 +43,22 @@
                                         <tr>
                                           <td>{{++$key}}</td>
                                           <td>{{$details->name}}</td>
+                                          <td>{{$details->workoutcategory->name}}</td>
+                                          <td>{{$details->workouttype->name}}</td>
+                                          <td>{{$details->workout_level}}</td>
+                                          <td>{{$details->description}}</td>
                                           
                                           <td> <img style="float:left!important" src="{{$details->image}}" height="100" width="100"></td> 
 
-                                         
+                                          <form class="form-horizontal" method="post" action="{{url('admin/delete-gif').'/'.$gif->id}}" role="form">
+                                    @csrf
+                                 <td>
+                                        <a href="{{url('admin/edit-gif').'/'.$gif->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/edit-gif_details').'/'.$gif->id}}"><button type="button" class="btn bg-pink waves-effect">Add Details</button></a>
+                                          <a href="{{url('admin/edit-gif').'/'.$gif->id}}"><button type="button" class="btn bg-orange waves-effect">View Details</button></a>
+                                        <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                    </td>
+                                </form>
                                          
                                           
                                       

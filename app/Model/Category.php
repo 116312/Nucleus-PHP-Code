@@ -32,4 +32,10 @@ class Category extends Model
     {
         return $this->hasMany('App\Model\PromotionWorkoutCategory','category_id');
     }
+
+
+    public function premiumworkoutdetails(){
+
+        return $this->hasMany('App\Model\PremiumWorkoutDetails','category_id');
+    }
 }

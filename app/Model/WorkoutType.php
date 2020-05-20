@@ -16,5 +16,10 @@ public function workoutdetails()
         return $this->hasMany('App\Model\WorkoutDetails','workout_type_id');
     }
 
+      public function premiumworkoutdetails(){
+
+        return $this->hasMany('App\Model\PremiumWorkoutDetails','workout_type_id');
+    }
+
 
 }

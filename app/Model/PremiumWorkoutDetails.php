@@ -25,6 +25,23 @@ class PremiumWorkoutDetails extends Model
 
 }
 
+   public function premiumworkout()
+    {
+        return $this->belongsTo('App\Model\PremiumVideos','premium_workout_id');
+    }
+
+   public function workoutcategory()
+    {
+        return $this->belongsTo('App\Model\Category','category_id');
+    }
+
+   public function workouttype()
+    {
+        return $this->belongsTo('App\Model\WorkoutType','workout_type_id');
+    }
+
+
+
 
 
 }
