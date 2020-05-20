@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Model\Category;
 
 class ApiDetailController extends Controller
 {
@@ -88,6 +89,15 @@ class ApiDetailController extends Controller
 
           return view('api.reset-password',compact('users'));
     }
+
+
+
+  public function getWorkoutbyCategoryId(){
+$users = User::all();
+     $categories = Category::all();
+     return view('api.workout-by-category',compact('categories','users'));
+
+  }
 
    
 

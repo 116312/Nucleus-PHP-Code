@@ -82,7 +82,7 @@
                     </ul>
                 </li> -->
 
-                <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
+               <!--  <li class="{{(isset($page) && $page && $page == 'workout-details' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">details</i>
                         <span>Workout Details</span>
@@ -97,7 +97,7 @@
                             <a href="{{ url('admin/show-workout-details') }}">Show Workout Details </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
 
 

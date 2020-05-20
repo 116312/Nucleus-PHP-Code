@@ -48,7 +48,7 @@ class CategoryController extends Controller
    public function getallcatgoryexceptallworkout(Request $request){
 
 
- $user = User::where('id',$request->user_id)->first();
+        $user = User::where('id',$request->user_id)->first();
 
 
        if($user->gender == null){

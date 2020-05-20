@@ -41,7 +41,9 @@ Route::group(['namespace' => 'Api'],function (){
 Route::post('get-all-categories','CategoryController@getallcatgory');
 Route::post('get-all-categories-except-all-workout','CategoryController@getallcatgoryexceptallworkout');
 
+//***************************** Workouts **********************************************//
 
+Route::post('get-workout-by-category','WorkoutController@getworkoutbycategory');
 
 //************************** Challenges Api ***********************//
 

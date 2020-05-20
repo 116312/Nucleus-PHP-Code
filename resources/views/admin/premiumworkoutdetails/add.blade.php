@@ -19,16 +19,60 @@
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/store-premium-workout-details')}}" enctype="multipart/form-data">
                                 @csrf
+                                
+                              <label for="course_name">Select Workout Type</label>
+                               <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control show-tick" id="workout_type_id"required name="workout_type_id">
+                                            <option value="">-- Please select --</option>
+                                               @foreach($workout_types as $type)
+                                                <option value="{{$type->id}}">{{$type->name}}</option>
+                                                @endforeach
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <label for="article_category_type">Select Workout Category</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="category_id" >
+                                                    <option value="">-- Please select --</option>
+                                                       @foreach($categories as $key => $cate)
+                                                        <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                      @endforeach
+                                                     
+                                                </select>
+                                            </div>
+                                        </div>
+                                 <label for="article_category_type">Select Workout</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="premium_workout_id" >
+                                                    <option value="">-- Please select --</option>
+                                                       @foreach($premium_videos as $key => $videos)
+                                                        <option value="{{$videos->id}}">{{$videos->name}}</option>
+                                                      @endforeach
+                                                     
+                                                </select>
+                                            </div>
+                                        </div>
+
 
 
                                
-                                <label for="course_name">Workout Name</label>
-                                <div class="form-group">
+                                 <label for="course_name">Add Workout Level</label>
+                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="name" id="sequence_no"
+                                        <input type="text" required name="workout_level" id="sequence_no"
                                                class="form-control">
                                     </div>
-                                </div>
+                                  </div>
+
+
+
+                              
                                
                                  <label for="course_name">Image</label>
                                 <div class="form-group">
@@ -38,7 +82,14 @@
                                     </div>
                                 </div>
 
-                              
+                                  <label for="course_name">Add Description</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <textarea type="text" row = "4" required name="description" id="description"
+                                               class="form-control"> </textarea> 
+                                    </div>
+                                </div>
+
                             
                                 
                                

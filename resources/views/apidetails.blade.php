@@ -38,6 +38,17 @@
       
    </div>
 
+
+
+    <h3>Workout</h3>
+    <div>
+ 
+     <p><a href="{{url('/api-details/get-workout-by-category-id')}}">Get Workouts by Category</a></p>
+     
+      
+   </div>
+
+
  
  <h3>All Challenges</h3>
      <div>
