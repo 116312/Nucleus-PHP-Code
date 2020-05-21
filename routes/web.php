@@ -151,6 +151,16 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//******************************Subtitle Of Premium Videos ********************//
+  Route::get('add-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@add');
+   Route::post('store-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@store');
+   Route::get('show-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@show');
+   Route::get('edit-subtitle-premium-videos/{video_id}/{id}','SubtitlePremiumVideosController@edit');
+   Route::post('update-subtitle-premium-videos/{video_id}/{id}','SubtitlePremiumVideosController@update');
+   Route::post('delete-subtitle-premium-videos/{video_id}/{id}','SubtitlePremiumVideosController@delete');
+
+
+
 
 
 //************************************** Voice Guidance Type ************************************//

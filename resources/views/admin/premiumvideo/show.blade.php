@@ -31,7 +31,9 @@
                                 <tr>
                                     <td>S No.</td>
                                     <td>Name</td>
-                                    <td>Gifs</td>
+                                    <td>Language</td>
+                                    <td>Video</td>
+                                 <td>No. Of Subtitle Added </td>
                                     <td>Action</td>
 
                                    
@@ -43,20 +45,24 @@
                                         @foreach($premium_videos as $key => $video)
                                         <tr>
                                           <td>{{++$key}}</td>
+
                                           <td>{{$video->name}}</td>
+                                          <td>{{$video->language}}</td>
                                           <td> <video width="320" height="240"  Autoplay=autoplay controls>
                                               <source src="{{$video->video}}" type="video/mp4" >
-                                               <source src="{{$video->video}}" type="video/webm">
+                                              <source src="{{$video->video}}" type="video/webm">
                                                 
                                             Your browser does not support the video tag.
                                             </video>
 
                                           </td>
-                                         
+                                           <td>{{$video->total_subtitle}}</td>
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-videos').'/'.$video->id}}" role="form">
                                     @csrf
                                  <td>
                                         <a href="{{url('admin/edit-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                          <a href="{{url('admin/add-subtitle-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">Add Subtitle</button></a>
+                                            <a href="{{url('admin/show-subtitle-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">View All Added Subtitle</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                     </td>
                                 </form>

@@ -8,7 +8,7 @@ class PremiumWorkoutDetails extends Model
 {
     protected $table = 'premium_workout_details';
 
-
+      protected $fillable = ['name'];
    
      public function getImageAttribute($value){
 

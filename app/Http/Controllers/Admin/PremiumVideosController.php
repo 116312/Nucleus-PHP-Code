@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Storage;
+use App\Model\Language;
 use Carbon\Carbon;
 use App\Model\PremiumVideos;
 
@@ -17,8 +18,9 @@ class PremiumVideosController extends Controller
 
     	$page = 'premium-videos';
     	$sub_page = 'add-premium-videos';
-
-  return view('admin.premiumvideo.add',compact('page','sub_page'));
+      $languages = Language::all();
+      
+      return view('admin.premiumvideo.add',compact('page','sub_page','languages'));
     
 
     }
@@ -58,6 +60,7 @@ class PremiumVideosController extends Controller
 
         'name' => $request->name,
         'video' =>$filepath,
+        'language'=>$request->language,
         'extension_type' =>$ext,
         'created_at'=>Carbon::now(),
 
@@ -94,8 +97,8 @@ class PremiumVideosController extends Controller
      	$page = 'premium-videos';
     	$sub_page = 'show-premium-videos';
       $video = PremiumVideos::find($id);
-
-     return view('admin.premiumvideo.edit',compact('page','sub_page','video'));
+  $languages = Language::all();
+     return view('admin.premiumvideo.edit',compact('page','sub_page','video','languages'));
 
     }
 
@@ -130,13 +133,13 @@ class PremiumVideosController extends Controller
     	$data = [
 
         'name' => $request->name,
-       
+        'language' =>$request->language,
         'updated_at'=>Carbon::now(),
 
     	];
        
 
-       PremiumVideos::find($id)->update($data);
+       PremiumVideos::where('id',$id)->update($data);
 
        return back()->with('status',100)->with('type','success')->with('message','PremiumVideo updated successfully');
     }
@@ -146,6 +149,6 @@ class PremiumVideosController extends Controller
 
 
     	PremiumVideos::where('id', $id)->delete();
-        return back()->with('status',100)->with('type','success')->with('message','PremiumVideo deleted Successfully');
+       return back()->with('status',100)->with('type','success')->with('message','PremiumVideo deleted Successfully');
     }
 }

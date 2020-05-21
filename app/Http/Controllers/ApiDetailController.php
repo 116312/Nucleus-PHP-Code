@@ -93,7 +93,7 @@ class ApiDetailController extends Controller
 
 
   public function getWorkoutbyCategoryId(){
-$users = User::all();
+     $users = User::all();
      $categories = Category::all();
      return view('api.workout-by-category',compact('categories','users'));
 

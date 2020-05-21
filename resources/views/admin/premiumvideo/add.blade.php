@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Gif</h2>
+                <h2>Premium Videos</h2>
             </div>
             <!-- Vertical Layout -->
             <div class="row clearfix">
@@ -22,20 +22,34 @@
 
 
                                
-                                 <label for="course_name">Add title of the Video</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="text" required name="name" id="language"
-                                               class="form-control">
-                                    </div>
+                         <label for="course_name">Add title of the Video</label>
+                        <div class="form-group">
+                            <div class="form-line">
+                                <input type="text" required name="name" id="language"
+                                       class="form-control">
+                            </div>
+                        </div>
+
+                        <label for="course_name">Select Native Language of Video</label>
+                          <div class="form-group">
+                                <div class="form-line">
+                        <select class="form-control show-tick" required name="language">
+                        <option value="">--Select--</option>
+                            
+                                @foreach($languages as $key => $language)
+                                <option value="{{$language->name}}">{{$language->name}}</option>
+                                @endforeach
+                             </select>
+                         </div>
+                     </div>
+
+                        <label for="course_name">Add Video</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="file" required name="video" id="language"
+                                           class="form-control">
                                 </div>
-                                 <label for="course_name">Add Gif</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <input type="file" required name="video" id="language"
-                                               class="form-control">
-                                    </div>
-                                </div>
+                            </div>
                                
 
 
