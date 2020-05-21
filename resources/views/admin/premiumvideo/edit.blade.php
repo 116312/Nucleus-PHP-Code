@@ -29,7 +29,21 @@
                                                class="form-control">
                                     </div>
                                 </div>
-                                 <label for="course_name">Add Gif</label>
+
+
+                                  <label for="course_name">Select Native Language of Video</label>
+                          <div class="form-group">
+                                <div class="form-line">
+                        <select class="form-control show-tick" required name="language">
+                        <option value="">--Select--</option>
+                            
+                                @foreach($languages as $key => $language)
+                                <option value="{{$language->name}}" {{$video->language == $language->name ? 'selected':''}}>{{$language->name}}</option>
+                                @endforeach
+                             </select>
+                         </div>
+                     </div>
+                                 <label for="course_name">Add Video</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                          <video width="320" height="240" controls>

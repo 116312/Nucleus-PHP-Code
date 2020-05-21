@@ -101,14 +101,91 @@ class PremiumWorkoutDetailsController extends Controller
     public function edit($id){
 
       $page = 'premium-workout-details';
+      $sub_page = 'show-premium-workout-details';
+      $workout_types = WorkoutType::all();
+      $categories = Category::where('type','workout')->get();
+      $premium_videos = PremiumVideos::all();
+      $premiumworkoutdetail = PremiumWorkoutDetails::where('id',$id)->with('premiumworkout','workoutcategory','workouttype')->first();
 
-       $sub_page = 'show-premium-workout-details';
 
-        $premiumworkoutdetails = PremiumWorkoutDetails::with('premiumworkout','workoutcategory','workouttype')->get();
-
-dd($premiumworkoutdetails);
         
-    	return view('admin.premiumworkoutdetails.show',compact('page','sub_page','premiumworkoutdetails'));
+    	return view('admin.premiumworkoutdetails.edit',compact('page','sub_page','premiumworkoutdetail','workout_types','categories','premium_videos'));
+
+
+    }
+
+
+    public function update(Request $request,$id){
+
+     $isalreadyexist = PremiumWorkoutDetails::where('id','!=',$id)->where('name',$request->name)->first();
+     $name = PremiumVideos::where('id',$request->premium_workout_id)->first()->name;
+    	if($isalreadyexist != null){
+    	   return back()->with('status',100)->with('type','success')->with('message','Premium Workout Details already exist');	
+    	}
+         
+            $imagePath = '';
+         	if($request->hasFile('image')){
+          
+            $ext = $request->image->getClientOriginalExtension();
+
+
+            $path = Storage::putFileAs('premiumimages', $request->image,time().uniqid().".".$ext);
+
+            $imagePath = $path;
+
+
+            $data = [
+        
+        'name' => $name,
+        'image' => $imagePath,
+        'premium_workout_id'=>$request->premium_workout_id,
+        'category_id'=>$request->category_id,
+        'workout_type_id'=>$request->workout_type_id,
+        'workout_level'=>$request->workout_level,
+        'description'=>$request->description,
+        'created_at'=> Carbon::now(),
+       
+
+    	];
+
+
+    	PremiumWorkoutDetails::where('id',$id)->update($data);
+        
+
+        return back()->with('status',100)->with('type','success')->with('message','Premium Workout Details updated successfully');
+
+                  }
+
+
+
+    	$data = [
+        
+        'name' => $name,
+        
+        'premium_workout_id'=>$request->premium_workout_id,
+        'category_id'=>$request->category_id,
+        'workout_type_id'=>$request->workout_type_id,
+        'workout_level'=>$request->workout_level,
+        'description'=>$request->description,
+        'created_at'=> Carbon::now(),
+       
+
+    	];
+
+
+    	PremiumWorkoutDetails::where('id',$id)->update($data); 
+        
+
+        return back()->with('status',100)->with('type','success')->with('message','Premium Workout Details updated successfully');
+
+    }
+
+
+    public function delete($id){
+
+     PremiumWorkoutDetails::where('id', $id)->delete();
+     return back()->with('status',100)->with('type','success')->with('message','Language   deleted Successfully');
+
 
 
     }
