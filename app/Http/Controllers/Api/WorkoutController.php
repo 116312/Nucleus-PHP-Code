@@ -70,7 +70,7 @@ class WorkoutController extends Controller
 
       $workouts = [];
 
-      $premiumworkouts = PremiumWorkoutDetails::where('category_id',$request->cate_id)->with('premiumworkout','workoutcategory','workouttype')->get();
+      $premiumworkouts = PremiumWorkoutDetails::where('category_id',$request->cate_id)->with('premiumworkout.subtitle','workoutcategory','workouttype')->get();
 
       $quickclipworkouts = 'not available';
 
