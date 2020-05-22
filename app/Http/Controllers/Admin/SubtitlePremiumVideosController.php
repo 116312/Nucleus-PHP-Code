@@ -27,7 +27,7 @@ class SubtitlePremiumVideosController extends Controller
 
     public function store(Request $request ,$video_id){
 
-          $isSequencealreadyexisted = Category::where('premium_video_id',$video_id)->where('language_id',$request->language_id)->first();
+          $isSequencealreadyexisted = SubtitlePremiumVideo::where('premium_video_id',$video_id)->where('language_id',$request->language_id)->first();
   
 
     if($isSequencealreadyexisted != null){
