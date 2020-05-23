@@ -8,6 +8,7 @@ use App\Model\Language;
 use App\Model\SubtitlePremiumVideo;
 use Carbon\Carbon;
 use App\Model\PremiumVideos;
+use Storage;
 
 class SubtitlePremiumVideosController extends Controller
 {
@@ -39,12 +40,12 @@ class SubtitlePremiumVideosController extends Controller
 
          $filepath = '';
          $ext = '';
-    	 if($request->hasFile('video')){
+    	 if($request->hasFile('subtitle')){
           
-            $ext = $request->video->getClientOriginalExtension();
+            $ext = $request->subtitle->getClientOriginalExtension();
 
 
-            $path = Storage::putFileAs('premiumvideos', $request->video,time().uniqid().".".$ext);
+            $path = Storage::putFileAs('subtitle', $request->subtitle,time().uniqid().".".$ext);
 
             $filepath = $path;
 
@@ -88,8 +89,9 @@ class SubtitlePremiumVideosController extends Controller
     	$page = 'premium-videos';
     	$sub_page = 'add-premium-videos';
        $video_subtitle = SubtitlePremiumVideo::where('premium_video_id',$video_id)->with('languages')->get();
+       $video = PremiumVideos::where('id',$video_id)->first();
       
-      return view('admin.subtitlepremiumvideo.show',compact('page','sub_page','video_id','video_subtitle'));
+      return view('admin.subtitlepremiumvideo.show',compact('page','sub_page','video_id','video_subtitle','video'));
 
 
     }
