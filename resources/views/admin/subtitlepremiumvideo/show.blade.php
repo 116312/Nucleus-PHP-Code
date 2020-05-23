@@ -26,6 +26,7 @@
                                 <tr>
                                     <td>S No.</td>
                                     <td>Language</td>
+                                    <td>Video With Subtitle </td>
                                   
 
                                    
@@ -38,7 +39,16 @@
                                         <tr>
                                           <td>{{++$key}}</td>
                                           <td>{{$subtitle->languages->name}}</td>
-                                         
+                                           <td> <video width="320" height="240"  Autoplay=autoplay controls>
+                                              <source src="{{$video->video}}" type="video/mp4" >
+                                              <source src="{{$video->video}}" type="video/webm">
+                                              <track label="English" kind="subtitles" srclang="en" src="{{$subtitle->subtitle}}" default>
+                                               <track label="Spanish" kind="subtitles" srclang="en" src="{{$subtitle->subtitle}}" default>
+                                                <track label="German" kind="subtitles" srclang="en" src="{{$subtitle->subtitle}}" default>    
+                                            Your browser does not support the video tag.
+                                            </video>
+
+                                          </td>   
                                       
                                          </tr>
                                          @endforeach
