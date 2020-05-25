@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Add Training Goals')
+@section('title', 'Edit Training Goals')
 @section('admin-section')
 
     <section class="content">
@@ -17,7 +17,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-training-goals')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-training-goals').'/'.$goal->id}}" enctype="multipart/form-data">
                                 @csrf
 
 
@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="title" id="language"
-                                               class="form-control">
+                                               class="form-control" value="{{$goal->title}}">
                                     </div>
                                 </div>
 
@@ -34,7 +34,7 @@
                                   <label for="course_name">Add Description for Training Goals</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <textarea id="ckeditor" name="description">
+                                        <textarea id="ckeditor" name="description">{!!$goal->description!!}
                             </textarea>
                                     </div>
 
@@ -46,7 +46,9 @@
                                                 <select multiple class="form-control show-tick" required name="training_plan_id[]">
                                                     <option value="">-- Please select --</option>
                                                       @foreach($daysperweek as $key => $cate)
-                                                       <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                     
+                                                       <option value="{{$cate->id}}" @foreach($goal->traininggoalsplan as $plan){{$plan->training_plan_id == $cate->id ? 'selected':''}}@endforeach>{{$cate->name}}</option>
+                                                      
                                                        @endforeach
                                                       
                                                      

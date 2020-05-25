@@ -68,4 +68,61 @@ class TrainingGoalsController extends Controller
     	return view('admin.traininggoals.show',compact('page','sub_page','goals'));
 
     }
+
+
+    public function edit($id){
+
+
+
+    	$page ='training-goals';
+    	$sub_page ='show-training-goals';
+
+        $daysperweek = TrainingPlan::all();
+        $goal = TrainingGoals::where('id',$id)->with('traininggoalsplan')->first();
+
+
+    	return view('admin.traininggoals.edit',compact('page','sub_page','daysperweek','goal'));
+    }
+
+
+
+    public function update(Request $request,$id){
+
+
+    $data = [
+
+        'title' =>$request->title,
+        'description'=>$request->description,
+        'created_at'=>Carbon::now(),
+
+    	];
+
+       TrainingGoals::where('id',$id)->update($data);
+       TrainingGoalsPlan::where('training_goals_id', $id)->delete();
+      foreach($request->training_plan_id as $plan_id){
+
+       $plan_goal = [
+      
+       'training_goals_id'=>$id,
+       'training_plan_id' =>$plan_id,
+       'created_at'=> Carbon::now(),
+       
+       ];
+
+
+       TrainingGoalsPlan::insert($plan_goal);
+
+      }
+
+ return back()->with('status',100)->with('type','success')->with('message','Training Goals added successfully');
+    }
+
+
+
+     public function delete($id){
+
+       TrainingGoals::where('id', $id)->delete();
+        return back()->with('status',100)->with('type','success')->with('message','Training Plan deleted Successfully');
+  
+}
 }
