@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Category;
 use App\Model\PremiumWorkoutDetails;
+use App\Model\TrainingPlan;
+use App\Model\TrainingGoals;
 use App\User;
 use Response;
 class WorkoutController extends Controller
@@ -56,14 +58,19 @@ class WorkoutController extends Controller
 
 
    
-   if($detail->type =='others'){
+   if($detail->type =='other'){
 
     $data = [];
     $how_many_days = TrainingPlan::with('trainingplanvariation')->get();
+    $bygoals = TrainingGoals::with('traininggoalsplan.trainingplan.trainingplanvariation')->get();
+    $data = [
+    'how_many_days'=>$how_many_days,
+    'bygoals'=>$bygoals,
+    ];
 
-    dd($how_many_days);
+   
 
- return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','data'=>'it is training plan']);
+ return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','data'=>$data]);
       
 
     }
