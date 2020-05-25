@@ -34,10 +34,12 @@
                                   <label for="course_name">Add Description for Training Goals</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <textarea type="text"  row="6" required name="description" id="language"
-                                               class="form-control"></textarea> 
+                                        <textarea id="ckeditor" name="content">
+                            </textarea>
                                     </div>
+
                                 </div>
+
                                <label for="article_category_type">Select Days Per Week Training Plan</label>
                                         <div class="form-group">
                                             <div class="form-line">
@@ -63,5 +65,14 @@
             </div>
         </div>
     </section>
+@push('scripts')
+<script type="text/javascript">
+    $(function () {
+        //CKEditor
+        CKEDITOR.replace('ckeditor');
+        CKEDITOR.config.height = 300;
 
+    });
+</script>
+@endpush
 @endsection
