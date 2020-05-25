@@ -13,4 +13,7 @@ class TrainingGoals extends Model
     {
         return $this->hasMany('App\Model\TrainingGoalsPlan','training_goals_id');
     }
+
+
+    
 }

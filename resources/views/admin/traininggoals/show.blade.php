@@ -33,6 +33,7 @@
                                     <td>Title</td>
                                     <td>Description</td>
                                     <td>Days Per Week</td>
+                                    <td>Action</td>
 
                                    
 
@@ -44,7 +45,7 @@
                                         <tr>
                                           <td>{{++$key}}</td>
                                           <td>{{$goal->title}}</td>
-                                         <td>{{$goal->description}}</td>
+                                         <td>{!!$goal->description!!}</td>
                                          <td><ul>
                                              @foreach($goal->traininggoalsplan as $key =>$plans)
                                            
@@ -52,7 +53,14 @@
                                           
                                              @endforeach
                                          </ul></td>
-                                            
+                                              <form class="form-horizontal" method="post" action="{{url('admin/delete-training-goals').'/'.$goal->id}}" role="form">
+                                    @csrf
+                                        <td>
+                                        <a href="{{url('admin/edit-training-goals').'/'.$goal->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                      
+                                        <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                        </td>
+                                            </form>  
                                       
                                          </tr>
                                          @endforeach

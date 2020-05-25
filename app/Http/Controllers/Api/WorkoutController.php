@@ -68,7 +68,7 @@ class WorkoutController extends Controller
     'bygoals'=>$bygoals,
     ];
 
-   
+    
 
  return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','data'=>$data]);
       
