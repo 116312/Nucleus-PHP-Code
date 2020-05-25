@@ -24,7 +24,7 @@
                                 <thead>
                                 <tr>
                                     <td>Variation No.</td>
-                               
+                                    <td>Variation Name</td>
                                     <td>Training Plan Name</td>
                                     <td>Monday</td>
                                     <td>Tuesday</td>
@@ -44,6 +44,7 @@
                                         @foreach($plandescription as $key => $plan)
                                         <tr>
                                             <td>{{++$key}}</td>
+                                            <td>{{$plan->name}}</td>
                                           
                                             <td>{{$trainingplan->name}}</td>
                                             <td>{{$plan->monday}}</td>

@@ -19,7 +19,13 @@
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/store-plan-description').'/'.$plan->id}}" enctype="multipart/form-data">
                                 @csrf
-
+                           <label for="course_name">Add title of the Variation</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" id="language"
+                                               class="form-control">
+                                    </div>
+                                </div>
           
                                
                                  <label for="course_name">Monday</label>

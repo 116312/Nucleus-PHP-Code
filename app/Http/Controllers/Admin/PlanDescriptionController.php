@@ -35,6 +35,7 @@ class PlanDescriptionController extends Controller
 
     	$data = [
          'training_plan_id' =>$training_plan_id,
+         'name'=>$request->name,
          'monday'=> $request->monday,
          'tuesday'=> $request->tuesday,
          'wednesday'=> $request->wednesday,
@@ -50,6 +51,18 @@ class PlanDescriptionController extends Controller
 
 
     	TrainingPlanDescription::insert($data);
+
+
+      $var = TrainingPlanDescription::where('training_plan_id',$training_plan_id)->get();
+
+       $var_no = $var->count();
+
+       $total = [
+       'total_variations'=>$var_no,
+
+       ];
+
+       TrainingPlan::where('id',$training_plan_id)->update($total);
 
     	  return back()->with('status',100)->with('type','success')->with('message','Training Plan Description  added Successfully');
 
@@ -112,6 +125,7 @@ class PlanDescriptionController extends Controller
 
         $data = [
          'training_plan_id' =>$training_plan_id,
+         'name'=>$request->name,
          'monday'=> $request->monday,
          'tuesday'=> $request->tuesday,
          'wednesday'=> $request->wednesday,
@@ -139,6 +153,17 @@ class PlanDescriptionController extends Controller
 
 
   	TrainingPlanDescription::where('id', $training_plan_description_id)->delete();
+     $var = TrainingPlanDescription::where('training_plan_id',$training_plan_id)->get();
+
+       $var_no = $var->count();
+
+       $total = [
+       'total_variations'=>$var_no,
+
+       ];
+
+       TrainingPlan::where('id',$training_plan_id)->update($total);
+
         return back()->with('status',100)->with('type','success')->with('message','Training Plan  Description deleted Successfully');
   }
 

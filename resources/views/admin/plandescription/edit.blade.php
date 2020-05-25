@@ -20,7 +20,13 @@
                             <form method="post"  id="form_validation" action="{{url('admin/update-plan-description').'/'.$plan->id.'/'.$plandescription->id}}" enctype="multipart/form-data">
                                 @csrf
 
-          
+                                  <label for="course_name">Add title of the Variation</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="name" value = "{{$plandescription->name}}" id="language"
+                                               class="form-control">
+                                    </div>
+                                </div>
                                
                                  <label for="course_name">Monday</label>
                                  <div class="form-group">

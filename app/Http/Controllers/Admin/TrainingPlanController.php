@@ -73,6 +73,8 @@ class TrainingPlanController extends Controller
 
     	$trainingplan = TrainingPlan::find($id);
 
+      
+
 
     	return view('admin.trainingplan.edit',compact('page','sub_page','trainingplan'));
 

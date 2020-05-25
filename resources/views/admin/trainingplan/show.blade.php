@@ -27,6 +27,7 @@
                                     <td>Plan No.</td>
                                
                                     <td>Training Plan Name</td>
+                                    <td>Total Variations </td>
                                     <td>Action</td>
 
                                    
@@ -40,6 +41,7 @@
                                             <td>{{++$key}}</td>
                                           
                                             <td>{{$plan->name}}</td>
+                                            <td>{{$plan->total_variations}}</td>
 
 
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-training-plan').'/'.$plan->id}}" role="form">
