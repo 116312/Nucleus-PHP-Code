@@ -58,7 +58,11 @@ class WorkoutController extends Controller
    
    if($detail->type =='others'){
 
-    
+    $data = [];
+    $how_many_days = TrainingPlan::with('trainingplanvariation')->get();
+
+    dd($how_many_days);
+
  return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','data'=>'it is training plan']);
       
 

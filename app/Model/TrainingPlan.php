@@ -16,5 +16,10 @@ class TrainingPlan extends Model
     {
         return $this->hasMany('App\Model\TrainingGoalsPlan','training_plan_id');
     }
+     
 
+     public function trainingplanvariation()
+    {
+        return $this->hasMany('App\Model\TrainingPlanDescription','training_plan_id');
+    }
 }
