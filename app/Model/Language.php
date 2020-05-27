@@ -13,4 +13,12 @@ class Language extends Model
     {
         return $this->hasMany('App\Model\SubtitlePremiumVideo','language_id');
     }
+
+
+
+    
+   public function quickclipdetails(){
+
+        return $this->hasMany('App\Model\QuickClipsDetails','language_id');
+    }
 }

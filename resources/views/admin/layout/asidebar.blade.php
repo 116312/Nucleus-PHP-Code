@@ -117,7 +117,7 @@
                     </ul>
                 </li>
 
-                <li class="{{(isset($page) && $page && $page == 'quick-clip-workout-details' ? 'active' : '')}}">
+               <!--  <li class="{{(isset($page) && $page && $page == 'quick-clip-workout-details' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
                         <span>Quick Clip Workout Details</span>
@@ -131,7 +131,7 @@
                             <a href="{{ url('admin/show-quick-clip-workout-details') }}">Show Details</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                  
                 
 
@@ -201,18 +201,18 @@
                     </ul>
                 </li>
 
-                <li class="{{(isset($page) && $page && $page == 'gif' ? 'active' : '')}}">
+                <li class="{{(isset($page) && $page && $page == 'quick-clips' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">gif</i>
                         <span>Quick Clips</span>
                     </a>
                     <ul class="ml-menu">
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-gif' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-gif') }}">Add GIF</a>
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-quick-clips' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-quick-clips') }}">Add Quick Clips</a>
                         </li>
 
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-gif' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-gif') }}">Show GIF</a>
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-quick-clips' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-quick-clips') }}">Show Quick Clips</a>
                         </li>
                     </ul>
                 </li>

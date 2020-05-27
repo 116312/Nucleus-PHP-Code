@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddVariationNameToTrainingPlanDesriptionTable extends Migration
+class CreateQuickClipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddVariationNameToTrainingPlanDesriptionTable extends Migration
      */
     public function up()
     {
-        Schema::table('training_plan_desription', function (Blueprint $table) {
-          $table->string('name');
+        Schema::create('quick_clips', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('clip');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddVariationNameToTrainingPlanDesriptionTable extends Migration
      */
     public function down()
     {
-        Schema::table('training_plan_desription', function (Blueprint $table) {
-          $table->dropColumn('name');
-        });
+        Schema::dropIfExists('quick_clips');
     }
 }

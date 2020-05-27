@@ -15,7 +15,7 @@ class CreateQuickClipWorkoutDetailsTable extends Migration
     {
         Schema::create('quick_clip_workout_details', function (Blueprint $table) {
             $table->id();
-             $table->string('name');
+            $table->string('name');
             $table->string('image');
             $table->timestamps();
         });

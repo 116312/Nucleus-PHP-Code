@@ -99,24 +99,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //***************************** Plan Desription **************************************//
 
    Route::get('add-plan-description/{training_plan_id}','PlanDescriptionController@add');
@@ -127,22 +109,29 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('delete-plan-description/{training_plan_id}/{training_plan_description_id}','PlanDescriptionController@delete'); 
 
 
-//********************************** GIF *********************************************************//
+//********************************** Quick Clips  *********************************************************//
     
 
 
-   Route::get('add-gif','GifController@add');
+   Route::get('add-quick-clips','QuickClipsController@add');
+   Route::post('store-quick-clips','QuickClipsController@store');
+   Route::get('show-quick-clips','QuickClipsController@show');
+   Route::get('edit-quick-clips/{id}','QuickClipsController@edit');
+   Route::post('update-quick-clips/{id}','QuickClipsController@update');
+   Route::post('delete-quick-clips/{id}','QuickClipsController@delete');
 
-   Route::post('store-gif','GifController@store');
-   Route::get('show-gif','GifController@show');
-   Route::get('edit-gif/{id}','GifController@edit');
-   Route::post('update-gif/{id}','GifController@update');
-   Route::post('delete-gif/{id}','GifController@delete');
-
-
+//********************************* Quick Clips Details ***********************************//
+   Route::get('add-quick-clips_details/{clip_id}','QuickClipsDetailsController@add');
+   Route::post('store-quick-clips_details/{clip_id}','QuickClipsDetailsController@store');
+   Route::get('show-quick-clips_details/{clip_id}','QuickClipsDetailsController@show');
+   Route::get('edit-quick-clips_details/{clip_id}/{id}','QuickClipsDetailsController@edit');
+   Route::post('update-quick-clips_details/{clip_id}/{id}','QuickClipsDetailsController@update');
+   Route::post('delete-quick-clips_details/{clip_id}/{id}','QuickClipsDetailsController@delete');
 
 //****************************** Premium Videos *************************************************//
-  Route::get('add-premium-videos','PremiumVideosController@add');
+   
+
+   Route::get('add-premium-videos','PremiumVideosController@add');
    Route::post('store-premium-videos','PremiumVideosController@store');
    Route::get('show-premium-videos','PremiumVideosController@show');
    Route::get('edit-premium-videos/{id}','PremiumVideosController@edit');
@@ -152,7 +141,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 //******************************Subtitle Of Premium Videos ********************//
-  Route::get('add-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@add');
+   
+
+   Route::get('add-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@add');
    Route::post('store-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@store');
    Route::get('show-subtitle-premium-videos/{video_id}','SubtitlePremiumVideosController@show');
    Route::get('edit-subtitle-premium-videos/{video_id}/{id}','SubtitlePremiumVideosController@edit');
