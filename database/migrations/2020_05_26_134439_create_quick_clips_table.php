@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateQuickClipWorkoutDetailsTable extends Migration
+class CreateQuickClipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateQuickClipWorkoutDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('quick_clip_workout_details', function (Blueprint $table) {
+        Schema::create('quick_clips', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('clip');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateQuickClipWorkoutDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('quick_clip_workout_details');
+        Schema::dropIfExists('quick_clips');
     }
 }
