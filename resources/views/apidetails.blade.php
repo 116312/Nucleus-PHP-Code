@@ -57,6 +57,7 @@
 
 </h1>
     <p><a href="{{url('/api/get-all-nucleus-challenges')}}">Get All Challenges</a></p>
+    <p><a href="{{url('/api-details/user-select-challenge')}}">Select Challenge</a></p>
       
    </div>
 
