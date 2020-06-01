@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Model\Category;
+use App\Model\NucleusChallenges;
 
 class ApiDetailController extends Controller
 {
@@ -96,6 +97,15 @@ class ApiDetailController extends Controller
      $users = User::all();
      $categories = Category::all();
      return view('api.workout-by-category',compact('categories','users'));
+
+  }
+
+
+  public function getselectchallengeForm(){
+     $users = User::all();
+     $challenges = NucleusChallenges::all();
+     return view('api.user-select-challenge',compact('challenges','users'));
+
 
   }
 
