@@ -13,17 +13,12 @@ class NucleusChallengeController extends Controller
 {
     public function getallchallenges(Request $request){
 
-    $userchallenge =  UserNucleusChallenge::where('user_id',$request->user_id)->with('nucleuschallenge')->first();
+   
 
    $nucleuschallenge = NucleusChallenges::with('challengecategory')->with('nucleuschallengeprize')->get();
 
-$data = [
 
-'userchallenge'=> $userchallenge,
-'nucleuschallenge'=>$nucleuschallenge,
-
-];
-      return Response::json(['code' => 200,'status' => true, 'message' => 'All nucleus challenges','data'=>$data]);
+      return Response::json(['code' => 200,'status' => true, 'message' => 'All nucleus challenges','data'=>$nucleuschallenge]);
       
 
     }
@@ -49,6 +44,17 @@ $data = [
       
 
     }
+
+    
+   public function getuserchallenge(Request $request){
+
+   $userchallenge = UserNucleusChallenge::where('user_id',$request->user_id)->with('nucleuschallenge')->first();
+    return Response::json(['code' => 200,'status' => true, 'message' => 'User nucleus challenge','data'=>$userchallenge]);
+
+   }
+
+
+
 
 
 

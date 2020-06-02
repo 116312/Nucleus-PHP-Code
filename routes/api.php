@@ -49,6 +49,7 @@ Route::post('get-workout-by-category','WorkoutController@getworkoutbycategory');
 
 Route::post('get-all-nucleus-challenges','NucleusChallengeController@getallchallenges'); 
 Route::post('user-select-challenge','NucleusChallengeController@userselectchallenge');
+Route::post('get-user-challenge','NucleusChallengeController@getuserchallenge');
 
 
 

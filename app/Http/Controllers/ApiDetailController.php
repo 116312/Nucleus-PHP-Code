@@ -116,6 +116,11 @@ class ApiDetailController extends Controller
 
   }
 
+  public function getusechallengeForm(){
+       $users = User::all();
+       return view('api.get-user-challenge',compact('users'));
+  }
+
    
 
 }
