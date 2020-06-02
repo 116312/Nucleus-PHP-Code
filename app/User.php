@@ -58,4 +58,10 @@ class User extends Authenticatable
         return $this->hasMany(UserDevice::class,'user_id');
     }
 
+
+    public function usernucleuschallenge(){
+
+         return $this->hasMany(UserNucleusChallenge::class,'user_id');
+    }
+
 }
