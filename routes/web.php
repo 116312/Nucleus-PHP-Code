@@ -292,6 +292,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('get-workout-by-category-id','ApiDetailController@getWorkoutbyCategoryId');
   Route::get('user-select-challenge','ApiDetailController@getselectchallengeForm');
   Route::get('get-all-nucleus-challenges','ApiDetailController@getallchallengeForm');
+  Route::get('get-user-challenge','ApiDetailController@getusechallengeForm');
  
 
 });
