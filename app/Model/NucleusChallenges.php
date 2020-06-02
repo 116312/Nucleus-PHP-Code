@@ -41,4 +41,10 @@ public function challengecategory()
     {
         return $this->hasMany('App\Model\NucleusChallengesPrize','nucleus_challenge_id');
     }
+
+
+     public function usernucleuschallenge(){
+
+         return $this->hasMany(UserNucleusChallenge::class,'nucleus_challenge_id');
+    }
 }

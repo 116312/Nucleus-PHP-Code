@@ -11,12 +11,19 @@ use Carbon\Carbon;
 
 class NucleusChallengeController extends Controller
 {
-    public function getallchallenges(){
+    public function getallchallenges(Request $request){
+
+    $userchallenge =  UserNucleusChallenge::where('user_id',$request->user_id)->with('nucleuschallenge')->first();
 
    $nucleuschallenge = NucleusChallenges::with('challengecategory')->with('nucleuschallengeprize')->get();
 
+$data = [
 
-      return Response::json(['code' => 200,'status' => true, 'message' => 'All nucleus challenges','data'=>$nucleuschallenge]);
+'userchallenge'=> $userchallenge,
+'nucleuschallenge'=>$nucleuschallenge,
+
+];
+      return Response::json(['code' => 200,'status' => true, 'message' => 'All nucleus challenges','data'=>$data]);
       
 
     }
@@ -38,8 +45,12 @@ class NucleusChallengeController extends Controller
       
      UserNucleusChallenge::insert($data);
 
- return Response::json(['code' => 200,'status' => true, 'message' => 'User  select the nucleus challenges','data'=>$data]);
+    return Response::json(['code' => 200,'status' => true, 'message' => 'User  select the nucleus challenges','data'=>$data]);
       
 
     }
+
+
+
+
 }

@@ -291,6 +291,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('reset-password-form','ApiDetailController@getresetpasswordForm');
   Route::get('get-workout-by-category-id','ApiDetailController@getWorkoutbyCategoryId');
   Route::get('user-select-challenge','ApiDetailController@getselectchallengeForm');
+  Route::get('get-all-nucleus-challenges','ApiDetailController@getallchallengeForm');
  
 
 });
