@@ -117,21 +117,21 @@
                     </ul>
                 </li>
 
-               <!--  <li class="{{(isset($page) && $page && $page == 'quick-clip-workout-details' ? 'active' : '')}}">
+                <l0.i class="{{(isset($page) && $page && $page == 'quick_clip_workout_details' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
                         <span>Quick Clip Workout Details</span>
                     </a>
                     <ul class="ml-menu">
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-quick-clip-workout-details' ? 'active' : '')}}">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add_quick_clip_workout_details' ? 'active' :'')}}">
                             <a href="{{ url('admin/add-quick-clip-workout-details') }}">Add Details</a>
                         </li>
 
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-quick-clip-workout-details' ? 'active' : '')}}">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show_quick_clip_workout_details' ? 'active' :'')}}">
                             <a href="{{ url('admin/show-quick-clip-workout-details') }}">Show Details</a>
                         </li>
                     </ul>
-                </li> -->
+                </li>
                  
                 
 

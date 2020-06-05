@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Quick CLip Workouts</h2>
+                <h2>Quick Clip Workouts</h2>
             </div>
 
             <!-- Vertical Layout -->
@@ -25,8 +25,13 @@
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
-                                    <td>Name</td>
-                                    <td>Image</td>
+                                    <td>Workout Category</td>
+                                    <td>Quick Clip Workout Name</td>
+                                    <td>Quick clip Workout Image</td>
+                                    <td>Quick Clip Name </td>
+                                    <td>Rest Period</td>
+                                         <td>Description</td>
+
                                   
 
                                    
@@ -38,9 +43,12 @@
                                         @foreach($quickclipworkoutdetails as $key => $details)
                                         <tr>
                                           <td>{{++$key}}</td>
-                                          <td>{{$details->name}}</td>
-                                          
-                                          <td> <img style="float:left!important" src="{{$details->image}}" height="100" width="100"></td> 
+                                          <td>{{$details->quickclipworkoutdetails->workoutcategory->name}}</td>
+                                          <td>{{$details->quickclipworkoutdetails->name}}</td>
+                                          <td> <img style="float:left!important" src="{{$details->quickclipworkoutdetails->image}}" height="100" width="100"></td>
+                                          <td>{{$details->quickclips->name}}</td>
+                                          <td>{{$details->quickclipworkoutdetails->rest_period}}</td> 
+                                          <td>{{$details->quickclipworkoutdetails->description}}</td> 
 
                                          
                                          
