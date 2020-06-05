@@ -32,4 +32,10 @@ class QuickClips extends Model
         return $this->hasMany('App\Model\QuickClipsDetails','quick_clip_id');
     }
 
+
+     public function quickclipworkoutclip()
+    {
+        return $this->hasMany('App\Model\QuickClipWorkoutClip','quick_clip_id');
+    }
+
 }

@@ -24,4 +24,16 @@ class QuickClipWorkoutDetails extends Model
         }
 
 }
+
+
+  public function quickclipworkoutclip()
+    {
+        return $this->hasMany('App\Model\QuickClipWorkoutClip','quick_clip_workout_details_id');
+    }
+   
+   public function workoutcategory()
+    {
+        return $this->belongsTo('App\Model\Category','category_id');
+    }
+
 }

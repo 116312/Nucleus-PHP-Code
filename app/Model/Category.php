@@ -38,4 +38,11 @@ class Category extends Model
 
         return $this->hasMany('App\Model\PremiumWorkoutDetails','category_id');
     }
+
+
+
+     public function quickclipworkoutdetails(){
+
+        return $this->hasMany('App\Model\QuickClipWorkoutDetails','category_id');
+    }
 }
