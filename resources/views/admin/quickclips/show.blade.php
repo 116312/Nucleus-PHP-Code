@@ -27,6 +27,7 @@
                                     <td>S No.</td>
                                     <td>Name</td>
                                     <td>Quick Clips</td>
+                                    <td>Clip Image</td>
                                     <td>Action</td>
 
                                    
@@ -39,6 +40,7 @@
                                         <tr>
                                           <td>{{++$key}}</td>
                                           <td>{{$clip->name}}</td>
+                                           <td><img style="float:left!important" src="{{$clip->image}}" height="100" width="100"></td>
                                           <td><video width="320" height="240"  Autoplay=autoplay controls>
                                               <source src="{{$clip->clip}}" type="video/mp4" >
                                               <source src="{{$clip->clip}}" type="video/webm">

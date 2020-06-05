@@ -92,8 +92,7 @@ class QuickClipsDetailsController extends Controller
 
      $quickclipdetails = QuickClipsDetails::where('quick_clip_id',$clip_id)->with(['quickclips','language','voiceguidancetype'])->get();
 
-     
-     dd($quickclipsdetails);
+    
          
 
      return view('admin.quickclipsdetails.show',compact('page','sub_page','quickclipdetails','clip_id'));

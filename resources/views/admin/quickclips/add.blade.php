@@ -36,6 +36,13 @@
                                                class="form-control">
                                     </div>
                                 </div>
+                                <label for="course_name">Add Clip Image</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="file" required name="image" id="language"
+                                               class="form-control">
+                                    </div>
+                                </div>
                                
 
 
