@@ -8,6 +8,7 @@ use App\Model\Category;
 use App\Model\PremiumWorkoutDetails;
 use App\Model\TrainingPlan;
 use App\Model\TrainingGoals;
+use App\Model\QuickClipWorkoutDetails;
 use App\User;
 use Response;
 class WorkoutController extends Controller
@@ -83,7 +84,9 @@ class WorkoutController extends Controller
 
       $premiumworkouts = PremiumWorkoutDetails::where('category_id',$request->cate_id)->with('premiumworkout.subtitle','workoutcategory','workouttype')->get();
 
-      $quickclipworkouts = 'not available';
+      $quickclipworkouts = QuickClipWorkoutDetails::where('category_id',$request->cate_id)->with('quickclipworkoutclip.quickclips')->get();
+
+     
 
 
       $workouts = [
