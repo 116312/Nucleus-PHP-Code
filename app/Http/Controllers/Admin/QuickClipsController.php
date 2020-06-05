@@ -37,6 +37,7 @@ class QuickClipsController extends Controller
 
 
          $filepath = '';
+         $imagePath = '';
     	 if($request->hasFile('clip')){
           
             $ext = $request->clip->getClientOriginalExtension();
@@ -45,12 +46,21 @@ class QuickClipsController extends Controller
             $filepath = $path;
 
                   }
+         if($request->hasFile('image')){
+          
+            $ext = $request->image->getClientOriginalExtension();
+            $image_path = Storage::putFileAs('QuickClipimages', $request->image,time().uniqid().".".$ext);
+
+            $imagePath = $image_path;
+
+                  }
 
 
     	$data = [
 
         'name' => $request->name,
         'clip' => $filepath,
+        'image'=> $imagePath,
         'created_at'=>Carbon::now(),
 
     	];
@@ -101,25 +111,31 @@ class QuickClipsController extends Controller
     }
 
 
-         $filepath = '';
+        
     	 if($request->hasFile('clip')){
           
             $ext = $request->clip->getClientOriginalExtension();
             $path = Storage::putFileAs('QuickClips', $request->clip,time().uniqid().".".$ext);
 
             $filepath = $path;
-            $data = [
+         
 
-        'name' => $request->name,
-        'clip' => $filepath,
-        'updated_at'=>Carbon::now(),
+       QuickClips::where('id',$id)->update(['clip'=>$filepath]);
+      
 
-    	];
-       
 
-       QuickClips::where('id',$id)->update($data);
-        return back()->with('status',100)->with('type','success')->with('message','QuickClips updated successfully');
+                  }
 
+
+        if($request->hasFile('image')){
+          
+            $ext = $request->image->getClientOriginalExtension();
+            $image_path = Storage::putFileAs('QuickClipimages', $request->image,time().uniqid().".".$ext);
+
+            $imagePath = $image_path;
+
+
+             QuickClips::where('id',$id)->update(['image'=>$imagePath]);
 
                   }
 

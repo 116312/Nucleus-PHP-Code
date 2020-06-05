@@ -27,6 +27,22 @@ class QuickClips extends Model
       }
 
 
+       public function getImageAttribute($value){
+
+
+        if($value == null){
+
+            return $value;
+        }
+        else{
+
+            
+            return asset('storage/'.$value);
+        }
+
+      }
+
+
       public function quickclipdetails(){
 
         return $this->hasMany('App\Model\QuickClipsDetails','quick_clip_id');

@@ -90,10 +90,9 @@ class WorkoutController extends Controller
 
 
       $workouts = [
-'premiumworkouts' =>$premiumworkouts,
-'quickclipworkouts'=>$quickclipworkouts,
-        
-      ];
+        'premiumworkouts' =>$premiumworkouts,
+        'quickclipworkouts'=>$quickclipworkouts,
+         ];
 
 
       return Response::json(['code' => 200,'status' => true, 'message' => 'All Workouts','data'=>$workouts]);
