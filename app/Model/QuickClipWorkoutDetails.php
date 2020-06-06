@@ -26,6 +26,21 @@ class QuickClipWorkoutDetails extends Model
 }
 
 
+  public function getRest_clipAttribute($value){
+
+
+        if($value == null){
+
+            return $value;
+        }
+        else{
+
+            
+            return asset('storage/'.$value);
+        }
+
+}
+
   public function quickclipworkoutclip()
     {
         return $this->hasMany('App\Model\QuickClipWorkoutClip','quick_clip_workout_details_id');

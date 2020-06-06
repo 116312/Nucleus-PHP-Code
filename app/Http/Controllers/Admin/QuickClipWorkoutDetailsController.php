@@ -55,7 +55,7 @@ class QuickClipWorkoutDetailsController extends Controller
 
             $path = Storage::putFileAs('quickclip_rest_clips', $request->rest_clip,time().uniqid().".".$ext);
 
-            $imagePath = $path;
+            $clipPath = $path;
 
                   }
 
@@ -108,7 +108,6 @@ class QuickClipWorkoutDetailsController extends Controller
 
         $quickclipworkoutdetails = QuickClipWorkoutClip::with('quickclipworkoutdetails.workoutcategory','quickclips')->get();
 
-   
     	return view('admin.quickclipworkoutdetails.show',compact('page','sub_page','quickclipworkoutdetails'));
 
 
