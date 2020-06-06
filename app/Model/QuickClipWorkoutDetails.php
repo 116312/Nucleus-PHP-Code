@@ -26,7 +26,7 @@ class QuickClipWorkoutDetails extends Model
 }
 
 
-  public function getRest_clipAttribute($value){
+  public function getRestClipAttribute($value){
 
 
         if($value == null){
