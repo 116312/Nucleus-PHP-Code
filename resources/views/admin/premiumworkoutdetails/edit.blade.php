@@ -69,6 +69,13 @@
                                     </div>
                                   </div>
 
+                         <label for="course_name">Add Trainer Name</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                         <input type="text" required name="trainer_name" id="sequence_no"
+                                             value = "{{$premiumworkoutdetail->trainer_name}}"  class="form-control">
+                                    </div>
+                                </div>
 
 
                               
@@ -85,7 +92,7 @@
                                   <label for="course_name">Add Description</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <textarea type="text" row = "4" required name="description" id="description"
+                                        <textarea type="text" row = "2" required name="description" id="description"
                                                class="form-control">{!!$premiumworkoutdetail->description!!}</textarea> 
                                     </div>
                                 </div>

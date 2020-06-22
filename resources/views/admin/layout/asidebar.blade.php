@@ -98,7 +98,21 @@
                         </li>
                     </ul>
                 </li> -->
+                 <li class="{{(isset($page) && $page && $page == 'premium-videos' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">settings_input_svideo</i>
+                        <span>Premium Videos</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium-videos' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-premium-videos') }}">Add Videos</a>
+                        </li>
 
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium-videos' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-premium-videos') }}">Show videos</a>
+                        </li>
+                    </ul>
+                </li>
 
 
                 <li class="{{(isset($page) && $page && $page == 'premium-workout-details' ? 'active' : '')}}">
@@ -117,7 +131,24 @@
                     </ul>
                 </li>
 
-                <l0.i class="{{(isset($page) && $page && $page == 'quick_clip_workout_details' ? 'active' : '')}}">
+                
+                <li class="{{(isset($page) && $page && $page == 'quick-clips' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">gif</i>
+                        <span>Quick Clips</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-quick-clips' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-quick-clips') }}">Add Quick Clips</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-quick-clips' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-quick-clips') }}">Show Quick Clips</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="{{(isset($page) && $page && $page == 'quick_clip_workout_details' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
                         <span>Quick Clip Workout Details</span>
@@ -201,37 +232,8 @@
                     </ul>
                 </li>
 
-                <li class="{{(isset($page) && $page && $page == 'quick-clips' ? 'active' : '')}}">
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">gif</i>
-                        <span>Quick Clips</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-quick-clips' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-quick-clips') }}">Add Quick Clips</a>
-                        </li>
 
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-quick-clips' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-quick-clips') }}">Show Quick Clips</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="{{(isset($page) && $page && $page == 'premium-videos' ? 'active' : '')}}">
-                    <a href="javascript:void(0);" class="menu-toggle">
-                        <i class="material-icons">settings_input_svideo</i>
-                        <span>Premium Videos</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-premium-videos' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-premium-videos') }}">Add Videos</a>
-                        </li>
-
-                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-premium-videos' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-premium-videos') }}">Show videos</a>
-                        </li>
-                    </ul>
-                </li>
+              
 
 
 
