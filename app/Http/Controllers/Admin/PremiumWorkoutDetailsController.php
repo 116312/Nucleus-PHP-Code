@@ -168,6 +168,7 @@ class PremiumWorkoutDetailsController extends Controller
         'category_id'=>$request->category_id,
         'workout_type_id'=>$request->workout_type_id,
         'workout_level'=>$request->workout_level,
+        'trainer_name'=>$request->trainer_name,
         'description'=>$request->description,
         'created_at'=> Carbon::now(),
        
