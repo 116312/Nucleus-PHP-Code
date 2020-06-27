@@ -46,7 +46,7 @@
    Goals(goal_id)::*<select name="user_id" required>
     <option value="">Select</option>
         @foreach($goals as $goal)
-    <option value="{{$goal->id}}">{{$goal->name}}</option>
+    <option value="{{$goal->id}}">{{$goal->title}}</option>
         @endforeach
         </select>
 
