@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Model\Category;
 use App\Model\NucleusChallenges;
+use App\Model\TrainingPlan;
+use App\Model\TrainingGoals;
+use App\Model\TrainingPlanDescription;
+
 
 class ApiDetailController extends Controller
 {
@@ -119,6 +123,22 @@ class ApiDetailController extends Controller
   public function getusechallengeForm(){
        $users = User::all();
        return view('api.get-user-challenge',compact('users'));
+  }
+
+
+  public function gettrainingplanForm(){
+
+    $users = User::all();
+
+    $training_plan = TrainingPlan::all();
+
+    $goals = TrainingGoals::all();
+
+    $plan_variations = TrainingPlanDescription::all();
+
+    return view('api.submit-training-plan-form',compact('users','training_plan','goals','plan_variations'));
+
+
   }
 
    
