@@ -71,7 +71,14 @@
       
    </div>
 
+   
 
+   <h3>Training and Plans</h3>
+    <div>
+        <p><a href="{{url('/api-details/training-plan-form')}}">Submit</a></p>
+       
+       
+    </div>
 
     <h3>Check Video on Video player</h3>
      <div>
