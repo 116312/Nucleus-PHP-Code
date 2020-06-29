@@ -56,8 +56,12 @@ Route::post('get-user-challenge','NucleusChallengeController@getuserchallenge');
 //********************************** Promotions Api *******************//
 
 Route::get('get-all-promotions','PromotionalManagementController@getallpromotions'); 
-
-
 Route::get('check-video','PromotionalManagementController@checkvideo');
+
+
+//******************************** Training and Plan *******************************//
+ 
+Route::post('submit-user-training-plan','TrainingAndPlanController@submit');
+
 
 });
