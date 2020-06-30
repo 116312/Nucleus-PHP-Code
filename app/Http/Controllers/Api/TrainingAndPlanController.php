@@ -16,7 +16,7 @@ class TrainingAndPlanController extends Controller
     public function submit(Request $request){
 
 
-    	
+    
 
 
 
