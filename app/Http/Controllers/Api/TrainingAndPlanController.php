@@ -76,7 +76,7 @@ class TrainingAndPlanController extends Controller
     'type' =>UserTrainingType::find($type),
     'goal'=>UserTrainingGoal::find($goal),
     'daysperweek'=>UserDaysPerWeek::find($daysperweek),
-    'planvariationdata'=>UserPlanVariation::find($planvariationdata),
+    'planvariationdata'=>UserPlanVariation::find($planvariation),
 
 
     ];
