@@ -31,8 +31,9 @@ class TrainingAndPlanController extends Controller
 
      $goal = '';
 
-       if($request->plan_type = "By Goals")
+       if($request->plan_type == "By Goals")
     {
+
     	$goaldata = [
         'user_id'=>$request->user_id,
         'goal_id'=>$request->goal_id,
