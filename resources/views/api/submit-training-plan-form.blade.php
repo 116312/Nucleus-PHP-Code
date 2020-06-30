@@ -56,7 +56,7 @@
     <br>
    
 
-   Goals(goal_id)::*<select name="goal_id" required>
+   Goals(goal_id)::*<select name="goal_id">
     <option value="">Select</option>
         @foreach($goals as $goal)
     <option value="{{$goal->id}}">{{$goal->title}}</option>
