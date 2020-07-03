@@ -13,26 +13,28 @@ use Response;
 
 class TrainingAndPlanController extends Controller
 {
-    public function submit(Request $request){
-
-
     
 
 
+    public function submit(Request $request){
+       $goal = '';
+      
+       $userAlreadyexist = UserTrainingType::where('user_id',$request->user_id)->first();
 
-    	$typedata = [
+        $typedata = [
 
         'user_id'=>$request->user_id,
         'training_type'=>$request->plan_type,
         'created_at'=> Carbon::now(),
     	];
 
-     $type = UserTrainingType::insertGetId($typedata);
+   
 
-     $goal = '';
+    
 
        if($request->plan_type == "By Goals")
     {
+       $usergoalexist = UserTrainingGoal::where('user_id',$request->user_id)->first();
 
     	$goaldata = [
         'user_id'=>$request->user_id,
@@ -40,8 +42,38 @@ class TrainingAndPlanController extends Controller
         'created_at'=> Carbon::now(),
          ];
 
+      if($usergoalexist != null){
+     
+
+       UserTrainingGoal::where('user_id',$request->user_id)->update($goaldata);
+
+      }
+
+      else{
+ 
+
+      $goal = UserTrainingGoal::insert($goaldata);
+
+
+      }
+
+        
+
       
-    $goal = UserTrainingGoal::insertGetId($goaldata);
+   
+    }
+
+    else{
+
+     $usergoalexist = UserTrainingGoal::where('user_id',$request->user_id)->first();
+
+     if($usergoalexist != null){
+     
+
+       UserTrainingGoal::where('user_id',$request->user_id)->delete();
+
+      }
+
 
     }
 
@@ -55,7 +87,7 @@ class TrainingAndPlanController extends Controller
 
        ];
 
-    $daysperweek = UserDaysPerWeek::insertGetId($daysperweekdata);
+  
 
 
     $planvariationdata = [
@@ -65,18 +97,47 @@ class TrainingAndPlanController extends Controller
     'created_at'=> Carbon::now(),
 
     ];
-
-
-    $planvariation = UserPlanVariation::insertGetId($planvariationdata);
-
     
+   
+   if($userAlreadyexist == null){
+
+    $type = UserTrainingType::insert($typedata);
+    $daysperweek = UserDaysPerWeek::insert($daysperweekdata);
+    $planvariation = UserPlanVariation::insert($planvariationdata);
+
+  
+   
+
+   }
+
+
+
+
+   else {
+
+   
+
+    UserTrainingType::where('user_id',$request->user_id)->update($typedata);
+    UserDaysPerWeek::where('user_id',$request->user_id)->update($daysperweekdata);
+    UserPlanVariation::where('user_id',$request->user_id)->update($planvariationdata);
+   
+
+
+  
+  
+
+}
+    
+   
+
+
     $data = [
 
 
-    'type' =>UserTrainingType::find($type),
-    'goal'=>UserTrainingGoal::find($goal),
-    'daysperweek'=>UserDaysPerWeek::find($daysperweek),
-    'planvariationdata'=>UserPlanVariation::find($planvariation),
+    'type' =>UserTrainingType::where('user_id',$request->user_id)->first(),
+    'goal'=>UserTrainingGoal::where('user_id',$request->user_id)->first(),
+    'daysperweek'=>UserDaysPerWeek::where('user_id',$request->user_id)->first(),
+    'planvariationdata'=>UserPlanVariation::where('user_id',$request->user_id)->first(),
 
 
     ];
