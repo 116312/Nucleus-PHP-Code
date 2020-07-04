@@ -70,6 +70,14 @@
                                     </div>
                                   </div>
 
+                                   <label for="course_name">Add Price (in dollars)</label>
+                                 <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="price" id="price"
+                                               class="form-control">
+                                    </div>
+                                  </div>
+
 
 
                                   <label for="course_name">Add Trainer Name</label>
