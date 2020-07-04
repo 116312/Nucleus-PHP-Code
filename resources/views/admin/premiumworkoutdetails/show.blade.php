@@ -29,6 +29,7 @@
                                     <td>Workout Category</td>
                                     <td>Workout Type </td>
                                     <td>Workout Level </td>
+                                    <td>Price (in USD)</td>
                                     <td>Trainer Name </td>
                                     <td>Workout Description </td>
                                     <td>Image</td>
@@ -49,6 +50,7 @@
                                           <td>{{$details->workoutcategory->name}}</td>
                                           <td>{{$details->workouttype->name}}</td>
                                           <td>{{$details->workout_level}}</td>
+                                          <td>{{$details->price}}</td>
                                           <td>{{$details->trainer_name}}</td>
                                           <td>{{$details->description}}</td>
                                           
