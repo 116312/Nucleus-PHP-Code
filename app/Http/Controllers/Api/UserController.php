@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Response;
 use App\User;
+use App\Model\UserSocialPrivacySetting;
 use App\UserDevice;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -256,7 +257,7 @@ class UserController extends Controller
             $user->token = $token;
             $user->save();
             Mail::to($user->email)->send(new ForgotPasswordMail($user));
-            return Response::json(['code' => 200,'status' => true, 'message' => 'Reset password link sent successfully to register email address','data'=>$user);
+            return Response::json(['code' => 200,'status' => true, 'message' => 'Reset password link sent successfully to register email address','data'=>$user]);
         }
     }
 
@@ -283,6 +284,54 @@ class UserController extends Controller
          
             return Response::json(['code' => 200,'status' => true, 'message' => 'Password is successfully set','data'=>[]]);
         }
+
+    }
+
+
+
+
+    public function submitsocialprivacysettings(Request $request){
+      
+
+      $isalreadyexist = UserSocialPrivacySetting::where('user_id',$request->user_id)->first();
+      $data = [
+      
+      'user_id'=>$request->user_id,
+      'name'=>$request->name,
+      'gender'=>$request->gender,
+      'age'=>$request->age,
+      'height'=>$request->height,
+      'weight'=>$request->weight,
+      'email'=>$request->email,
+      'images_videos'=>$request->images_videos,
+      'workout_result'=>$request->workout_result,
+
+
+
+      ];
+
+
+    
+      if($isalreadyexist != null){
+      
+      UserSocialPrivacySetting::where('user_id',$request->user_id)->update($data);
+
+
+      }
+
+
+      else{
+
+          UserSocialPrivacySetting::insert($data);
+
+
+      }
+
+
+      $data = UserSocialPrivacySetting::where('user_id',$request->user_id)->first();
+
+    return Response::json(['code' => 200,'status' => true, 'message' => 'Privacy Setting Saved Successfully','data'=>$data]);
+
 
     }
 }

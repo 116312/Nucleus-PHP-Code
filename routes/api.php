@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Api'],function (){
    Route::post('get-user-profile','UserController@getprofile');
    Route::post('forgot-password','UserController@forgotPassword');
    Route::post('reset-password','UserController@resetPassword');
+   Route::post('submit-social-privacy-setting','UserController@submitsocialprivacysettings');
 
 
 
