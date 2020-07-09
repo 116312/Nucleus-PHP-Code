@@ -33,7 +33,6 @@
                                     <td>Challenge Name</td>
                                     <td>Challenge Category </td>
                                     <td>Promotion Banner</td>
-                                  
                                     <td>Action</td>
                                 </tr>
                                 </thead>

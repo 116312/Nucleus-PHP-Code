@@ -334,4 +334,14 @@ class UserController extends Controller
 
 
     }
+
+
+    public function getuserssocialprivacysetting(Request $request){
+
+     $data = UserSocialPrivacySetting::where('user_id',$request->user_id)->first();
+
+    return Response::json(['code' => 200,'status' => true, 'message' => 'Privacy Setting Saved Successfully','data'=>$data]);
+
+
+    }
 }
