@@ -138,6 +138,7 @@ class QuickClipsController extends Controller
             $imagePath = $image_path;
 
 
+
              QuickClips::where('id',$id)->update(['image'=>$imagePath]);
 
                   }
@@ -146,6 +147,9 @@ class QuickClipsController extends Controller
     	$data = [
 
         'name' => $request->name,
+        'start_loop_point'=>$request->start_loop_point,
+        'end_loop_point'=>$request->end_loop_point,
+        'number_of_loop'=>$request->number_of_loop, 
         
         'updated_at'=>Carbon::now(),
 
