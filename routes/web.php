@@ -295,6 +295,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('get-user-challenge','ApiDetailController@getusechallengeForm');
   Route::get('training-plan-form','ApiDetailController@gettrainingplanForm');
   Route::get('social-privacy-setting-form','ApiDetailController@getsocialprivacysettingForm');
+  Route::get('get-social-privacy-setting-form','ApiDetailController@getuserssocialprivacysettingForm');
  
 
 });

@@ -153,6 +153,14 @@ class ApiDetailController extends Controller
   }
 
 
+  public function getuserssocialprivacysettingForm(){
+     $users = User::all();
+
+return view('api.get-social-privacy-setting-form',compact('users'));
+
+  }
+
+
 
    
 
