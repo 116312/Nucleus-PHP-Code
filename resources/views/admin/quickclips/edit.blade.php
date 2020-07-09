@@ -52,6 +52,28 @@
                                                class="form-control">
                                     </div>
                                 </div>
+
+                                <label for="course_name">Start loop point(in sec)</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="start_loop_point" id="language" value ="{{$clip->start_loop_point}}"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <label for="course_name">End loop point(in sec)</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="end_loop_point" id="language" value ="{{$clip->end_loop_point}}"
+                                               class="form-control">
+                                    </div>
+                                </div>
+                                <label for="course_name">Number of loops</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="file" required name="number_of_loops" id="language" value ="{{$clip->number_of_loops}}"
+                                               class="form-control">
+                                    </div>
+                                </div>
                                
 
 
