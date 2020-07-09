@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class AddFieldsToQuickClipsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::table('quick_clips', function (Blueprint $table) {
+            $table->integer('start_loop_point');
+            $table->integer('end_loop_point');
+            $table->integer('number_of_loop');
+            
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::table('quick_clips', function (Blueprint $table) {
+              $table->dropColumn('start_loop_point');
+              $table->dropColumn('end_loop_point');
+              $table->dropColumn('number_of_loop');
+        });
+    }
+}

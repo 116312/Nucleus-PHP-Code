@@ -61,6 +61,9 @@ class QuickClipsController extends Controller
         'name' => $request->name,
         'clip' => $filepath,
         'image'=> $imagePath,
+        'start_loop_point'=>$request->start_loop_point,
+        'end_loop_point'=>$request->end_loop_point,
+        'number_of_loop'=>$request->number_of_loop,  
         'created_at'=>Carbon::now(),
 
     	];

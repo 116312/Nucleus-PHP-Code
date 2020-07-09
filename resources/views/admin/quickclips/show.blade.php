@@ -26,8 +26,12 @@
                                 <tr>
                                     <td>S No.</td>
                                     <td>Name</td>
+                                    <td>Start Point </td>
+                                    <td>End  Point </td>
+                                    <td>Number of  loops </td>
                                     <td>Quick Clips</td>
                                     <td>Clip Image</td>
+
                                     <td>Action</td>
 
                                    
@@ -40,6 +44,10 @@
                                         <tr>
                                           <td>{{++$key}}</td>
                                           <td>{{$clip->name}}</td>
+                                          <td>{{$clip->start_loop_point}}</td>
+                                          <td>{{$clip->end_loop_point}}</td>
+                                          <td>{{$clip->number_of_loop}}</td>
+                                        
                                            <td><img style="float:left!important" src="{{$clip->image}}" height="100" width="100"></td>
                                           <td><video width="320" height="240"   controls>
                                               <source src="{{$clip->clip}}" type="video/mp4" >
