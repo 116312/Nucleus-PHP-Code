@@ -65,7 +65,36 @@
                         </li>
                     </ul>
                 </li>
+                <li class="{{(isset($page) && $page && $page == 'subscription-category' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Subscription Category</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-subscription-category' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-subscription-category')}}">Add Subscription Category</a>
+                        </li>
 
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-subscription-category' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-subscription-category') }}">Show Subscription Category</a>
+                        </li>
+                    </ul>
+                </li>
+                  <li class="{{(isset($page) && $page && $page == 'subscription-plan' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Subscription Plan</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-subscription-plan' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-subscription-plan')}}">Add Subscription Plan</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-subscription-plan' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-subscription-plan') }}">Show Subscription Plan</a>
+                        </li>
+                    </ul>
+                </li>
                 <!--  <li class="{{(isset($page) && $page && $page == 'training-plan' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>

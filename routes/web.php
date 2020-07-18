@@ -84,11 +84,30 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//************************Subscription Category *******************************************//
+
+   Route::get('add-subscription-category','SubscriptionCategoryController@add');
+   Route::post('store-subscription-category','SubscriptionCategoryController@store');
+   Route::get('show-subscription-category','SubscriptionCategoryController@show');
+   Route::get('edit-subscription-category/{id}','SubscriptionCategoryController@edit');
+   Route::post('update-subscription-category/{id}','SubscriptionCategoryController@update');
+   Route::post('delete-subscription-category/{id}','SubscriptionCategoryController@delete');
 
 
 
 
-//************************ Training Goals *******************************************//
+//************************Subscription Plan *******************************************//
+
+   Route::get('add-subscription-plan','SubscriptionPlanController@add');
+   Route::post('store-subscription-plan','SubscriptionPlanController@store');
+   Route::get('show-subscription-plan','SubscriptionPlanController@show');
+   Route::get('edit-subscription-plan/{id}','SubscriptionPlanController@edit');
+   Route::post('update-subscription-plan/{id}','SubscriptionPlanController@update');
+   Route::post('delete-subscription-plan/{id}','SubscriptionPlanController@delete');
+
+
+
+ //************************ Training Goals *******************************************//
 
    Route::get('add-training-goals','TrainingGoalsController@add');
    Route::post('store-training-goals','TrainingGoalsController@store');
