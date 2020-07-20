@@ -91,6 +91,14 @@
     <p><a href="{{url('/api/get-all-promotions')}}">Get All Promotions</a></p>
       
    </div>
+
+    <h3>Subscriptions</h3>
+    <div>
+ 
+    <p><a href="{{url('/api-details/get-subscription-plan')}}">Get  Subscription Plan by Video Id</a></p>
+   
+      
+   </div>
    
 
 

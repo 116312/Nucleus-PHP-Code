@@ -30,7 +30,7 @@ class PremiumVideos extends Model
 
 
 
- public function premiumworkoutdetails(){
+    public function premiumworkoutdetails(){
 
         return $this->hasMany('App\Model\PremiumWorkoutDetails','premium_workout_id');
     }

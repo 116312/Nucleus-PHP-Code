@@ -80,7 +80,7 @@
                         </li>
                     </ul>
                 </li>
-                  <li class="{{(isset($page) && $page && $page == 'subscription-plan' ? 'active' : '')}}">
+                <li class="{{(isset($page) && $page && $page == 'subscription-plan' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
                         <span>Subscription Plan</span>
@@ -92,6 +92,21 @@
 
                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-subscription-plan' ? 'active' : '')}}">
                             <a href="{{ url('admin/show-subscription-plan') }}">Show Subscription Plan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="{{(isset($page) && $page && $page == 'subscription-workout-category' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Subscribed Workout Category</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-subscription-workout-category' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-subscription-workout-category')}}">Add Subscribed Workout Category</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-subscription-workout-category' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-subscription-workout-category') }}">Show Subscribed Workout Category</a>
                         </li>
                     </ul>
                 </li>

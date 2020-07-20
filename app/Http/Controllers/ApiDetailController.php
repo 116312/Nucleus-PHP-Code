@@ -9,7 +9,7 @@ use App\Model\NucleusChallenges;
 use App\Model\TrainingPlan;
 use App\Model\TrainingGoals;
 use App\Model\TrainingPlanDescription;
-
+use App\Model\PremiumVideos;
 
 class ApiDetailController extends Controller
 {
@@ -156,7 +156,18 @@ class ApiDetailController extends Controller
   public function getuserssocialprivacysettingForm(){
      $users = User::all();
 
-return view('api.get-social-privacy-setting-form',compact('users'));
+     return view('api.get-social-privacy-setting-form',compact('users'));
+
+  }
+
+
+
+  public function getsubscriptionplanform(){
+  
+     $premiumvideos = PremiumVideos::all();
+
+     return view('api.get-subscription-plan-form',compact('premiumvideos'));
+
 
   }
 
