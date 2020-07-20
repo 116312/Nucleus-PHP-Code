@@ -45,4 +45,11 @@ class Category extends Model
 
         return $this->hasMany('App\Model\QuickClipWorkoutDetails','category_id');
     }
+
+
+
+    public function subscribedworkoutcategory(){
+
+        return $this->hasMany('App\Model\SubscribedWorkoutCategory','categories_id');
+    }
 }

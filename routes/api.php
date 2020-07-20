@@ -66,4 +66,12 @@ Route::get('check-video','PromotionalManagementController@checkvideo');
 Route::post('submit-user-training-plan','TrainingAndPlanController@submit');
 
 
+
+//**************************** Subscription Plan *******************************//
+
+Route::post('get-subscription-plan','SubscriptionPlanController@getSubscriptionPlan');
+
+
+
+
 });
