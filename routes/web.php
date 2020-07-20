@@ -118,6 +118,20 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('delete-subscription-workout-category/{id}','SubscribedWorkoutCategoryController@delete');
 
 
+
+
+
+
+//**************************** Privacy Policy *******************************************//
+   Route::get('add-privacy-policy','PrivacyPolicyController@add');
+   Route::post('store-privacy-policy','PrivacyPolicyController@store');
+   Route::get('show-privacy-policy','PrivacyPolicyController@show');
+   Route::get('edit-privacy-policy/{id}','PrivacyPolicyController@edit');
+   Route::post('update-privacy-policy/{id}','PrivacyPolicyController@update');
+   Route::post('delete-privacy-policy/{id}','PrivacyPolicyController@delete');
+
+
+
  //************************ Training Goals *******************************************//
 
    Route::get('add-training-goals','TrainingGoalsController@add');
@@ -282,6 +296,15 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::get('add-promo_video','PromotionManagementController@addVideo');
     Route::get('show-promo_video','PromotionManagementController@showVideo');
     Route::get('edit-promo_video/{id}','PromotionManagementController@editVideo');   
+
+
+
+
+
+
+
+
+
 
 
 

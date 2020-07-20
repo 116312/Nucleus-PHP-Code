@@ -29,7 +29,7 @@
         <p><a href="{{url('/api-details/forgot-password-form')}}">Forgot Password</a></p>
         <p><a href="{{url('/api-details/reset-password-form')}}">Reset Password</a></p>
         <p><a href="{{url('/api-details/social-privacy-setting-form')}}">social privacy setting</a></p>
-          <p><a href="{{url('/api-details/get-social-privacy-setting-form')}}">GET social privacy setting</a></p>
+        <p><a href="{{url('/api-details/get-social-privacy-setting-form')}}">GET social privacy setting</a></p>
        
     </div>
         <h3>Categories</h3>
