@@ -51,6 +51,21 @@ class SubscribedWorkoutCategoryController extends Controller
       return back()->with('status',100)->with('type','success')->with('message','Subscriptions and Wokrout Catgeory associated Successfully');
 
     }
+
+
+
+    public function show(Request $request){
+        
+     $page     = 'subscription-workout-category';
+     $sub_page = 'add-subscription-workout-category';
+
+    $subscribedcategory = SubscribedWorkoutCategory::with(['workoutcategory','subscriptioncategory','subscriptionplan'])->get();
+
+    return view('admin.subscribedworkoutcategory.show',compact('page','sub_page','subscribedcategory'));
+
+
+
+    }
   
 
 

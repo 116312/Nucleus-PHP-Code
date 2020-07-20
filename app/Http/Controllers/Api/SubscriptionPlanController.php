@@ -19,4 +19,15 @@ class SubscriptionPlanController extends Controller
        return Response::json(['code' => 200,'status' => true, 'message' => 'Subscription Plan Of Premium Video','data'=>$subscriptionPlan]);
 
    }
+
+
+   
+
+
+
+
+
+
+
+
 }

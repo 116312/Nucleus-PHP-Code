@@ -110,6 +110,24 @@
                         </li>
                     </ul>
                 </li>
+                <li class="{{(isset($page) && $page && $page == 'privacy-policy' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Privacy Policy</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-privacy-policy' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-privacy-policy')}}">Add Privacy Policy</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-privacy-policy' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-privacy-policy') }}">Show Privacy Policy</a>
+                        </li>
+                    </ul>
+                </li>
+
+
+                
                 <!--  <li class="{{(isset($page) && $page && $page == 'training-plan' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
