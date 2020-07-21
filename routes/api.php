@@ -73,5 +73,11 @@ Route::post('get-subscription-plan','SubscriptionPlanController@getSubscriptionP
 
 
 
+//**************************** Subscription Plan *******************************//
+
+Route::post('get-privacy-policy','PrivacyPolicyController@getPrivacyPolicy');
+
+
+
 
 });

@@ -28,6 +28,14 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
     Route::get('all-users','UserController@allUsers');
 
 
+
+
+
+
+
+
+
+
 //************************** Workout  Categories ********************************************* //
 
     Route::get('add-cate','CategoryController@add');
@@ -350,6 +358,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('social-privacy-setting-form','ApiDetailController@getsocialprivacysettingForm');
   Route::get('get-social-privacy-setting-form','ApiDetailController@getuserssocialprivacysettingForm');
   Route::get('get-subscription-plan','ApiDetailController@getsubscriptionplanform');
+  Route::get('get-privacy-policy','ApiDetailController@getPrivacyPolicy');
  
 
 });

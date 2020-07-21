@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Subscription Category')
+@section('title', 'Edit Subscription Plan')
 @section('admin-section')
 
     <section class="content">
@@ -17,14 +17,14 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-subscription-plan')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-subscription-plan'.'/'.$subscriptionplan->id)}}" enctype="multipart/form-data">
                                 @csrf
 
 
                                 <label for="course_name">Subscription Plan Name</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="name" id="category_name"
+                                        <input type="text" required name="name"  value="{{$subscriptionplan->name}}" id="category_name"
                                                class="form-control">
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                                  <label for="course_name">Subscription Description</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" required name="description" id="category_name"
+                                        <input type="text" required name="description" value = "{{$subscriptionplan->description}}" id="category_name"
                                                class="form-control">
                                     </div>
                                 </div>
