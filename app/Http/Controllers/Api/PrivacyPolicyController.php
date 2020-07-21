@@ -10,6 +10,7 @@ use Response;
 class PrivacyPolicyController extends Controller
 {
     public function getPrivacyPolicy(){
+    	
        $policy = PrivacyPolicy::first();
 
 
