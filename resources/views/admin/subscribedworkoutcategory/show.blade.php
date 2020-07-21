@@ -50,7 +50,9 @@
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-category').'/'.$sub->id}}" role="form">
                                     @csrf
                                                 <td>
-                                                     <a href="{{url('admin/edit-subscription-category').'/'.$sub->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/edit-subscription-category').'/'.$sub->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/add-subscription-workout-category-details').'/'.$sub->id}}"><button type="button" class="btn btn-primary waves-effect">Add Details</button></a>
+                                        <a href="{{url('admin/edit-subscription-category').'/'.$sub->id}}"><button type="button" class="btn btn-primary waves-effect">Additional Benifits</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                                 </td>
                                             </form> 

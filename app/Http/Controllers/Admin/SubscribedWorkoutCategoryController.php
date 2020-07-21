@@ -66,8 +66,10 @@ class SubscribedWorkoutCategoryController extends Controller
 
 
     }
-  
 
+
+
+   
 
 
 

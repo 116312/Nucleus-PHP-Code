@@ -126,6 +126,18 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('delete-subscription-workout-category/{id}','SubscribedWorkoutCategoryController@delete');
 
 
+//********************* Subscribed Workout Category Detail*****************************************//
+   
+   Route::get('add-subscription-workout-category-details/{sub_id}','SubscribedWorkoutCategoryDetailsController@add');
+   Route::post('store-subscription-workout-category-details/{sub_id}','SubscribedWorkoutCategoryDetailsController@store');
+   Route::get('show-subscription-workout-category-details/{sub_id}','SubscribedWorkoutCategoryDetailsController@show');
+   Route::get('edit-subscription-workout-category-details/{sub_id}/{id}','SubscribedWorkoutCategoryDetailsController@edit');
+   Route::post('update-subscription-workout-category-details/{sub_id}/{id}','SubscribedWorkoutCategoryDetailsController@update');
+   Route::post('delete-subscription-workout-category-details/{sub_id}/{id}','SubscribedWorkoutCategoryDetailsController@delete');
+
+
+  
+  
 
 
 
