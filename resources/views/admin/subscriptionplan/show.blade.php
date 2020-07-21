@@ -30,7 +30,8 @@
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
-                                    <td>Category Name</td>
+                                    <td>Plan Name</td>
+                                    <td>Plan Description</td>
                                     
                                     <td>Action</td>
 
@@ -44,6 +45,7 @@
                                         <tr>
                                             <td>{{++$key}}</td>
                                             <td>{{$plan->name}}</td>
+                                            <td>{{$plan->description}}</td>
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-plan').'/'.$plan->id}}" role="form">
                                     @csrf
                                                 <td>

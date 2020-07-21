@@ -33,7 +33,6 @@
                                     <td>Subscription Category</td>
                                     <td>Subscription Plan </td>
                                     <td>Workout Category</td>
-                                    
                                     <td>Action</td>
 
                                    

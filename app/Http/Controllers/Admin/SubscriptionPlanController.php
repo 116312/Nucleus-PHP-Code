@@ -32,6 +32,7 @@ class SubscriptionPlanController extends Controller
     	$data = [
         
         'name'=>$request->name ,
+        'description'=>$request->description,
         'created_at' => Carbon::now(),
 
     	];
@@ -89,6 +90,7 @@ class SubscriptionPlanController extends Controller
     	$data = [
         
         'name'=>$request->name ,
+        'description'=>$request->description,
         'created_at' => Carbon::now(),
 
     	];
