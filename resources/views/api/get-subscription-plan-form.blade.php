@@ -21,7 +21,7 @@
 </h1>
 <form method="POST" enctype="multipart/form-data" action="{{url('/api/get-subscription-plan')}}" >
  
-    Premium Video(premium_video_id)::*<select name="video_id" required>
+    Premium Video(video_id)::*<select name="video_id" required>
     <option value="">Select</option>
         @foreach($premiumvideos as $videos)
     <option value="{{$videos->id}}">{{$videos->name}}</option>
