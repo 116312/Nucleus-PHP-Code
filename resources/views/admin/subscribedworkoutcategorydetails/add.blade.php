@@ -37,6 +37,14 @@
                                     </div>
                                   </div>
 
+                                   <label for="course_name">Plan Duration (in months)</label>
+                                 <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="number_of_month" id="price"
+                                               class="form-control">
+                                    </div>
+                                  </div>
+
 
 
                                   <label for="course_name">Additional Benifits</label>

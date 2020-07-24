@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\SubscriptionPlan;
 use App\Model\SubscriptionCategory;
 use App\Model\SubscribedWorkoutCategory;
+use App\Model\SubscriptionWorkoutPlan;
 use App\Model\Category;
 use Carbon\Carbon;
 
@@ -36,18 +37,32 @@ class SubscribedWorkoutCategoryController extends Controller
 
 
     public function store(Request $request){
+     
+
+     
 
        $data = [
       
        'subscription_category_id' =>$request->subscription_category_id,
-       'subscription_plan_id'=>$request->subscription_plan_id,
+      
        'categories_id'=>$request->categories_id,
        'created_at'=>Carbon::now(),
         ];   
 
 
-      SubscribedWorkoutCategory::insert($data);
+      $id = SubscribedWorkoutCategory::insertGetId($data);
 
+
+      $subs = [
+      'subscribed_workout_category_id' =>$id,
+      'subscription_plan_id'=>$request->subscription_plan_id,
+
+      ];
+
+
+
+       SubscriptionWorkoutPlan::insert($subs);
+     
       return back()->with('status',100)->with('type','success')->with('message','Subscriptions and Wokrout Catgeory associated Successfully');
 
     }
@@ -59,7 +74,7 @@ class SubscribedWorkoutCategoryController extends Controller
      $page     = 'subscription-workout-category';
      $sub_page = 'add-subscription-workout-category';
 
-    $subscribedcategory = SubscribedWorkoutCategory::with(['workoutcategory','subscriptioncategory','subscriptionplan'])->get();
+    $subscribedcategory = SubscriptionWorkoutPlan::with(['subscriptionworkoutcategory.subscriptioncategory','subscriptionworkoutcategory.workoutcategory','subscriptionplan','subscriptiondetails','subscriptionbenifits'])->get();
 
     return view('admin.subscribedworkoutcategory.show',compact('page','sub_page','subscribedcategory'));
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubscriptionWorkoutCategoryDetailsTable extends Migration
+class CreateSubscriptionDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,15 +15,13 @@ class CreateSubscriptionWorkoutCategoryDetailsTable extends Migration
     {
         Schema::create('subscription_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('subscription_workout_category_id');
-            $table->foreign('subscription_workout_category_id')->references('id')->on('subscribed_workout_category')->onDelete('cascade');
+            $table->unsignedBigInteger('subscription_workout_plan_id');
+            $table->foreign('subscription_workout_plan_id')->references('id')->on('subscription_workout_plan')->onDelete('cascade');
             $table->integer('original_price');
             $table->integer('offer_percentage');
             $table->integer('number_of_month');
             $table->integer('per_month_price');
             $table->integer('plan_duration_price');
-           
-
             $table->timestamps();
         });
     }

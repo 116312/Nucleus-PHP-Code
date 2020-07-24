@@ -17,8 +17,7 @@ class CreateSubscribedWorkoutCategoryTable extends Migration
             $table->id();
             $table->unsignedBigInteger('subscription_category_id');
             $table->foreign('subscription_category_id')->references('id')->on('subscription_category')->onDelete('cascade');
-            $table->unsignedBigInteger('subscription_plan_id');
-            $table->foreign('subscription_plan_id')->references('id')->on('subscription_plan')->onDelete('cascade');
+         
             $table->unsignedBigInteger('categories_id');
             $table->foreign('categories_id')->references('id')->on('categories')->onDelete('cascade');
             $table->timestamps();
