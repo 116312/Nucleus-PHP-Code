@@ -33,6 +33,7 @@
                                     <td>Subscription Category</td>
                                     <td>Subscription Plan </td>
                                     <td>Workout Category</td>
+
                                     <td>Original Price</td>
                                     <td>Offer(in percentage)</td>
                                     <td>Per Month Price</td>
@@ -53,16 +54,21 @@
                                             <td>{{$sub->subscriptionworkoutcategory->subscriptioncategory->name}}</td>
                                             <td>{{$sub->subscriptionplan->name}}</td>
                                             <td>{{$sub->subscriptionworkoutcategory->workoutcategory->name}}</td>
+                                            @if($sub->subscriptiondetails->count() != null)
                                             <td>${{$sub->subscriptiondetails->original_price}}</td>
                                             <td>{{$sub->subscriptiondetails->offer_percentage}}%</td>
-                                             <td>${{$sub->subscriptiondetails->per_month_price}}</td>
+                                            <td>${{$sub->subscriptiondetails->per_month_price}}</td>
                                              
-                                               <td>{{$sub->subscriptiondetails->number_of_month}}months</td>
-                                                <td>${{$sub->subscriptiondetails->plan_duration_price}}</td>
-                                                <td>@foreach($sub->subscriptionbenifits as  $benifits)
+                                            <td>{{$sub->subscriptiondetails->number_of_month}}months</td>
+                                            <td>${{$sub->subscriptiondetails->plan_duration_price}}</td>
+                                            <td>@foreach($sub->subscriptionbenifits as  $benifits)
                                                     <li>{{$benifits->benifits}}</li>
                                                     @endforeach
                                                 </td>
+
+
+
+                                           @endif
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-category').'/'.$sub->id}}" role="form">
                                     @csrf
                                                 <td>
