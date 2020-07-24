@@ -54,7 +54,7 @@
                                             <td>{{$sub->subscriptionworkoutcategory->subscriptioncategory->name}}</td>
                                             <td>{{$sub->subscriptionplan->name}}</td>
                                             <td>{{$sub->subscriptionworkoutcategory->workoutcategory->name}}</td>
-                                            @if($sub->subscriptiondetails->count() != null)
+                                            @if($sub->subscriptiondetails != null)
                                             <td>${{$sub->subscriptiondetails->original_price}}</td>
                                             <td>{{$sub->subscriptiondetails->offer_percentage}}%</td>
                                             <td>${{$sub->subscriptiondetails->per_month_price}}</td>
