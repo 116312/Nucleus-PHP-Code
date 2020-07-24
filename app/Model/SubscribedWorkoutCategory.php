@@ -24,19 +24,11 @@ class SubscribedWorkoutCategory extends Model
 
 
     
-     public function subscriptionplan()
+     public function subscriptionworkoutplan()
     {
-        return $this->belongsTo('App\Model\SubscriptionPlan','subscription_plan_id');
+        return $this->hasMany('App\Model\SubscriptionWorkoutPlan','subscribed_workout_category_id');
     }
 
 
-     public function subscriptiondetails(){
-
-        return $this->hasMany('App\Model\SubscriptionDetails','subscription_workout_category_id');
-    }
-
-     public function subscriptionbenifits(){
-
-        return $this->hasMany('App\Model\SubscriptionBenifits','subscription_workout_category_id');
-    }
+    
 }
