@@ -13,7 +13,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               Add Details Here
+                               Add Details Here ({{$subscribedcategory->subscriptionworkoutcategory->subscriptioncategory->name}} , {{$subscribedcategory->subscriptionworkoutcategory->workoutcategory->name}},{{$subscribedcategory->subscriptionplan->name}})
                             </h2>
                         </div>
                         <div class="body">
