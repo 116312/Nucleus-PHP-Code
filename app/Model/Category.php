@@ -50,7 +50,7 @@ class Category extends Model
 
     public function subscriptionworkoutcategory()
     {
-        return $this->hasMany('App\Model\SubscriptionWorkoutCategory','category_id');
+        return $this->hasMany('App\Model\SubscriptionWorkoutCategory','categories_id');
     }
 
 
