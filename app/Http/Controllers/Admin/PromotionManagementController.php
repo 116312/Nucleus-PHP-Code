@@ -72,8 +72,6 @@ class PromotionManagementController extends Controller
 
        $challenges = NucleusChallenges::with('challengecategory')->get();
 
-       
-
        return view('admin.promotionmanagement.add-video',compact('page','subpage','challenges'));
          
 

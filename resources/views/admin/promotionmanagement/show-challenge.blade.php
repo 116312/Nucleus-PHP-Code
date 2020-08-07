@@ -37,6 +37,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                               
                                     @foreach($chall_promotion as $key => $promo)
                                     <tr>
                                      <td>{{++$key}}</td>
