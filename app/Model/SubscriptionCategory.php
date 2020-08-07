@@ -13,4 +13,11 @@ class SubscriptionCategory extends Model
 
         return $this->hasMany('App\Model\SubscribedWorkoutCategory','subscription_category_id');
     }
+
+
+     public function subscriptionplandetails(){
+
+      return $this->hasMany('App\Model\SubscriptionPlanDetails','subscription_plan_id');
+        
+    }
 }

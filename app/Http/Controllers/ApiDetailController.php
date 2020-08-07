@@ -10,9 +10,27 @@ use App\Model\TrainingPlan;
 use App\Model\TrainingGoals;
 use App\Model\TrainingPlanDescription;
 use App\Model\PremiumVideos;
+use App\Model\SubscriptionCategory;
+use App\Model\SubscriptionPlan;
+
 
 class ApiDetailController extends Controller
 {
+   
+
+    public function submitsubscriptionplanform(){
+    
+      $users = User::all();
+      $categories = Category::all();
+      $subscription_categories =SubscriptionCategory::all();
+      $subscription_plan = SubscriptionPlan::all();
+      $premiumvideos =PremiumVideos::all();
+
+
+     return view('api.submit-subscription-form',compact('categories','users','subscription_categories','subscription_plan','premiumvideos'));
+
+    }
+
     public function registerForm(){
 
      $page = "register-form";

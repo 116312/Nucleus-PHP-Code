@@ -48,8 +48,10 @@ class Category extends Model
 
 
 
-    public function subscribedworkoutcategory(){
-
-        return $this->hasMany('App\Model\SubscribedWorkoutCategory','categories_id');
+    public function subscriptionworkoutcategory()
+    {
+        return $this->hasMany('App\Model\SubscriptionWorkoutCategory','category_id');
     }
+
+
 }
