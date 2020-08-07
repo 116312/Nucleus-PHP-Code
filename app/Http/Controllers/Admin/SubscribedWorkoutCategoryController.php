@@ -6,9 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\SubscriptionPlan;
 use App\Model\SubscriptionCategory;
-use App\Model\SubscribedWorkoutCategory;
-use App\Model\SubscriptionWorkoutPlan;
+use App\Model\SubscriptionWorkoutCategory;
 use App\Model\Category;
+use App\Model\SubscriptionPlanDetails;
 use Carbon\Carbon;
 
 class SubscribedWorkoutCategoryController extends Controller
@@ -39,31 +39,23 @@ class SubscribedWorkoutCategoryController extends Controller
     public function store(Request $request){
      
 
-     
+     $sub_id = SubscriptionPlanDetails::where('subscription_category_id',$request->subscription_category_id)->where('subscription_plan_id',$request->subscription_plan_id)->first();
 
        $data = [
       
-       'subscription_category_id' =>$request->subscription_category_id,
+       'subscription_details_id' => $sub_id->id,
       
        'categories_id'=>$request->categories_id,
        'created_at'=>Carbon::now(),
         ];   
 
 
-      $id = SubscribedWorkoutCategory::insertGetId($data);
+      SubscriptionWorkoutCategory::insert($data);
 
 
-      $subs = [
-      'subscribed_workout_category_id' =>$id,
-      'subscription_plan_id'=>$request->subscription_plan_id,
-
-      ];
-
-
-
-       SubscriptionWorkoutPlan::insert($subs);
+   
      
-      return back()->with('status',100)->with('type','success')->with('message','Subscriptions and Wokrout Catgeory associated Successfully');
+      return back()->with('status',100)->with('type','success')->with('message','Subscriptions and Wokrout Category associated Successfully');
 
     }
 
@@ -74,7 +66,8 @@ class SubscribedWorkoutCategoryController extends Controller
      $page     = 'subscription-workout-category';
      $sub_page = 'add-subscription-workout-category';
 
-    $subscribedcategory = SubscriptionWorkoutPlan::with(['subscriptionworkoutcategory.subscriptioncategory','subscriptionworkoutcategory.workoutcategory','subscriptionplan','subscriptiondetails','subscriptionbenifits'])->get();
+    $subscribedcategory = SubscriptionWorkoutCategory::with(['workoutcategory','subscriptionplandetails.subscriptioncategory','subscriptionplandetails.subscriptionplan'])->get();
+   
 
     return view('admin.subscribedworkoutcategory.show',compact('page','sub_page','subscribedcategory'));
 

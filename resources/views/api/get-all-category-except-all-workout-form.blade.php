@@ -16,7 +16,7 @@
 
 <h1>
 
-    URL::{{url('/').'/api/get-all-categories'}}
+    URL::{{url('/').'/api/get-all-categories-except-all-workout'}}
 
 </h1>
 <form method="POST" enctype="multipart/form-data" action="{{url('/api/get-all-categories-except-all-workout')}}" >

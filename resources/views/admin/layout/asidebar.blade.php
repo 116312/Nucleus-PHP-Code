@@ -95,6 +95,22 @@
                         </li>
                     </ul>
                 </li>
+                 <li class="{{(isset($page) && $page && $page == 'subscription-plan-details' ? 'active' : '')}}">
+                    <a href="javascript:void(0);" class="menu-toggle">
+                        <i class="material-icons">alarm_on</i>
+                        <span>Subscription Plan Details</span>
+                    </a>
+                    <ul class="ml-menu">
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-subscription-plan-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/add-subscription-plan-details')}}">Add Subscription Plan</a>
+                        </li>
+
+                        <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-subscription-plan-details' ? 'active' : '')}}">
+                            <a href="{{ url('admin/show-subscription-plan-details') }}">Show Subscription Plan</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="{{(isset($page) && $page && $page == 'subscription-workout-category' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>

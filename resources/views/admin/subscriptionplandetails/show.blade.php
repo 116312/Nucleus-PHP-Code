@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Show Subscribed Workout Category')
+@section('title', 'Subscription Plan Details')
 @section('admin-section')
     <style type="text/css">
         #all-user-datatable_wrapper{
@@ -10,7 +10,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Subscription Workout Category</h2>
+                <h2>Subscription plan</h2>
             </div>
 
             <!-- Vertical Layout -->
@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Show Subscription Workout Category
+                                Show Details of Subscription Plan
                             </h2>
                         </div>
                         <div class="body">
@@ -30,10 +30,14 @@
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
-                                    <td>Subscription Category</td>
-                                    <td>Subscription Plan </td>
-                                    <td>Workout Category</td>
-
+                                    <td>Subscription Category </td>
+                                    <td>Subscription Plan</td>
+                                    <td>Original Price</td>
+                                    <td>Offer(in percentage)</td>
+                                    <td>Per Month Price</td>
+                                    <td>Plan Duration (in months)</td>
+                                    <td>Plan Price</td>
+                                    <td>Additional Benifits</td>
                                     
                                     <td>Action</td>
 
@@ -43,18 +47,25 @@
                                 </thead>
                                 <tbody>
                                   
-                                        @foreach($subscribedcategory as $key => $sub)
+                                        @foreach($subscriptionplandetails as $key => $detail)
                                         <tr>
                                             <td>{{++$key}}</td>
-                                            <td>{{$sub->subscriptionplandetails->subscriptioncategory->name}}</td>
-                                            <td>{{$sub->subscriptionplandetails->subscriptionplan->name}}</td>
-                                            <td>{{$sub->workoutcategory->name}}</td>
-                                           
-                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-category').'/'.$sub->id}}" role="form">
+                                            <td>{{$detail->subscriptioncategory->name}}</td>
+                                            <td>{{$detail->subscriptionplan->name}}</td>
+                                            <td>${{$detail->original_price}}</td>
+                                            <td>{{$detail->offer_percentage}}%</td>
+                                            <td>${{$detail->per_month_price}}</td>
+                                             
+                                            <td>{{$detail->number_of_month}}months</td>
+                                            <td>${{$detail->plan_duration_price}}</td>
+                                            <td>@foreach($detail->additionalbenifits as  $benifits)
+                                                    <li>{{$benifits->benifits}}</li>
+                                                    @endforeach
+                                                </td>
+                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-plan-details').'/'.$detail->id}}" role="form">
                                     @csrf
                                                 <td>
-                                        <a href="{{url('admin/edit-subscription-category').'/'.$sub->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
-                                        
+                                                     <a href="{{url('admin/edit-subscription-plan-details').'/'.$detail->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                                 </td>
                                             </form> 

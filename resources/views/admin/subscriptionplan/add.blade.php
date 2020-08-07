@@ -21,7 +21,7 @@
                                 @csrf
 
 
-                                <label for="course_name">Subscription Plan Name</label>
+                                <label for=" ">Subscription Plan Name</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="name" id="category_name"
@@ -30,13 +30,15 @@
                                 </div>
 
 
-                                 <label for="course_name">Subscription Description</label>
+                                <label for="course_name">Subscription Description</label>
                                 <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="description" id="category_name"
                                                class="form-control">
                                     </div>
                                 </div>
+
+                                
 
                                 
                                

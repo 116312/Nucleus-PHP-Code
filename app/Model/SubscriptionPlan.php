@@ -14,4 +14,11 @@ class SubscriptionPlan extends Model
         return $this->hasMany('App\Model\SubscriptionWorkoutPlan','subscription_plan_id');
     }
 
+
+     public function subscriptionplandetails(){
+
+      return $this->hasMany('App\Model\SubscriptionPlanDetails','subscription_plan_id');
+        
+    }
+
 }

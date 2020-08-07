@@ -57,7 +57,7 @@
         
     <p><a href="{{url('/api-details/get-all-nucleus-challenges')}}">Get All Challenges</a></p>
     <p><a href="{{url('/api-details/user-select-challenge')}}">Select Challenge</a></p>
-     <p><a href="{{url('/api-details/get-user-challenge')}}">Get User Challenge</a></p>
+    <p><a href="{{url('/api-details/get-user-challenge')}}">Get User Challenge</a></p>
       
    </div>
 
@@ -96,6 +96,7 @@
     <div>
  
     <p><a href="{{url('/api-details/get-subscription-plan')}}">Get  Subscription Plan by Video Id</a></p>
+    <p><a href="{{url('/api-details/submit-subscription-plan')}}">Submit Subscription</a></p>
    
       
    </div>

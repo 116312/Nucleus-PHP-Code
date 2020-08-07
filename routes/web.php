@@ -115,6 +115,21 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::post('update-subscription-plan/{id}','SubscriptionPlanController@update');
    Route::post('delete-subscription-plan/{id}','SubscriptionPlanController@delete');
 
+
+
+//************************Subscription Plan *******************************************//
+
+   
+
+   Route::get('add-subscription-plan-details','SubscriptionPlanDetailsController@add');
+   Route::post('store-subscription-plan-details','SubscriptionPlanDetailsController@store');
+   Route::get('show-subscription-plan-details','SubscriptionPlanDetailsController@show');
+   Route::get('edit-subscription-plan-details/{id}','SubscriptionPlanDetailsController@edit');
+   Route::post('update-subscription-plan-details/{id}','SubscriptionPlanDetailsController@update');
+   Route::post('delete-subscription-plan-details/{id}','SubscriptionPlanDetailsController@delete');
+
+
+
 //***************************** Subscribed Workout Category ************************//
 
    
@@ -371,6 +386,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('get-social-privacy-setting-form','ApiDetailController@getuserssocialprivacysettingForm');
   Route::get('get-subscription-plan','ApiDetailController@getsubscriptionplanform');
   Route::get('get-privacy-policy','ApiDetailController@getPrivacyPolicy');
+  Route::get('submit-subscription-plan','ApiDetailController@submitsubscriptionplanform');
  
 
 });
