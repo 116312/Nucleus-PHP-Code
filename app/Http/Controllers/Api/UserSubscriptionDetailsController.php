@@ -16,7 +16,7 @@ class UserSubscriptionDetailsController extends Controller
 
 	public function saveDetails(Request $request){
 
-		
+
       $savedata= [
      'user_id'=> $request->user_id,
      'payment_id'=> $request->payment_id,
@@ -29,7 +29,7 @@ class UserSubscriptionDetailsController extends Controller
 
 
       $plandetails = [
-      'subscription_category_id'=>$request->subscription_catgeory_id,
+      'subscription_category_id'=>$request->subscription_category_id,
       'subscription_plan_id'=>$request->subscription_plan_id,
         ];
 

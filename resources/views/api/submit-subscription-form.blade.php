@@ -53,7 +53,7 @@
 
    
 
-    Subscription Category(subscription_category_id)::*<select name="subscription_catgeory_id" required>
+    Subscription Category(subscription_category_id)::*<select name="subscription_category_id" required>
     <option value="">Select</option>
         @foreach($subscription_categories as $category)
         <option value="{{$category->id}}">{{$category->name}}</option>
