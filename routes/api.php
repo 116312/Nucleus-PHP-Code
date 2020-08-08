@@ -77,6 +77,9 @@ Route::post('get-subscription-plan','SubscriptionPlanController@getSubscriptionP
 
 Route::post('get-privacy-policy','PrivacyPolicyController@getPrivacyPolicy');
 
+//*********************** User Subscription Details ********************//
+
+Route::post('submit-user-subscription','UserSubscriptionDetailsController@saveDetails');
 
 
 

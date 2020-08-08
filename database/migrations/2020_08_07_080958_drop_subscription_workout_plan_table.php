@@ -13,7 +13,7 @@ class DropSubscriptionWorkoutPlanTable extends Migration
      */
     public function up()
     {
-         Schema::dropIfExists('subscription_workout_plan');
+         Schema::dropIfExists('subscription_workout_plan'); 
     }
 
     /**

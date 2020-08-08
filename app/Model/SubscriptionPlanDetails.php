@@ -27,8 +27,8 @@ class SubscriptionPlanDetails extends Model
     }
 
 
-      public function subscriptionworkoutcategory()
+      public function subscriptionplandetails()
     {
-        return $this->hasMany('App\Model\SubscriptionWorkoutCategory','subscription_details_id');
+        return $this->belongsTo('App\Model\SubscriptionCategory','subscription_details_id');
     }
 }
