@@ -52,11 +52,40 @@ class UserSubscriptionDetailsController extends Controller
         $x = UserSubscriptionPlanDetails::insertGetId($plandetails);
         $subscriptionworkoutcategories     = SubscriptionWorkoutCategory::where('subscription_details_id',$subscriptionPlanDetails->id)->with(['workoutcategory.premiumworkoutdetails.premiumworkout'])->get();
 
-        dd($subscriptionworkoutcategories);
+        foreach($subscriptionworkoutcategories->workoutcategory->premiumworkoutdetails as $premiumworkoutdetails){
+      
         $videodetails = [];
 
+        $videodetails = [
+
+       'user_subscription_id' =>$id,
+       'premium_video_id'=>$premiumworkoutdetails->premiumworkout->id,
+       'created_at'=>Carbon::now(),
+        
+        ];
+     
+       $video_id =UserSubscribedVideosDetails::insertGetId($videodetails);
+
+        }
+      
+
+        
 
 
+         }
+
+
+         else{
+
+        $videodetails = [
+
+       'user_subscription_id' =>$id,
+       'premium_video_id'=>$request->premium_video_id,
+       'created_at'=>Carbon::now(),
+        
+        ];
+     
+       $video_id =UserSubscribedVideosDetails::insertGetId($videodetails);
 
          }
 
@@ -64,6 +93,7 @@ class UserSubscriptionDetailsController extends Controller
 
     'transaction' =>UserSubscriptionDetails::find($id),
     'subscription_plan'=>UserSubscriptionPlanDetails::find($x),
+    'uservideo'=>UserSubscribedVideosDetails::where('user_subscription_id',$id),
      ];
 
 
