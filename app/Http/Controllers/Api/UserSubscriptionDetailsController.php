@@ -51,7 +51,7 @@ class UserSubscriptionDetailsController extends Controller
 
         $x = UserSubscriptionPlanDetails::insertGetId($plandetails);
         $subscriptionworkoutcategories     = SubscriptionWorkoutCategory::where('subscription_details_id',$subscriptionPlanDetails->id)->with(['workoutcategory.premiumworkoutdetails.premiumworkout'])->get();
-
+dd($subscriptionworkoutcategories);
         foreach($subscriptionworkoutcategories->workoutcategory->premiumworkoutdetails as $premiumworkoutdetails){
       
         $videodetails = [];
