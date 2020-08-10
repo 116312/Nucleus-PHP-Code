@@ -44,7 +44,7 @@ class SubscriptionPlanDetailsController extends Controller
         $sub_id= SubscriptionPlanDetails::insertGetId($data);
 
 
-         foreach($request->benifits as $benifits){
+    foreach($request->benifits as $benifits){
      $benifit = [];
       $benifit = [
      'subscription_plan_details_id' =>$sub_id,

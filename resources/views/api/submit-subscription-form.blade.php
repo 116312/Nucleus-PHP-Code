@@ -59,11 +59,20 @@
         <option value="{{$category->id}}">{{$category->name}}</option>
         @endforeach
     </select>
-
+    <br/>
+    <br/>
     Subscription Plan(subscription_plan_id)::*<select name="subscription_plan_id" required>
     <option value="">Select</option>
         @foreach($subscription_plan as $sub_plan)
         <option value="{{$sub_plan->id}}">{{$sub_plan->name}}</option>
+        @endforeach
+    </select>
+    <br/>
+    <br/>
+    Premium Video(premium_video_id)::*<select name="premium_video_id" required>
+    <option value="">Select</option>
+        @foreach($premiumvideos as $video)
+        <option value="{{$video->id}}">{{$video->name}}</option>
         @endforeach
     </select>
 
