@@ -15,43 +15,31 @@ class WorkoutController extends Controller
 {
     public function getworkoutbycategory(Request $request){
       
-      $detail = Category::find($request->cate_id);
+        $detail = Category::find($request->cate_id);
        
         $user = User::where('id',$request->user_id)->first();
 
        if($detail->name == 'ALL WORKOUTS'){
 
 
-               if($user->gender == null){
-          
-                  
-                  $categories = Category::where('name','!=','ALL WORKOUTS')->orderBy('sequence_no', 'asc')->with('unspecifiedcategoryimage')->get();
+                $workouts = [];
 
-                }
+      $premiumworkouts = PremiumWorkoutDetails::orderBy('category_id','asc')->with('premiumworkout.subtitle','workoutcategory','workouttype')->get();
 
+      $quickclipworkouts = QuickClipWorkoutDetails::orderBy('category_id','asc')->with('quickclipworkoutclip.quickclips')->get();
 
-
-              if($user->gender == 'Female'){
-                     
-                 $categories = Category::where('name','!=','ALL WORKOUTS')->orderBy('sequence_no', 'asc')->with('femalecategoryimage')->get();
-
-              }
+     
 
 
-
-              if($user->gender == 'Male'){
-
-                  $categories = Category::where('name','!=','ALL WORKOUTS')->orderBy('sequence_no', 'asc')->with('malecategoryimage')->get();
-
-              }
-      
+      $workouts = [
+        'premiumworkouts' =>$premiumworkouts,
+        'quickclipworkouts'=>$quickclipworkouts,
+         ];
 
 
-      $categories = Category::where('name','!=','ALL WORKOUTS')->orderBy('sequence_no', 'asc')->with('unspecifiedcategoryimage')->get();
-    
-      return Response::json(['code' => 200,'status' => true, 'message' => 'All categories','data'=>$categories]);
+      return Response::json(['code' => 200,'status' => true, 'message' => 'All Workouts','data'=>$workouts]);
 
-   }
+        }
 
 
    
