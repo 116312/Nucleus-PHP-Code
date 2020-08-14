@@ -14,7 +14,7 @@ class UserSubscribedVideosDetails extends Model
     }
     
 
-     public function usersubscriptiondetails()
+     public function premiumvideo()
     {
         return $this->belongsTo('App\Model\PremiumVideos','premium_video_id');
     }

@@ -184,7 +184,9 @@ class ApiDetailController extends Controller
   
      $premiumvideos = PremiumVideos::all();
 
-     return view('api.get-subscription-plan-form',compact('premiumvideos'));
+     $users = User::all();
+
+     return view('api.get-subscription-plan-form',compact('premiumvideos','users'));
 
 
   }
