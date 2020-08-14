@@ -64,4 +64,11 @@ class User extends Authenticatable
          return $this->hasMany(UserNucleusChallenge::class,'user_id');
     }
 
+
+
+    public function usersubscriptiondetails(){
+
+         return $this->hasMany(UserSubscriptionDetails::class,'user_id');
+    }
+
 }

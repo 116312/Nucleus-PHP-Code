@@ -51,10 +51,14 @@ class UserSubscriptionDetailsController extends Controller
 
         $x = UserSubscriptionPlanDetails::insertGetId($plandetails);
         $subscriptionworkoutcategories     = SubscriptionWorkoutCategory::where('subscription_details_id',$subscriptionPlanDetails->id)->with(['workoutcategory.premiumworkoutdetails.premiumworkout'])->get();
-        dd($subscriptionworkoutcategories);
-        foreach($subscriptionworkoutcategories->workoutcategory->premiumworkoutdetails as $premiumworkoutdetails){
-      
-        $videodetails = [];
+        
+
+
+        foreach($subscriptionworkoutcategories as $workoutcategory){
+        
+      foreach($workoutcategory->workoutcategory->premiumworkoutdetails as $premiumworkoutdetails)
+{       
+         $videodetails = [];
 
         $videodetails = [
 
@@ -65,11 +69,18 @@ class UserSubscriptionDetailsController extends Controller
         ];
      
        $video_id =UserSubscribedVideosDetails::insertGetId($videodetails);
+}
 
+         
         }
       
 
-        
+       $details = [
+
+    'transaction' =>UserSubscriptionDetails::find($id),
+    'subscription_plan'=>UserSubscriptionPlanDetails::find($x),
+    'uservideo'=>UserSubscribedVideosDetails::where('user_subscription_id',$id)->get(),
+     ]; 
 
 
          }
@@ -86,19 +97,22 @@ class UserSubscriptionDetailsController extends Controller
         ];
      
        $video_id =UserSubscribedVideosDetails::insertGetId($videodetails);
+       
+       
+       $details = [
+
+    'transaction' =>UserSubscriptionDetails::find($id),
+    
+    'uservideo'=>UserSubscribedVideosDetails::where('user_subscription_id',$id)->first(),
+     ];
 
          }
 
-     $details = [
-
-    'transaction' =>UserSubscriptionDetails::find($id),
-    'subscription_plan'=>UserSubscriptionPlanDetails::find($x),
-    'uservideo'=>UserSubscribedVideosDetails::where('user_subscription_id',$id),
-     ];
+    
 
 
 
-       return Response::json(['code' => 200,'status' => true, 'message' => 'All categories','data'=>$details]);
+       return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Details','data'=>$details]);
 
    }
 

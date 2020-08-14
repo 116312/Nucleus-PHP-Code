@@ -35,9 +35,16 @@ class PremiumVideos extends Model
         return $this->hasMany('App\Model\PremiumWorkoutDetails','premium_workout_id');
     }
 
-  public function subtitle()
+    public function subtitle()
     {
         return $this->hasMany('App\Model\SubtitlePremiumVideo','premium_video_id');
     }
 
+
+       public function usersubscribedvideosdetails()
+    {
+
+      return $this->hasMany('App\Model\UserSubscribedVideosDetails','premium_video_id');
+        
+    }
 }
