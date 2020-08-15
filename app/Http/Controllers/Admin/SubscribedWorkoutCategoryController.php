@@ -91,6 +91,16 @@ class SubscribedWorkoutCategoryController extends Controller
 
 
     }
+    
+    
+    
+     public function delete($id){
+ 
+      SubscriptionWorkoutCategory::where('id', $id)->delete();
+     return back()->with('status',100)->with('type','success')->with('message','Record deleted Successfully');
+  
+  
+    }
 
 
 

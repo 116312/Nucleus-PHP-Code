@@ -50,7 +50,7 @@
                                             <td>{{$sub->subscriptionplandetails->subscriptionplan->name}}</td>
                                             <td>{{$sub->workoutcategory->name}}</td>
                                            
-                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-category').'/'.$sub->id}}" role="form">
+                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-workout-category').'/'.$sub->id}}" role="form">
                                     @csrf
                                                 <td>
                                         <a href="{{url('admin/edit-subscription-category').'/'.$sub->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
