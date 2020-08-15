@@ -195,7 +195,7 @@ class UserController extends Controller
 
     public function updateprofile(Request $request){
 
-
+     
         $imagePath = '';
 
          if($request->hasFile('image')){
@@ -205,8 +205,8 @@ class UserController extends Controller
 
             $imagePath = $path;
     
-
-                  }
+          User::where('id',$request->user_id)->update(['image'=>$imagePath]);
+          }
 
 
 
@@ -219,12 +219,13 @@ class UserController extends Controller
          'height_unit'=>$request->height_unit,
          'height'=>$request->height,
          'age'=>$request->age,
-         'image' => $imagePath,
+         
          'updated_at'=>Carbon::now(),
           ];
 
        User::where('id',$request->user_id)->update($data);
-
+       
+       $data = User::where('id',$request->user_id)->first();
 
         return Response::json(['code' => 200,'status' => true, 'message' => 'User data updated successfully','data'=>$data]);
 
