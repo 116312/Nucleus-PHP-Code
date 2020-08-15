@@ -10,6 +10,8 @@ use App\Model\SubscriptionWorkoutCategory;
 use App\Model\Category;
 use App\Model\SubscriptionPlanDetails;
 use Carbon\Carbon;
+use App\Model\PremiumWorkoutDetails;
+use App\Model\SubscriptionVideo;
 
 class SubscribedWorkoutCategoryController extends Controller
 {
@@ -51,6 +53,21 @@ class SubscribedWorkoutCategoryController extends Controller
 
 
       SubscriptionWorkoutCategory::insert($data);
+
+
+      $premiumvideos = PremiumWorkoutDetails::where('category_id',$request->categories_id)->with('premiumworkout')->get();
+
+      foreach($premiumvideos as $video){
+         $videodetails =[];
+         $videodetails = [
+        
+          'premium_video_id'=> $video->premiumworkout->id,
+          'subscription_details_id'=>$sub_id->id,
+          'created_at' =>Carbon::now(),
+            ];
+         SubscriptionVideo::insert($videodetails);
+
+      }
 
 
    

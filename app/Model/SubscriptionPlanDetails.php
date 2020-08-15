@@ -27,8 +27,4 @@ class SubscriptionPlanDetails extends Model
     }
 
 
-      public function subscriptionplandetails()
-    {
-        return $this->belongsTo('App\Model\SubscriptionCategory','subscription_details_id');
-    }
 }

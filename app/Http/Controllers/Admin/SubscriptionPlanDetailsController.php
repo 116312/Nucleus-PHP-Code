@@ -24,17 +24,17 @@ class SubscriptionPlanDetailsController extends Controller
 
     public function store(Request $request){
            $offerprice =  $request->original_price*($request->offer_percentage/100);
-          $per_month = $request->original_price - $offerprice;
-          $plan_duration_price = $per_month * $request->number_of_month;
+           $per_month = $request->original_price - $offerprice;
+           $plan_duration_price = $per_month * $request->number_of_month;
 
          $data = [
          
-          'subscription_category_id'=>$request->subscription_category_id,
-          'subscription_plan_id'=>$request->subscription_plan_id,
+          'subscription_category_id'=> $request->subscription_category_id,
+          'subscription_plan_id'=> $request->subscription_plan_id,
           'original_price' => $request->original_price,
-          'offer_percentage'=>$request->offer_percentage,
-          'number_of_month'=>$request->number_of_month,
-          'per_month_price'=>$per_month,
+          'offer_percentage'=> $request->offer_percentage,
+          'number_of_month'=> $request->number_of_month,
+          'per_month_price'=> $per_month,
           'plan_duration_price'=> $plan_duration_price,
           'created_at'=>Carbon::now(),
 
@@ -45,7 +45,7 @@ class SubscriptionPlanDetailsController extends Controller
 
 
     foreach($request->benifits as $benifits){
-     $benifit = [];
+      $benifit = [];
       $benifit = [
      'subscription_plan_details_id' =>$sub_id,
      'benifits' => $benifits,
