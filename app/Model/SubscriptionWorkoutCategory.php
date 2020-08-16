@@ -19,4 +19,7 @@ class SubscriptionWorkoutCategory extends Model
     {
         return $this->belongsTo('App\Model\SubscriptionPlanDetails','subscription_details_id');
     }
+
+
+    
 }

@@ -47,4 +47,14 @@ class PremiumVideos extends Model
       return $this->hasMany('App\Model\UserSubscribedVideosDetails','premium_video_id');
         
     }
+
+
+
+
+       public function subscriptionvideos()
+    {
+
+      return $this->hasMany('App\Model\SubscriptionVideo','premium_video_id');
+        
+    }
 }

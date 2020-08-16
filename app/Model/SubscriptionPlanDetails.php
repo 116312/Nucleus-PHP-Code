@@ -27,4 +27,11 @@ class SubscriptionPlanDetails extends Model
     }
 
 
+    public function premiumworkouts(){
+
+  return $this->hasMany('App\Model\SubscriptionVideo','subscription_details_id');
+    	
+    }
+
+
 }
