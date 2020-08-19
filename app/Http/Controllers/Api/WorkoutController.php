@@ -51,7 +51,7 @@ class WorkoutController extends Controller
 
     $data = [];
     $how_many_days = TrainingPlan::with('trainingplanvariation')->get();
-    $bygoals = TrainingGoals::with('traininggoalsplan.trainingplan.trainingplanvariation')->get();
+    $bygoals = TrainingGoals::with('traininggoalsplan.trainingplan.trainingplanvariation','descriptions')->get();
     $data = [
     'how_many_days'=>$how_many_days,
     'bygoals'=>$bygoals,
