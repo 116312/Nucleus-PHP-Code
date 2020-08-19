@@ -11,6 +11,16 @@ class SubscriptionVideo extends Model
 
      public function subscriptionplandetails()
     {
-        return $this->belongsTo('App\Model\SubscriptionCategory','subscription_details_id');
+        return $this->belongsTo('App\Model\SubscriptionPlanDetails','subscription_details_id');
     }
+    
+    
+     public function premiumvideos()
+    {
+        return $this->belongsTo('App\Model\PremiumVideos','premium_video_id');
+    }
+    
+    
+    
+    
 }

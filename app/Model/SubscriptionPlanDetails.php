@@ -29,8 +29,14 @@ class SubscriptionPlanDetails extends Model
 
     public function premiumworkouts(){
 
-  return $this->hasMany('App\Model\SubscriptionVideo','subscription_details_id');
+     return $this->hasMany('App\Model\SubscriptionVideo','subscription_details_id');
     	
+    }
+    
+    
+     public function premiumvideos()
+    {
+        return $this->belongsToMany(PremiumVideos::class, 'subscription_video','subscription_details_id','premium_video_id');
     }
 
 

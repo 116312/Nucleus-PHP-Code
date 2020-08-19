@@ -27,5 +27,12 @@ class SubscriptionPlan extends Model
       return $this->hasMany('App\Model\UserSubscriptionPlanDetails','subscription_plan_id');
         
     }
+    
+    
+    
+       public function subscriptioncategory()
+    {
+        return $this->belongsToMany(SubscriptionCategory::class, 'subscription_plan_details');
+    }
 
 }
