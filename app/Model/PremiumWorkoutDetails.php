@@ -40,7 +40,12 @@ class PremiumWorkoutDetails extends Model
         return $this->belongsTo('App\Model\WorkoutType','workout_type_id');
     }
 
-
+    
+  
+     public function chapters()
+    {
+        return $this->hasMany('App\Model\PremiumWorkoutChapters','premium_workout_details_id');
+    }
 
 
 

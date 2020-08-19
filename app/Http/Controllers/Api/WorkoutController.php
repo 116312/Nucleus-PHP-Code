@@ -24,7 +24,7 @@ class WorkoutController extends Controller
 
                 $workouts = [];
 
-      $premiumworkouts = PremiumWorkoutDetails::orderBy('category_id','asc')->with('premiumworkout.subtitle','workoutcategory','workouttype')->get();
+      $premiumworkouts = PremiumWorkoutDetails::orderBy('category_id','asc')->with('premiumworkout.subtitle','workoutcategory','workouttype','chapters')->get();
 
       $quickclipworkouts = QuickClipWorkoutDetails::orderBy('category_id','asc')->with('quickclipworkoutclip.quickclips')->get();
 
@@ -70,12 +70,11 @@ class WorkoutController extends Controller
 
       $workouts = [];
 
-      $premiumworkouts = PremiumWorkoutDetails::where('category_id',$request->cate_id)->with('premiumworkout.subtitle','workoutcategory','workouttype')->get();
+      $premiumworkouts = PremiumWorkoutDetails::where('category_id',$request->cate_id)->with('premiumworkout.subtitle','workoutcategory','workouttype','chapters')->get();
 
       $quickclipworkouts = QuickClipWorkoutDetails::where('category_id',$request->cate_id)->with('quickclipworkoutclip.quickclips')->get();
 
      
-
 
       $workouts = [
         'premiumworkouts' =>$premiumworkouts,
