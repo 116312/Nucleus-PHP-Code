@@ -16,7 +16,7 @@ class CreateTrainingGoalsDescriptionsTable extends Migration
         Schema::create('training_goals_descriptions', function (Blueprint $table) {
             $table->id();
 
-             $table->unsignedBigInteger('training_goals_id');
+            $table->unsignedBigInteger('training_goals_id');
 
             $table->foreign('training_goals_id')->references('id')->on('training_goals')->onDelete('cascade');
             $table->string('descriptions');

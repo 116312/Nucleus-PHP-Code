@@ -30,5 +30,12 @@ class PromotionManagement extends Model
         return $this->hasOne('App\Model\PromotionNucleusChallenge','promo_id');
     }
 
+
+
+          public function promovideo()
+    {
+        return $this->hasOne('App\Model\PromotionalVideos','promo_id');
+    }
+
  
 }

@@ -330,7 +330,8 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
     Route::get('add-promo_video','PromotionManagementController@addVideo');
     Route::get('show-promo_video','PromotionManagementController@showVideo');
-    Route::get('edit-promo_video/{id}','PromotionManagementController@editVideo');   
+    Route::get('edit-promo_video/{id}','PromotionManagementController@editVideo'); 
+    Route::get('view-promo-dacast-video/{id}','PromotionManagementController@dacastVideo');  
 
 
 

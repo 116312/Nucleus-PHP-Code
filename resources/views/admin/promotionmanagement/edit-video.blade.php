@@ -19,22 +19,52 @@
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/update-promo').'/'.$video_promotion->id}}" enctype="multipart/form-data">
                                 @csrf
-                            <input type="hidden"  name="promo_type" value= "video" id="promo_type" class="form-control">
-									
+                             <input type="hidden"  name="promo_type" value= "video" id="promo_type" class="form-control">
+                                    
 
                                           <label for="course_name">Promotion Video</label>
                                             <div class="form-group">
                                                 <div class="form-line">
-                                                    <video width="320" height="240" controls>
-                                                    <source src="{{$video_promotion->promofiles->file}}" type="video/mp4">
- 
-                                                    Your browser does not support the video tag.
-                                                    </video>
+                                                    <input type="file"  name="video" id="image"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <label for="course_name">Thumbnail Image</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
                                                     <input type="file"  name="promo_file" id="image"
                                                            class="form-control">
                                                 </div>
                                             </div>
-									                              
+
+                                            <label for="course_name">Dacast link for Promotion</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text"  name="dacast_link" id="image"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+
+                                           <label for="course_name">Provide Content Id of Dacast link for Promotion</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text"  name="content_id" id="image"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <label for="article_category_type">Select Applicable for App</label>
+                                          <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="applicable_for_app">
+                                                    <option value="">-- Please select --</option>
+                                                       <option value="Dacast Link">Dacast Link</option>
+                                                       <option value="Uploaded video">Uploaded video</option>
+                                                    </select>
+                                            </div>
+                                        </div>
+                                                                  
 
                                 
                                 <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>

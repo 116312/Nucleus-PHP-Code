@@ -13,6 +13,7 @@ use App\Model\PromotionNucleusChallenge;
 use Response;
 use Storage;
 use Carbon\Carbon;
+use App\Model\PromotionalVideos;
 
 
 class PromotionManagementController extends Controller
@@ -121,7 +122,48 @@ class PromotionManagementController extends Controller
 
            PromotionFiles::insert($promofile);
 
-       
+
+       $video = '';
+       if($request->promo_type == 'video'){
+
+
+           if($request->hasFile('video')){
+          
+            $ext = $request->video->getClientOriginalExtension();
+            $path = Storage::putFileAs('promotionalvideos', $request->video,time().uniqid().".".$ext);
+
+            $video = $path;
+    
+
+                  }
+
+
+
+
+          $promovideo = [
+           
+           'promo_id' => $promo_id,
+           'video' => $video,
+           'dacast_link'=> $request->dacast_link,
+           'applicable_for_app'=>$request->applicable_for_app,
+           'content_id'=>$request->content_id,
+           'created_at'=>Carbon::now(),
+ 
+ 
+           ];
+
+
+           PromotionalVideos::insert($promovideo);
+
+        return back()->with('status',100)->with('type','success')->with('message','Video is added Successfully for Promotion');
+
+       }
+
+
+
+
+
+       // Promotional Category
 
        if($request->promo_type == 'category'){
      
@@ -163,7 +205,7 @@ class PromotionManagementController extends Controller
 
 
 
-      return back()->with('status',100)->with('type','success')->with('message','Video is added Successfully for Promotion');
+    
 
 
 
@@ -215,7 +257,7 @@ class PromotionManagementController extends Controller
           $subpage = 'show-promo';
 
 
-          $video_promotion = PromotionManagement::where('promo_type','video')->with('promofiles')->get();
+          $video_promotion = PromotionManagement::where('promo_type','video')->with('promofiles','promovideo')->get();
 
         
           return view('admin.promotionmanagement.show-video',compact('page','subpage','video_promotion'));
@@ -392,6 +434,17 @@ class PromotionManagementController extends Controller
      return back()->with('status',100)->with('type','success')->with('message','promotion deleted Successfully');
 
 
+
+    }
+
+
+
+    public function dacastVideo($id){
+
+     
+     $video  = PromotionalVideos::where('promo_id',$id)->first()->dacast_link;
+
+    return view('admin.dacast',compact('video'));
 
     }
 
