@@ -18,7 +18,7 @@ class TrainingGoals extends Model
     
     public function descriptions()
     {
-        return $this->hasMany('App\Model\TrainingGoalsDescriptions','training_goals_id');
+        return $this->hasMany('App\Model\TrainingGoalsDescription','training_goals_id');
     }
    
 }
