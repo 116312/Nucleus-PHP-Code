@@ -36,7 +36,7 @@ class PromotionalManagementController extends Controller
 
            if($promo->promo_type == 'video'){
 
-                 $data[$key] = PromotionManagement::where('id',$promo->id)->with('promofiles')->first();
+                 $data[$key] = PromotionManagement::where('id',$promo->id)->with('promofiles','promovideo')->first();
 
            }
 
