@@ -18,6 +18,13 @@ class ApiDetailController extends Controller
 {
    
 
+   public function getUserTrainingAndPlanForm(){
+          $users = User::all();
+
+          return view('api.get-user-training-plan-form',compact('users'));
+   }
+
+
     public function submitsubscriptionplanform(){
     
       $users = User::all();

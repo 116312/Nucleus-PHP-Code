@@ -78,6 +78,7 @@
    <h3>Training and Plans</h3>
     <div>
         <p><a href="{{url('/api-details/training-plan-form')}}">Submit</a></p>
+        <p><a href="{{url('/api-details/get-training-plan-form')}}">Get</a></p>
        
        
     </div>

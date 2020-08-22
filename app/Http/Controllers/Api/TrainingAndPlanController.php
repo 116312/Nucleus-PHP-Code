@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers\Api;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\UserTrainingType;
@@ -19,7 +18,7 @@ class TrainingAndPlanController extends Controller
     public function submit(Request $request){
        $goal = '';
       
-       $userAlreadyexist = UserTrainingType::where('user_id',$request->user_id)->first();
+       $userAlreadyexist  = UserTrainingType::where('user_id',$request->user_id)->first();
 
         $typedata = [
 
@@ -146,6 +145,32 @@ class TrainingAndPlanController extends Controller
      return Response::json(['code' => 200,'status' => true, 'message' => 'User Sucessfully Selected Training and Plan','data'=>$data]);
 
 
+
+    }
+
+
+
+    public function getTrainingPlan(Request $request){
+
+
+      $type =UserTrainingType::where('user_id',$request->user_id)->first();
+      $goal =UserTrainingGoal::where('user_id',$request->user_id)->first();
+      $daysperweek = UserDaysPerWeek::where('user_id',$request->user_id)->first();
+      $planvariationdata = UserPlanVariation::where('user_id',$request->user_id)->first();
+
+    $data = [
+
+
+    'type' =>$type,
+    'goal'=>$goal,
+    'daysperweek'=>$daysperweek,
+    'planvariationdata'=>$planvariationdata,
+
+
+    ];
+
+
+     return Response::json(['code' => 200,'status' => true, 'message' => 'User  Selected Training and Plan','data'=>$data]);   
 
     }
 }

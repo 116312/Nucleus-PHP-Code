@@ -388,6 +388,7 @@ Route::group(['prefix' => 'api-details'],function (){
   Route::get('get-subscription-plan','ApiDetailController@getsubscriptionplanform');
   Route::get('get-privacy-policy','ApiDetailController@getPrivacyPolicy');
   Route::get('submit-subscription-plan','ApiDetailController@submitsubscriptionplanform');
+  Route::get('get-training-plan-form','ApiDetailController@getUserTrainingAndPlanForm');
  
 
 });

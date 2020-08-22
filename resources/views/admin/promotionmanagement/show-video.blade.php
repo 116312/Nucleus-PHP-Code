@@ -12,10 +12,7 @@
             <div class="block-header">
                 <h2>Users</h2>
             </div>
-<script src="//player.dacast.com/js/player.js"
-        id="1552_f_297509"  
-        width="350" height="200"
-        class="dacast-video"></script>
+
             <!-- Vertical Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
