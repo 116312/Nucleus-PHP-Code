@@ -55,6 +55,32 @@
                                                class="form-control">
                                     </div>
                                 </div>
+                                 <label for="course_name">Dacast link for Promotion</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text"  name="dacast_link" id="image"
+                                                       value = "{{$video->dacast_link}}"     class="form-control">
+                                                </div>
+                                            </div>
+
+                        <label for="course_name">Provide Content Id of Dacast link for Promotion</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text"  name="content_id" id="image"
+                                                        value = "{{$video->content_id}}"   class="form-control">
+                                                </div>
+                                             </div>
+
+                        <label for="article_category_type">Select Applicable for App</label>
+                                          <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="active_for_app">
+                                                    <option value="">-- Please select --</option>
+                                                       <option value="dacast" {{$video->active_for_app == 'dacast' ? 'selected':''}}>Dacast Link</option>
+                                                       <option value="uploaded video" {{$video->active_for_app == 'uploaded video' ? 'selected':''}}>Uploaded video</option>
+                                                    </select>
+                                            </div>
+                                        </div>
                                
 
 

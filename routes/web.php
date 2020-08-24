@@ -216,6 +216,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::get('edit-premium-videos/{id}','PremiumVideosController@edit');
    Route::post('update-premium-videos/{id}','PremiumVideosController@update');
    Route::post('delete-premium-videos/{id}','PremiumVideosController@delete');
+  Route::get('view-premium-dacast-video/{id}','PremiumVideosController@dacastVideo');
 
 
 

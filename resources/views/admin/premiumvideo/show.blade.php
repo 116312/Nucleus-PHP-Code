@@ -33,7 +33,10 @@
                                     <td>Name</td>
                                     <td>Language</td>
                                     <td>Video</td>
-                                 <td>No. Of Subtitle Added </td>
+                                    <td>Dacast Link </td>
+                                    <td>Content ID</td>
+                                    <td> In App will Play </td>
+                                    <td>No. Of Subtitle Added </td>
                                     <td>Action</td>
 
                                    
@@ -56,6 +59,9 @@
                                             </video>
 
                                           </td>
+                                          <td>  <a href="{{url('admin/view-premium-dacast-video').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">View Dacast Video</button></a></td></td>
+                                          <td>{{$video->content_id}}</td>
+                                          <td>{{$video->active_for_app}}</td>
                                            <td>{{$video->total_subtitle}}</td>
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-videos').'/'.$video->id}}" role="form">
                                     @csrf
@@ -69,7 +75,7 @@
                                       
                                          </tr>
                                          @endforeach
-                                </tbody>
+                                </tbo dy>
                             </table>
                         </div>
                     </div>

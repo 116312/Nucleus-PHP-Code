@@ -33,9 +33,39 @@ class PremiumVideosController extends Controller
 
     	
     $isalreadyexisted = PremiumVideos::where('name',$request->name)->first();
+    
+    if($request->active_for_app == 'dacast')
+    {
+      
+      if($request->content_id == null){
+          
+           return back()->with('status',100)->with('type','danger')->with('message','content id is missing');
+
+      }
+           
+        
+
+    }
+
+
+    if($request->active_for_app == 'uploaded video')
+    {
+
+
+       if($request->video == null)
+       {
+
+          return back()->with('status',100)->with('type','danger')->with('message','video is missing');
+
+       }
+
+       
+
+    }
   
 
-    if($isalreadyexisted != null){
+    if($isalreadyexisted != null)
+    {
          
          return back()->with('status',100)->with('type','danger')->with('message','PremiumVideo Name already existed');
 
@@ -60,6 +90,9 @@ class PremiumVideosController extends Controller
 
         'name' => $request->name,
         'video' =>$filepath,
+        'dacast_link'=>$request->dacast_link,
+        'content_id'=>$request->content_id,
+        'active_for_app'=>$request->active_for_app,
         'language'=>$request->language,
         'extension_type' =>$ext,
         'created_at'=>Carbon::now(),
@@ -108,8 +141,34 @@ class PremiumVideosController extends Controller
 
 
        $isalreadyexisted = PremiumVideos::where('id','!=',$id)->where('name',$request->name)->first();
-  
 
+
+         if($request->active_for_app == 'dacast')
+    {
+      
+      if($request->content_id == null){
+          
+           return back()->with('status',100)->with('type','danger')->with('message','content id is missing');
+
+      }
+           
+        
+
+    }
+
+
+    if($request->active_for_app == 'uploaded video')
+    {
+
+
+       if($request->video == null)
+       {
+
+          return back()->with('status',100)->with('type','danger')->with('message','video is missing');
+
+      }
+  
+}
     if($isalreadyexisted != null){
          
          return back()->with('status',100)->with('type','danger')->with('message','PremiumVideo Name already existed');
@@ -134,6 +193,9 @@ class PremiumVideosController extends Controller
 
         'name' => $request->name,
         'language' =>$request->language,
+         'dacast_link'=>$request->dacast_link,
+        'content_id'=>$request->content_id,
+        'active_for_app'=>$request->active_for_app,
         'updated_at'=>Carbon::now(),
 
     	];
@@ -150,5 +212,17 @@ class PremiumVideosController extends Controller
 
     	PremiumVideos::where('id', $id)->delete();
        return back()->with('status',100)->with('type','success')->with('message','PremiumVideo deleted Successfully');
+    }
+
+
+
+
+    public function dacastVideo($id){
+
+     
+     $video  = PremiumVideos::where('id',$id)->first()->dacast_link;
+
+    return view('admin.dacast',compact('video'));
+
     }
 }

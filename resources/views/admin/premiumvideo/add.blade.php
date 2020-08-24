@@ -46,10 +46,38 @@
                         <label for="course_name">Add Video</label>
                             <div class="form-group">
                                 <div class="form-line">
-                                    <input type="file" required name="video" id="language"
+                                    <input type="file"  name="video" id="language"
                                            class="form-control">
                                 </div>
                             </div>
+
+
+                        <label for="course_name">Dacast link for Promotion</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text"  name="dacast_link" id="image"
+                                                           class="form-control">
+                                                </div>
+                                            </div>
+
+                        <label for="course_name">Provide Content Id of Dacast link for Promotion</label>
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text"  name="content_id" id="image"
+                                                           class="form-control">
+                                                </div>
+                                             </div>
+
+                        <label for="article_category_type">Select Applicable for App</label>
+                                          <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="active_for_app">
+                                                    <option value="">-- Please select --</option>
+                                                       <option value="dacast">Dacast Link</option>
+                                                       <option value="uploaded video">Uploaded video</option>
+                                                    </select>
+                                            </div>
+                                        </div>
                                
 
 
