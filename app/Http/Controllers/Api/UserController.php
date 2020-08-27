@@ -218,7 +218,7 @@ class UserController extends Controller
          'weight_unit'=>$request->weight_unit,
          'height_unit'=>$request->height_unit,
          'height'=>$request->height,
-         'age'=>$request->age,
+         'dob'=>$request->dob,
          
          'updated_at'=>Carbon::now(),
           ];

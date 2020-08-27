@@ -25,7 +25,7 @@ class PromotionalManagementController extends Controller
         { 
            if($promo->promo_type == 'category'){
 
-               $data[$key] = PromotionManagement::where('id',$promo->id)->with('promocategory.category','promofiles')->first();
+               $data[$key] = PromotionManagement::where('id',$promo->id)->with('promocategory.category.unspecifiedcategoryimage','promofiles')->first();
 
            }
 

@@ -35,7 +35,7 @@
     Gender(gender) ::*<input type="text" value ="{{$user->gender}}" name="gender" >
     <br />
     <br />
-    Age(age) ::*<input type="text" value ="{{$user->age}}" name="age" >
+    Dob(dob) ::*<input type="text" value ="{{$user->dob}}" name="dob" >
     <br />
     <br />
   
