@@ -214,7 +214,7 @@ class UserController extends Controller
          'name' => $request->name,
          'contact_no' => $request->contact_no, 
          'gender'=> $request->gender,
-         'weight'=> $request->weight,
+         'weight'=> $request->weight, 
          'weight_unit'=>$request->weight_unit,
          'height_unit'=>$request->height_unit,
          'height'=>$request->height,
