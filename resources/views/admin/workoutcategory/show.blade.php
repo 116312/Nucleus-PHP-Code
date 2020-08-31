@@ -5,7 +5,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Users</h2>
+                <h2>All Categories</h2>
             </div>
 
             <!-- Vertical Layout -->
@@ -14,7 +14,7 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                                Show Users
+                                Show Categories
                             </h2>
                         </div>
                         <div class="body">

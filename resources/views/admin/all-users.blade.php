@@ -33,8 +33,11 @@
                                     <td>User Name</td>
                                     <td>Mobile Number</td>
                                     <td>Email</td>
-                                   
-
+                                    <td>Gender</td>
+                                    <td>Date of Birth</td>
+                                    <td>Profile Image</td>
+                                    <td>Height</td>
+                                    <td>Weight</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -44,8 +47,11 @@
                                        <td>{{$user->name}}</td>
                                        <td>{{$user->contact_no}}</td>
                                        <td>{{$user->email}}</td>
-                                      
-
+                                       <td>{{$user->gender}}</td>
+                                       <td>{{$user->dob}}</td>
+                                       <td><img style="float:left!important" src="{{$user->image}}" height="100" width="100"></td>
+                                       <td>{{$user->height}}</td>
+                                       <td>{{$user->weight}}</td>
                                    </tr>
                                @endforeach
                                 </tbody>

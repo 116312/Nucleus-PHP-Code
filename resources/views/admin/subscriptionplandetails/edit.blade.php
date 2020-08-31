@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Add Subscription Plan Details')
+@section('title', 'Edit Subscription Plan Details')
 @section('admin-section')
 
     <section class="content">
@@ -17,7 +17,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-subscription-plan-details')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-subscription-plan-details'.'/'.$subscriptionplandetails->id)}}" enctype="multipart/form-data">
                                 @csrf
                                 
                               <label for="course_name">Select Subscription Category</label>
@@ -26,7 +26,7 @@
                                         <select class="form-control show-tick" id="workout_type_id"required name="subscription_category_id">
                                             <option value="">-- Please select --</option>
                                                @foreach($subscription_category as $cate)
-                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                <option value="{{$cate->id}}" {{$cate->id == $subscriptionplandetails->subscription_category_id ? 'selected':''}}>{{$cate->name}}</option>
                                                 @endforeach
                                             
                                         </select>
@@ -40,7 +40,7 @@
                                                 <select class="form-control show-tick" required name="subscription_plan_id" >
                                                     <option value="">-- Please select --</option>
                                                        @foreach($subscription_plan as $key => $plan)
-                                                        <option value="{{$plan->id}}">{{$plan->name}}</option>
+                                                        <option value="{{$plan->id}}" {{$plan->id == $subscriptionplandetails->subscription_plan_id ? 'selected':''}}>{{$plan->name}}</option>
                                                       @endforeach
                                                      
                                                 </select>
@@ -50,7 +50,7 @@
                                  <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="original_price" id="sequence_no"
-                                               class="form-control">
+                                          value = "{{$subscriptionplandetails->original_price}}"     class="form-control">
                                     </div>
                                   </div>
 
@@ -58,7 +58,7 @@
                                  <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="offer_percentage" id="price"
-                                               class="form-control">
+                                             value = "{{$subscriptionplandetails->offer_percentage}}"    class="form-control">
                                     </div>
                                   </div>
 
@@ -66,16 +66,29 @@
                                  <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="number_of_month" id="price"
-                                               class="form-control">
+                                           value = "{{$subscriptionplandetails->number_of_month}}"    class="form-control">
                                     </div>
                                   </div>
-
-
+@if($subscriptionplandetails->additionalbenifits->count() != null)
+@foreach($subscriptionplandetails->additionalbenifits as $benifits)
 
                                   <label for="course_name">Additional Benifits</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                         <input type="text"  name="benifits[]" id="sequence_no"
+                                         <input type="text" required name="benifits[]" id="sequence_no"
+                                         value="{{$benifits->benifits}}"      class="form-control">
+                                    </div>
+                                </div>
+
+         @endforeach     
+
+
+         @else
+
+                                  <label for="course_name">Additional Benifits</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                         <input type="text" required name="benifits[]" id="sequence_no"
                                                class="form-control">
                                     </div>
                                 </div>
@@ -83,7 +96,7 @@
                                   <label for="course_name">Additional Benifits</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                         <input type="text"  name="benifits[]" id="sequence_no"
+                                         <input type="text" required name="benifits[]" id="sequence_no"
                                                class="form-control">
                                     </div>
                                 </div>
@@ -91,7 +104,7 @@
                                   <label for="course_name">Additional Benifits</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                         <input type="text"  name="benifits[]" id="sequence_no"
+                                         <input type="text" required name="benifits[]" id="sequence_no"
                                                class="form-control">
                                     </div>
                                 </div>
@@ -99,10 +112,11 @@
                                   <label for="course_name">Additional Benifits</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                         <input type="text"  name="benifits[]" id="sequence_no"
+                                         <input type="text" required name="benifits[]" id="sequence_no"
                                                class="form-control">
                                     </div>
                                 </div>
+                                @endif                   
                                 
                              <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
                             </form>
