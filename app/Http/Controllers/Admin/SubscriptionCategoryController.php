@@ -76,7 +76,7 @@ class SubscriptionCategoryController extends Controller
 
 
 
-    public function update(Request $request,$id){
+    public function update(Request $request,$id){ 
 
 
        $isalreadyexist = SubscriptionCategory::where('name',$request->name)->where('id','!=',$id)->first();

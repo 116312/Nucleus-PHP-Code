@@ -1,5 +1,5 @@
 @extends('admin.admin-app')
-@section('title', 'Add Workout Category For Subscription')
+@section('title', 'Edit Workout Category For Subscription')
 @section('admin-section')
 
     <section class="content">
@@ -13,11 +13,11 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                               Add Workout Category For Subscription  Here
+                               Edit Workout Category For Subscription  Here
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-subscription-workout-category')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-subscription-workout-category'.'/'.$subscribedcategory->id)}}" enctype="multipart/form-data">
                                 @csrf
                                 
                               <label for="course_name">Select Subscription Category</label>
@@ -26,7 +26,7 @@
                                         <select class="form-control show-tick" id="workout_type_id"required name="subscription_category_id">
                                             <option value="">-- Please select --</option>
                                                @foreach($subscriptioncategory as $cate)
-                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                <option value="{{$cate->id}}" {{$cate->id == $subscribedcategory->subscriptionplandetails->subscription_category_id ? 'selected':''}}>{{$cate->name}}</option>
                                                 @endforeach
                                             
                                         </select>
@@ -40,7 +40,7 @@
                                                 <select class="form-control show-tick" required name="subscription_plan_id" >
                                                     <option value="">-- Please select --</option>
                                                        @foreach($subscriptionplans as $key => $plan)
-                                                        <option value="{{$plan->id}}">{{$plan->name}}</option>
+                                                        <option value="{{$plan->id}}" {{$plan->id == $subscribedcategory->subscriptionplandetails->subscription_plan_id ? 'selected':''}}>{{$plan->name}}</option>
                                                       @endforeach
                                                      
                                                 </select>
@@ -52,7 +52,7 @@
                                                 <select class="form-control show-tick" required name="categories_id" >
                                                     <option value="">-- Please select --</option>
                                                        @foreach($workoutcategories as $key => $categories)
-                                                        <option value="{{$categories->id}}">{{$categories->name}}</option>
+                                                        <option value="{{$categories->id}}" {{$categories->id == $subscribedcategory->workoutcategory->id ? 'selected':''}}>{{$categories->name}}</option>
                                                       @endforeach
                                                      
                                                 </select>

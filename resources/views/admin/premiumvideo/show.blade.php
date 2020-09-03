@@ -10,7 +10,7 @@
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Users</h2>
+                <h2>Premium Videos</h2>
             </div>
 
             <!-- Vertical Layout -->

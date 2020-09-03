@@ -86,7 +86,7 @@ class SubscribedWorkoutCategoryController extends Controller
     $subscribedcategory = SubscriptionWorkoutCategory::with(['workoutcategory','subscriptionplandetails.subscriptioncategory','subscriptionplandetails.subscriptionplan'])->get();
    
 
-    return view('admin.subscribedworkoutcategory.show',compact('page','sub_page','subscribedcategory'));
+     return view('admin.subscribedworkoutcategory.show',compact('page','sub_page','subscribedcategory'));
 
 
 
@@ -100,6 +100,73 @@ class SubscribedWorkoutCategoryController extends Controller
      return back()->with('status',100)->with('type','success')->with('message','Record deleted Successfully');
   
   
+    }
+
+
+    public function edit($id){
+
+      $page     = 'subscription-workout-category';
+      $sub_page = 'add-subscription-workout-category';
+      $subscriptionplans    = SubscriptionPlan::all();
+      $subscriptioncategory = SubscriptionCategory::all();
+      $workoutcategories    = Category::where('type','workout')->get();
+      $subscribedcategory = SubscriptionWorkoutCategory::where('id',$id)->with(['workoutcategory','subscriptionplandetails.subscriptioncategory','subscriptionplandetails.subscriptionplan'])->first();
+   
+
+   
+    return view('admin.subscribedworkoutcategory.edit',compact('page','sub_page','subscriptionplans','subscriptioncategory','workoutcategories','subscribedcategory'));
+
+
+
+    }
+
+
+
+    public function update(Request $request ,$id){
+
+    $oldcategoryId = SubscriptionWorkoutCategory::find($id);
+
+    $oldvideos = PremiumWorkoutDetails::where('category_id',$oldcategoryId->categories_id)->with('premiumworkout')->get();
+
+    
+      
+
+      $sub_id = SubscriptionPlanDetails::where('subscription_category_id',$request->subscription_category_id)->where('subscription_plan_id',$request->subscription_plan_id)->first();
+
+      foreach($oldvideos as $key =>$video){
+
+      	SubscriptionVideo::where('subscription_details_id',$sub_id->id)->where('premium_video_id')->delete();
+        
+
+      }
+
+       $data = [
+      
+       'subscription_details_id' => $sub_id->id,
+      
+       'categories_id'=>$request->categories_id,
+       'created_at'=>Carbon::now(),
+        ];   
+
+
+      SubscriptionWorkoutCategory::where('id',$id)->update($data);
+
+
+      $premiumvideos = PremiumWorkoutDetails::where('category_id',$request->categories_id)->with('premiumworkout')->get();
+
+      foreach($premiumvideos as $video){
+         $videodetails =[];
+         $videodetails = [
+        
+          'premium_video_id'=> $video->premiumworkout->id,
+          'subscription_details_id'=>$sub_id->id,
+          'created_at' =>Carbon::now(),
+            ];
+         SubscriptionVideo::insert($videodetails);
+
+      }
+
+return back()->with('status',100)->with('type','success')->with('message','Subscriptions and Wokrout Category updated Successfully');
     }
 
 
