@@ -137,7 +137,7 @@ class PromotionManagementController extends Controller
 
                   }
 
-
+          
 
 
           $promovideo = [
@@ -322,7 +322,7 @@ class PromotionManagementController extends Controller
           $subpage = 'show-promo';
 
         
-          $video_promotion = PromotionManagement::where('id',$id)->with('promofiles')->first();
+          $video_promotion = PromotionManagement::where('id',$id)->with('promofiles','promovideo')->first();
 
           return view('admin.promotionmanagement.edit-video',compact('page','subpage','video_promotion'));
 
@@ -371,6 +371,55 @@ class PromotionManagementController extends Controller
     
 
                   }
+
+
+        $video = '';
+       if($request->promo_type == 'video'){
+
+
+           if($request->hasFile('video')){
+          
+            $ext = $request->video->getClientOriginalExtension();
+            $path = Storage::putFileAs('promotionalvideos', $request->video,time().uniqid().".".$ext);
+
+            $video = $path;
+
+
+              $promovideo = [
+           
+           'promo_id' => $promo_id,
+           'video' => $video,
+           'dacast_link'=> $request->dacast_link,
+           'applicable_for_app'=>$request->applicable_for_app,
+           'content_id'=>$request->content_id,
+           'created_at'=>Carbon::now(),
+ 
+ 
+           ];
+
+
+           PromotionalVideos::where('promo_id',$id)->update($promovideo);
+    
+
+                  }
+
+          
+
+
+          $promovideo = [
+           
+           'promo_id' => $promo_id,
+          
+           'dacast_link'=> $request->dacast_link,
+           'applicable_for_app'=>$request->applicable_for_app,
+           'content_id'=>$request->content_id,
+           'created_at'=>Carbon::now(),
+ 
+ 
+           ];
+
+
+           PromotionalVideos::where('promo_id',$id)->update($promovideo);
 
           
        
@@ -426,6 +475,9 @@ class PromotionManagementController extends Controller
      
 
 }
+
+
+  }
 
 
     public function delete($id){
