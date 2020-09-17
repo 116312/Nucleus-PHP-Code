@@ -33,6 +33,7 @@
                                     <td>Trainer Name </td>
                                     <td>Workout Description </td>
                                     <td>Image</td>
+                                    <td>Chapters</td>
                                 
                                     <td>Action</td>
                                   
@@ -55,7 +56,17 @@
                                           <td>{{$details->description}}</td>
                                           
                                           <td> <img style="float:left!important" src="{{$details->image}}" height="100" width="100"></td> 
-                                          
+                                          <td>@if($details->chapters != null)
+
+                                            @foreach($details->chapters as $chapter)
+                                            <li>{{$chapter->chapter}}</li>
+                                            @endforeach
+
+                                            @endif
+
+
+
+                                          </td>
                                          
                                           <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-workout-details').'/'.$details->id}}" role="form">
                                     @csrf

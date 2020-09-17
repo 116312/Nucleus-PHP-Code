@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use App\Model\WorkoutType;
 use App\Model\Category;
 use App\Model\PremiumWorkoutDetails;
+use App\Model\PremiumWorkoutChapters;
 use Storage;
 
 class PremiumWorkoutDetailsController extends Controller
@@ -67,12 +68,27 @@ class PremiumWorkoutDetailsController extends Controller
         'trainer_name'=>$request->trainer_name,
         'description'=>$request->description,
         'created_at'=> Carbon::now(),
+        'prize'=>0,
        
 
     	];
 
 
-    	PremiumWorkoutDetails::insert($data);
+    	 $premium_workout_details_id = PremiumWorkoutDetails::insertGetId($data);
+
+       foreach($request->chapters as $chapter){
+        $chapdata = [
+
+        'premium_workout_details_id'=>$premium_workout_details_id,
+        'chapter'=>$chapter,
+        'created_at'=> Carbon::now()
+
+        ];
+
+
+        PremiumWorkoutChapters::insert($chapdata);
+
+       }
         
 
         return back()->with('status',100)->with('type','success')->with('message','Premium Workout Details added successfully');
@@ -90,7 +106,7 @@ class PremiumWorkoutDetailsController extends Controller
 
     	$sub_page = 'show-premium-workout-details';
 
-        $premiumworkoutdetails = PremiumWorkoutDetails::with('premiumworkout','workoutcategory','workouttype')->get();
+        $premiumworkoutdetails = PremiumWorkoutDetails::with('premiumworkout','workoutcategory','workouttype','chapters')->get();
 
 
         
@@ -154,6 +170,28 @@ class PremiumWorkoutDetailsController extends Controller
 
 
     	PremiumWorkoutDetails::where('id',$id)->update($data);
+
+        $oldchapters = PremiumWorkoutChapters::where('premium_workout_details_id',$id)->get();
+
+       foreach($oldchapters as $chapters){
+
+       PremiumWorkoutChapters::where('id', $chapters->id)->delete();     
+
+       }
+
+foreach($request->chapters as $chapter){
+        $chapdata = [
+
+        'premium_workout_details_id'=>$id,
+        'chapter'=>$chapter,
+        'created_at'=> Carbon::now()
+
+        ];
+
+
+        PremiumWorkoutChapters::insert($chapdata);
+
+       }
         
 
         return back()->with('status',100)->with('type','success')->with('message','Premium Workout Details updated successfully');
@@ -180,6 +218,28 @@ class PremiumWorkoutDetailsController extends Controller
 
 
     	PremiumWorkoutDetails::where('id',$id)->update($data); 
+
+       $oldchapters = PremiumWorkoutChapters::where('premium_workout_details_id',$id)->get();
+
+       foreach($oldchapters as $chapters){
+
+       PremiumWorkoutChapters::where('id', $chapters->id)->delete();     
+
+       }
+
+foreach($request->chapters as $chapter){
+        $chapdata = [
+
+        'premium_workout_details_id'=>$id,
+        'chapter'=>$chapter,
+        'created_at'=> Carbon::now()
+
+        ];
+
+
+        PremiumWorkoutChapters::insert($chapdata);
+
+       }
         
 
         return back()->with('status',100)->with('type','success')->with('message','Premium Workout Details updated successfully');
