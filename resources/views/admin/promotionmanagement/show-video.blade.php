@@ -49,11 +49,12 @@
                                     <td><img style="float:left!important" src="{{$promo->promofiles->file}}" height="100" width="100"></td>
                                     <td>
                       <a href="{{url('admin/view-promo-dacast-video').'/'.$promo->id}}"><button type="button" class="btn btn-primary waves-effect">View Dacast Video</button></a></td>
-                                     <td><video width="320" height="240" controls>
+                                     <td>@if($promo->promovideo != null)<video width="320" height="240" controls>
                                      <source src="{{$promo->promovideo->video}}" type="video/mp4">
  
                                       Your browser does not support the video tag.
-                                     </video></td>
+                                     </video>
+                                 @endif</td>
                                     
                                      <td>{{$promo->promovideo->applicable_for_app}}</td>
                                       <td>{{$promo->promovideo->content_id}}</td>
