@@ -46,6 +46,19 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        
+
+                                  <label for="course_name">Product Id</label>
+                                 <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="product_id" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                  </div>
+
+
+
+
                                            <label for="course_name">Original Price (in dollars )</label>
                                  <div class="form-group">
                                     <div class="form-line">

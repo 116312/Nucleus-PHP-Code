@@ -32,6 +32,7 @@
                                     <td>S No.</td>
                                     <td>Subscription Category </td>
                                     <td>Subscription Plan</td>
+                                    <td> Product ID </td>
                                     <td>Original Price</td>
                                     <td>Offer(in percentage)</td>
                                     <td>Per Month Price</td>
@@ -52,6 +53,7 @@
                                             <td>{{++$key}}</td>
                                             <td>{{$detail->subscriptioncategory->name}}</td>
                                             <td>{{$detail->subscriptionplan->name}}</td>
+                                            <td>{{$detail->product_id}}</td>
                                             <td>${{$detail->original_price}}</td>
                                             <td>{{$detail->offer_percentage}}%</td>
                                             <td>${{$detail->per_month_price}}</td>
