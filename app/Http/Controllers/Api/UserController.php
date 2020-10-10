@@ -22,6 +22,8 @@ class UserController extends Controller
 
     public function validateUser($data){
         $returnArray = [];
+        
+        $pass = $data->password;
         if($data->name == null){
             array_push($returnArray,'Please enter Username');
         }
@@ -33,6 +35,39 @@ class UserController extends Controller
         if($data->password == null){
             array_push($returnArray,'Please enter password');
         }
+
+
+if (strlen($data->password ) < 8 || strlen($data->password ) > 16) {
+
+         array_push($returnArray,"Password should be min 8 characters and max 16 characters");
+    
+}
+if (!preg_match("/\d/", $pass)) {
+
+ array_push($returnArray,"Password should contain at least one digit");
+   
+}
+if (!preg_match("/[A-Z]/", $pass)) {
+ array_push($returnArray,"Password should contain at least one Capital Letter");
+   
+}
+if (!preg_match("/[a-z]/", $pass)) {
+
+     array_push($returnArray,"Password should contain at least one small Letter");
+   
+    
+}
+if (!preg_match("/\W/", $pass)) {
+array_push($returnArray,"Password should contain at least one special character");
+   
+}
+if (preg_match("/\s/", $pass)) {
+array_push($returnArray, "Password should not contain any white space");
+   
+}
+
+
+
 
         if($data->contact_no == null){
             array_push($returnArray,'Please enter phone number');
@@ -57,7 +92,7 @@ class UserController extends Controller
 
         if(count($validate) > 0){
 
-            return Response::json(['codes' => 400,'status' => false, 'message' => 'All * fields are required']);
+            return Response::json(['codes' => 400,'status' => false, 'message' => $validate]);
         }
         else{
 
@@ -102,7 +137,7 @@ class UserController extends Controller
         $user = User::where('email',$request->email)->first();
 
         if($user == null){
-            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
+            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register']);
         }
         else{
             if(Hash::check($request->password, $user->password)){
@@ -251,7 +286,7 @@ class UserController extends Controller
 
 
         if($user == null){
-            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
+            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register']);
         }
         else{
             $token = \Illuminate\Support\Str::random(4);
@@ -269,13 +304,13 @@ class UserController extends Controller
           $user = User::where('id',$request->user_id)->first();
           
           if($user == null){
-            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register','data'=>[]]);
+            return Response::json(['code' => 400,'status' => false, 'message' => 'User not register']);
         } 
 
 
         if($user->token != $request->otp){
  
-         return Response::json(['code' => 400,'status' => false, 'message' => 'OTP does not macthed','data'=>[]]);
+         return Response::json(['code' => 400,'status' => false, 'message' => 'OTP does not macthed']);
         }
 
         else{
@@ -283,7 +318,7 @@ class UserController extends Controller
             $user->password =  bcrypt($request->password);
             $user->save();
          
-            return Response::json(['code' => 200,'status' => true, 'message' => 'Password is successfully set','data'=>[]]);
+            return Response::json(['code' => 200,'status' => true, 'message' => 'Password is successfully set']);
         }
 
     }

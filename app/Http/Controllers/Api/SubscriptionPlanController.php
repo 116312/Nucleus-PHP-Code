@@ -27,18 +27,18 @@ class SubscriptionPlanController extends Controller
    $data = [];
    $subscription_detail = UserSubscriptionDetails::where('user_id',$request->user_id)->get();
    $subscribedvideo_id = PremiumVideos::where('id',$request->video_id)->with(['subscriptionplandetails.subscriptioncategory','subscriptionplandetails.subscriptionplan','subscriptionplandetails.additionalbenifits'])->first();
-  
+ 
    // Admin has not added any subscription plan for the video
     if($subscribedvideo_id->subscriptionplandetails->count() == null){
 
-    $status = false;
+    $status = true;
     $data = [
       'status' => $status,
       
       'details' => $subscribedvideo_id,
       
       ];
-    return Response::json(['code' => 200,'status' => true, 'message' => 'Admin has not added any data for this video','data'=>$data]);
+    return Response::json(['code' => 200,'status' => true, 'message' => 'Free Videos','data'=>$data]);
    
    }
    
@@ -58,6 +58,9 @@ class SubscriptionPlanController extends Controller
  
   // check video access details with user subscription id
    $videoAccessDetails = UserSubscribedVideosDetails::where('premium_video_id',$video_id)->where('user_subscription_id',$subscription_details->id)->with(['usersubscriptiondetails'])->with('premiumvideo')->first();
+   
+   
+   
   
     // check whether it is accessible or not 
       if($videoAccessDetails != null){

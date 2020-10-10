@@ -95,7 +95,15 @@ class SubscribedWorkoutCategoryController extends Controller
     
     
      public function delete($id){
+      $x = SubscriptionWorkoutCategory::find($id);
+      $premiumvideos = PremiumWorkoutDetails::where('category_id',$x->categories_id)->with('premiumworkout')->get();
  
+        foreach($premiumvideos as $video){
+        
+       SubscriptionVideo::where('premium_video_id', $video->premiumworkout->id)->where('subscription_details_id',$x->subscription_details_id)->delete();
+
+      }
+      
       SubscriptionWorkoutCategory::where('id', $id)->delete();
      return back()->with('status',100)->with('type','success')->with('message','Record deleted Successfully');
   
@@ -133,10 +141,12 @@ class SubscribedWorkoutCategoryController extends Controller
 
       $sub_id = SubscriptionPlanDetails::where('subscription_category_id',$request->subscription_category_id)->where('subscription_plan_id',$request->subscription_plan_id)->first();
 
-      foreach($oldvideos as $key =>$video){
-
-      	SubscriptionVideo::where('subscription_details_id',$sub_id->id)->where('premium_video_id')->delete();
+      $x = SubscriptionWorkoutCategory::find($id);
+      $premiumvideos = PremiumWorkoutDetails::where('category_id',$x->categories_id)->with('premiumworkout')->get();
+ 
+        foreach($premiumvideos as $video){
         
+       SubscriptionVideo::where('premium_video_id', $video->premiumworkout->id)->where('subscription_details_id',$x->subscription_details_id)->delete();
 
       }
 
