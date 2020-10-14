@@ -56,10 +56,16 @@
                                     </div>
                                   </div>
 
+                                  <label for="course_name">Description</label>
+                                 <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="description" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                  </div>
 
 
-
-                                           <label for="course_name">Original Price (in dollars )</label>
+                                  <label for="course_name">Original Price (in dollars )</label>
                                  <div class="form-group">
                                     <div class="form-line">
                                         <input type="text" required name="original_price" id="sequence_no"

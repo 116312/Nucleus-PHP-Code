@@ -45,7 +45,13 @@
                                         <tr>
                                           <td>{{++$key}}</td>
                                           <td>{{$goal->title}}</td>
-                                         <td>{!!$goal->description!!}</td>
+
+                                         <td>@if($goal->descriptions != null)
+                                         @foreach($goal->descriptions as $desc)
+
+                                            <li>{{$desc->descriptions}}</li>
+                                         @endforeach
+                                         @endif</td>
                                          <td><ul>
                                              @foreach($goal->traininggoalsplan as $key =>$plans)
                                            

@@ -37,6 +37,7 @@ class SubscriptionPlanDetailsController extends Controller
           'per_month_price'=> $per_month,
           'plan_duration_price'=> $plan_duration_price,
           'product_id'=> $request->product_id,
+          'description'=>$request->description,
           'created_at'=>Carbon::now(),
 
          ];
@@ -114,6 +115,7 @@ public function update(Request $request ,$id){
           'per_month_price'=> $per_month,
           'plan_duration_price'=> $plan_duration_price,
           'product_id'=> $request->product_id,
+          'description'=>$request->description,
           'created_at'=>Carbon::now(),
 
          ];

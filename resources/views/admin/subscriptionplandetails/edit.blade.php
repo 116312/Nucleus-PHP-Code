@@ -55,6 +55,15 @@
                                     </div>
                                   </div>
 
+
+                                    <label for="course_name">Description</label>
+                                 <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required value="{{$subscriptionplandetails->description}}" name="description" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                  </div>
+
                                            <label for="course_name">Original Price (in dollars )</label>
                                  <div class="form-group">
                                     <div class="form-line">

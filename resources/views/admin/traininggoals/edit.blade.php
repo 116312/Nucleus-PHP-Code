@@ -31,15 +31,7 @@
                                 </div>
 
 
-                                  <label for="course_name">Add Description for Training Goals</label>
-                                <div class="form-group">
-                                    <div class="form-line">
-                                        <textarea id="ckeditor" name="description">{!!$goal->description!!}
-                            </textarea>
-                                    </div>
-
-                                </div>
-
+                                
                                <label for="article_category_type">Select Days Per Week Training Plan</label>
                                         <div class="form-group">
                                             <div class="form-line">
@@ -55,7 +47,18 @@
                                                 </select>
                                             </div>
                                       </div>
-                               
+                                <label for="article_category_type">Descriptions</label>
+                                  <div class="form-group">
+                                  <div id="wrapper">
+                                 @if($goal->descriptions != null)
+                                  @foreach($goal->descriptions as $descriptions)
+                                 <div ><input type="text" value="{{$descriptions->descriptions}}" name="description[]" style="width:90%!important;" ><button  class="delete">Delete</button></div><br />
+                                 
+                                 @endforeach
+                                 @endif
+                                  </div>
+                                   <span><button type="button" id ="add" class="btn btn-primary m-t-15 waves-effect">Add Descriptions</button></span>
+                                  </div>
     
 
                                 
@@ -67,14 +70,17 @@
             </div>
         </div>
     </section>
-@push('scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(function () {
-        //CKEditor
-        CKEDITOR.replace('ckeditor');
-        CKEDITOR.config.height = 300;
+      $(document).ready(function(){
 
-    });
-</script>
-@endpush
+       $("#add").click(function (e) {
+//Append a new row of code to the "#items" div
+  $("#wrapper").append('<div ><input type="text" name="description[]" style="width:90%!important;" ><button  class="delete">Delete</button></div><br />');
+});
+        $("#wrapper").on("click",".delete", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove();
+    })
+});
+    </script>
 @endsection
