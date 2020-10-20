@@ -23,8 +23,8 @@ class SubscriptionPlanDetailsController extends Controller
 
 
     public function store(Request $request){
-           $offerprice =  $request->original_price*($request->offer_percentage/100);
-           $per_month = $request->original_price - $offerprice;
+          
+           $per_month = ($request->original_price-($request->original_price*$request->offer_percentage))/$request->number_of_month;
            $plan_duration_price = $per_month * $request->number_of_month;
 
          $data = [
@@ -101,8 +101,7 @@ public function edit($id){
 
 public function update(Request $request ,$id){
 
-           $offerprice =  $request->original_price*($request->offer_percentage/100);
-           $per_month = $request->original_price - $offerprice;
+            $per_month = ($request->original_price-($request->original_price*$request->offer_percentage))/$request->number_of_month;
            $plan_duration_price = $per_month * $request->number_of_month;
 
          $data = [

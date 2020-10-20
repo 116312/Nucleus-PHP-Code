@@ -54,14 +54,15 @@ class TrainingGoalsController extends Controller
 
 
       foreach($request->description as $description){
-$goalsDescription = [
+     
+        $goalsDescription = [
         'descriptions'=>$description,
         'training_goals_id'=>$id
       ];
-TrainingGoalsDescription::insert($goalsDescription);
-    }
+     TrainingGoalsDescription::insert($goalsDescription);
+       }
 
- return back()->with('status',100)->with('type','success')->with('message','Training Goals added successfully');
+         return back()->with('status',100)->with('type','success')->with('message','Training Goals added successfully');
 
     }
 
@@ -101,7 +102,7 @@ TrainingGoalsDescription::insert($goalsDescription);
     $data = [
 
         'title' =>$request->title,
-        // 'description'=>$request->description,
+          
         'created_at'=>Carbon::now(),
 
     	];
