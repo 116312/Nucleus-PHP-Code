@@ -37,41 +37,11 @@ class UserController extends Controller
         }
 
 
-if (strlen($data->password ) < 8 || strlen($data->password ) > 16) {
-
-         array_push($returnArray,"Password should be min 8 characters and max 16 characters");
-    
-}
-if (!preg_match("/\d/", $pass)) {
-
- array_push($returnArray,"Password should contain at least one digit");
-   
-}
-if (!preg_match("/[A-Z]/", $pass)) {
- array_push($returnArray,"Password should contain at least one Capital Letter");
-   
-}
-if (!preg_match("/[a-z]/", $pass)) {
-
-     array_push($returnArray,"Password should contain at least one small Letter");
-   
-    
-}
-if (!preg_match("/\W/", $pass)) {
-array_push($returnArray,"Password should contain at least one special character");
-   
-}
-if (preg_match("/\s/", $pass)) {
-array_push($returnArray, "Password should not contain any white space");
-   
-}
 
 
 
 
-        if($data->contact_no == null){
-            array_push($returnArray,'Please enter phone number');
-        }
+     
 
         
         return $returnArray;
@@ -92,7 +62,7 @@ array_push($returnArray, "Password should not contain any white space");
 
         if(count($validate) > 0){
 
-            return Response::json(['codes' => 400,'status' => false, 'message' => $validate]);
+            return Response::json(['codes' => 400,'status' => false, 'message' => "All fiels are required *"]);
         }
         else{
 
@@ -206,7 +176,8 @@ array_push($returnArray, "Password should not contain any white space");
           if($request->email != null){
                 $check = User::where('email',$request->email)->first();
                 if($check != null){
-                    return Response::json(['code' => 400,'status' => false, 'message' => 'Validation Error','data'=>['User Already Exist']]);
+                
+                     return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$check]);
                 }
           }
             $insert = [
