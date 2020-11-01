@@ -68,7 +68,7 @@ class PremiumWorkoutDetailsController extends Controller
         'trainer_name'=>$request->trainer_name,
         'description'=>$request->description,
         'created_at'=> Carbon::now(),
-        'prize'=>0,
+       
        
 
     	];
@@ -203,7 +203,6 @@ foreach($request->chapters as $chapter){
     	$data = [
         
         'name' => $name,
-        
         'premium_workout_id'=>$request->premium_workout_id,
         'category_id'=>$request->category_id,
         'workout_type_id'=>$request->workout_type_id,

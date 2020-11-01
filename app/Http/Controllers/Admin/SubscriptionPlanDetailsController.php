@@ -12,12 +12,12 @@ class SubscriptionPlanDetailsController extends Controller
 {
     public function add(){
     
-    	$page = 'subscription-plan-details';
+      $page = 'subscription-plan-details';
         $sub_page = 'add-subscription-plan-details';
         $subscription_category = SubscriptionCategory::all();
         $subscription_plan = SubscriptionPlan::all();   
 
-    	return view('admin.subscriptionplandetails.add',compact('page','sub_page','subscription_category','subscription_plan'));
+      return view('admin.subscriptionplandetails.add',compact('page','sub_page','subscription_category','subscription_plan'));
     }
 
 
@@ -101,8 +101,8 @@ public function edit($id){
 
 public function update(Request $request ,$id){
 
-          $per_month = ($request->original_price-($request->original_price*$request->offer_percentage))/$request->number_of_month;
-          $plan_duration_price = $per_month * $request->number_of_month;
+            $per_month = ($request->original_price-(($request->original_price*$request->offer_percentage)/100))/$request->number_of_month;
+           $plan_duration_price = $per_month * $request->number_of_month;
 
          $data = [
          
