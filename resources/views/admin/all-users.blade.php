@@ -38,6 +38,7 @@
                                     <td>Profile Image</td>
                                     <td>Height</td>
                                     <td>Weight</td>
+                                    <td>Action</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -52,6 +53,13 @@
                                        <td><img style="float:left!important" src="{{$user->image}}" height="100" width="100"></td>
                                        <td>{{$user->height}}</td>
                                        <td>{{$user->weight}}</td>
+                                       <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
+                                    @csrf
+                                       <td>
+
+                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                    </td>
+                                </form>
                                    </tr>
                                @endforeach
                                 </tbody>

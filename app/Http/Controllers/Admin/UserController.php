@@ -27,4 +27,13 @@ class UserController extends Controller
 
         return view('admin.all-users',compact('page','users'));
     }
+
+
+   public function delete($id){
+     
+     User::where('id',$id)->delete();
+
+     return back()->with('status',100)->with('type','success')->with('message','User deleted Successfully');
+
+   }
 }

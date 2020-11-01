@@ -26,6 +26,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
     Route::get('dashboard','DashboardController@dashboard');
     Route::get('all-users','UserController@allUsers');
+    Route::post('delete-users/{id}','UserController@delete');
 
 
 

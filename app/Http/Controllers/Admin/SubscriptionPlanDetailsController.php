@@ -101,8 +101,8 @@ public function edit($id){
 
 public function update(Request $request ,$id){
 
-            $per_month = ($request->original_price-($request->original_price*$request->offer_percentage))/$request->number_of_month;
-           $plan_duration_price = $per_month * $request->number_of_month;
+          $per_month = ($request->original_price-($request->original_price*$request->offer_percentage))/$request->number_of_month;
+          $plan_duration_price = $per_month * $request->number_of_month;
 
          $data = [
          
