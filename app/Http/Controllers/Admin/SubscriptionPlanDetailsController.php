@@ -8,16 +8,21 @@ use App\Model\SubscriptionCategory;
 use App\Model\SubscriptionPlan;
 use App\Model\SubscriptionPlanDetails;
 use App\Model\AdditionalBenifits;
+
 class SubscriptionPlanDetailsController extends Controller
 {
+    
+
+
     public function add(){
     
-      $page = 'subscription-plan-details';
+        $page = 'subscription-plan-details';
         $sub_page = 'add-subscription-plan-details';
         $subscription_category = SubscriptionCategory::all();
         $subscription_plan = SubscriptionPlan::all();   
 
       return view('admin.subscriptionplandetails.add',compact('page','sub_page','subscription_category','subscription_plan'));
+    
     }
 
 
@@ -45,7 +50,7 @@ class SubscriptionPlanDetailsController extends Controller
 
         $sub_id= SubscriptionPlanDetails::insertGetId($data);
 
-if($request->benifits!= null){
+    if($request->benifits!= null){
     foreach($request->benifits as $benifits){
       $benifit = [];
       $benifit = [
@@ -68,6 +73,8 @@ if($request->benifits!= null){
 
 
     public function show(){
+
+
      $page = 'subscription-plan-details';
      $sub_page = 'show-subscription-plan-details';
      $subscriptionplandetails = SubscriptionPlanDetails::with(['subscriptioncategory','subscriptionplan','additionalbenifits'])->get();
@@ -80,7 +87,7 @@ if($request->benifits!= null){
        SubscriptionPlanDetails::where('id', $id)->delete();
         return back()->with('status',100)->with('type','success')->with('message','Subscription Plan Details Successfully');
   
-}
+    }
 
 
 
@@ -122,11 +129,11 @@ public function update(Request $request ,$id){
 
      SubscriptionPlanDetails::where('id',$id)->update($data);
 
-if($request->benifits!= null){
+   if($request->benifits!= null){
 
-  AdditionalBenifits::where('subscription_plan_details_id', $id)->delete();
+     AdditionalBenifits::where('subscription_plan_details_id', $id)->delete();
 
-    foreach($request->benifits as $benifits){
+     foreach($request->benifits as $benifits){
       $benifit = [];
       $benifit = [
      'subscription_plan_details_id' =>$id,
@@ -134,7 +141,7 @@ if($request->benifits!= null){
      'created_at'=> Carbon::now(),
       ];
 
-
+ 
       AdditionalBenifits::insert($benifit);
 
       }

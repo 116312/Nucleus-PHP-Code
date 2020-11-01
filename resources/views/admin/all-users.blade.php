@@ -38,6 +38,8 @@
                                     <td>Profile Image</td>
                                     <td>Height</td>
                                     <td>Weight</td>
+                                    <td>Is Subscribed User </td>
+                                    <td>Product </td>
                                     <td>Action</td>
                                 </tr>
                                 </thead>
@@ -53,6 +55,8 @@
                                        <td><img style="float:left!important" src="{{$user->image}}" height="100" width="100"></td>
                                        <td>{{$user->height}}</td>
                                        <td>{{$user->weight}}</td>
+                                       <td>@if($user->usersubscriptiondetails != null) YES @else No @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
                                        <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
                                     @csrf
                                        <td>

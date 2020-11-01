@@ -14,7 +14,8 @@ class PrivacyPolicyController extends Controller
        $policy = PrivacyPolicy::first();
 
 
-          return Response::json(['code' => 200,'status' => true, 'message' => 'Get Privacy Policy','data'=>$policy]);
+           return view('api.privacy_policy',compact('policy'));
+
 
     }
 }
