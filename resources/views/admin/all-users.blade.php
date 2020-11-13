@@ -38,8 +38,15 @@
                                     <td>Profile Image</td>
                                     <td>Height</td>
                                     <td>Weight</td>
+
                                     <td>Is Subscribed User </td>
                                     <td>Product </td>
+                                    <td>Subscription Date </td>
+                                    <td>Amount</td>
+                                    <td>Subscription Category</td>
+                                    <td>Subscription Plan </td>
+usersubscriptionplandetails
+
                                     <td>Action</td>
                                 </tr>
                                 </thead>
@@ -57,6 +64,10 @@
                                        <td>{{$user->weight}}</td>
                                        <td>@if($user->usersubscriptiondetails != null) YES @else No @endif</td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif   </td>
+                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->subscriptioncategory->name}}@else NA @endif   </td>
+                                          <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->subscriptionplan->name}}@else NA @endif   </td>
                                        <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
                                     @csrf
                                        <td>

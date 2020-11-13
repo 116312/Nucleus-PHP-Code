@@ -22,8 +22,10 @@ class UserController extends Controller
 
 
    public function allUsers(){
-        $users = User::with('usersubscriptiondetails')->orderBy('created_at','desc')->get();
-                $page = 'users';
+
+        $users = User::with(['usersubscriptiondetails.usersubscriptionplandetails.subscriptioncategory','usersubscriptiondetails.usersubscriptionplandetails.subscriptionplan'])->orderBy('created_at','desc')->get();
+        $page = 'users';
+
 
         return view('admin.all-users',compact('page','users'));
     }
