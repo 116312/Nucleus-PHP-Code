@@ -11,13 +11,13 @@ class UserSubscriptionPlanDetails extends Model
 
     public function subscriptioncategory(){
 
-      return $this->hasMany('App\Model\SubscriptionCategory','subscription_category_id');
+      return $this->hasOne('App\Model\SubscriptionCategory','subscription_category_id');
         
     }
 
     public function subscriptionplan(){
 
-      return $this->hasMany('App\Model\SubscriptionPlan','subscription_plan_id');
+      return $this->hasOne('App\Model\SubscriptionPlan','subscription_plan_id');
         
     }
 

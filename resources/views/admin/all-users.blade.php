@@ -45,12 +45,15 @@
                                     <td>Amount</td>
                                     <td>Subscription Category</td>
                                     <td>Subscription Plan </td>
-usersubscriptionplandetails
+                                    <td>Start Date </td>
+                                    <td>End Date </td>
 
                                     <td>Action</td>
                                 </tr>
                                 </thead>
                                 <tbody>
+                               
+                              
                                @foreach($users as $key => $user)
                                    <tr>
                                        <td>{{$key + 1}}</td>
@@ -66,8 +69,10 @@ usersubscriptionplandetails
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif   </td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif   </td>
-                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->subscriptioncategory->name}}@else NA @endif   </td>
-                                          <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->subscriptionplan->name}}@else NA @endif   </td>
+                                         <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionCategory::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_category_id)->first()->name}}@else NA @endif   </td>
+                                          <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionPlan::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_plan_id)->first()->name}}@else NA @endif   </td>
+                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->start_date}}@else NA @endif   </td>
+                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->end_date}}@else NA @endif   </td>
                                        <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
                                     @csrf
                                        <td>
