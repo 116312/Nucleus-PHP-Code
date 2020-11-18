@@ -16,6 +16,14 @@ class UserSubscriptionDetailsController extends Controller
 {
 
 
+ 
+  public function __construct()
+    {
+        $userPlanDetails = UserSubscriptionPlanDetails::all();
+        foreach($userPlanDetails as $details){
+          $this->checkSubscriptionStatus($details);
+        }
+    }
 
 	public function saveDetails(Request $request){
 
@@ -113,6 +121,32 @@ class UserSubscriptionDetailsController extends Controller
 
 
        return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Details','data'=>$details]);
+
+   }
+
+   public function checkSubscriptionStatus($userSubscriptionDetails){
+      
+      $date = new Carbon;
+    if($date > $userSubscriptionDetails->end_date)
+     {
+        $this->expireSubscription($userSubscriptionDetails);
+     } 
+
+   }
+
+
+   public function expireSubscription($userSubscriptionDetails){
+
+     
+     UserSubscriptionPlanDetails::where('id',$userSubscriptionDetails->id)->update(['status'=>false]);
+
+     $videoAcess = UserSubscribedVideosDetails::where('user_subscription_id',$userSubscriptionDetails->id)->get();
+     foreach($videoAcess as $video){
+
+     UserSubscribedVideosDetails::where('id',$video->id)->update(['access'=>false]);
+
+     }
+ 
 
    }
 
