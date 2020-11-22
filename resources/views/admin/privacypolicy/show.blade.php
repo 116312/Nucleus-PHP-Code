@@ -25,7 +25,7 @@
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
-                                    <td>Privacy Policy</td>
+                                    <td>Terms and Conditions</td>
                                    
 
                                    
@@ -37,7 +37,7 @@
                                         
                                         <tr>
                                           <td>1</td>
-                                          <td>{!!$policy->description!!}}</td>
+                                          <td>{!!$policy->description!!}</td>
                                          
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-privacy-policy').'/'.$policy->id}}" role="form">
                                     @csrf
