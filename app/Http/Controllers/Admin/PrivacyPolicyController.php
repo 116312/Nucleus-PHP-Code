@@ -52,4 +52,37 @@ class PrivacyPolicyController extends Controller
        return view('admin.privacypolicy.show',compact('page','sub_page','policy'));
 
     }
+
+
+    public function edit($id){
+
+       $page =  'privacy-policy';
+       $sub_page = 'edit-privacy-policy';
+       $policy = PrivacyPolicy::find($id);
+
+       return view('admin.privacypolicy.edit',compact('page','sub_page','policy'));
+    }
+
+
+    public function delete($id){
+
+       PrivacyPolicy::where('id', $id)->delete();
+        return back()->with('status',100)->with('type','success')->with('message','record deleted Successfully');
+  
+}
+
+
+public function update(Request $request , $id){
+  $data = [
+        
+        'description' =>$request->description,
+        'created_at' => Carbon::now(),
+     
+        ];
+      
+        PrivacyPolicy::where('id',$id)->update($data);
+
+       return back()->with('status',100)->with('type','success')->with('message','Record Updated Successfully');
+
+}
 }

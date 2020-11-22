@@ -1,11 +1,11 @@
 @extends('admin.admin-app')
-@section('title', 'Add Terms ans Conditions')
+@section('title', 'Edit Terms and Condition')
 @section('admin-section')
 
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>Privacy Policy</h2>
+                <h2>Terms and Conditions</h2>
             </div>
             <!-- Vertical Layout -->
             <div class="row clearfix">
@@ -13,19 +13,19 @@
                     <div class="card">
                         <div class="header">
                             <h2>
-                              Terms ans Conditions
+                            Terms ans Conditions
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-privacy-policy')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/update-privacy-policy'.'/'.$policy->id)}}" enctype="multipart/form-data">
                                 @csrf
 
 
                                
-                                <label for="course_name">Add Terms ans Conditions</label>
+                                <label for="course_name">Edit Terms ans Conditions</label>
                                 <div class="form-group">
                                 <div class="form-line">
-                                <textarea id="ckeditor" name="description"></textarea>
+                                <textarea id="ckeditor" name="description">{!!$policy->description!!}</textarea>
                                 </div>
 
                                 </div>
