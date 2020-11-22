@@ -112,10 +112,9 @@
    </div> -->
    <h3>Terms and Conditions</h3>
     <div>
-  URL:: {{url('/').'/api/get-terms-and-conditions'}}
-    <form method="POST" enctype="multipart/form-data" action="{{url('/api/get-terms-and-conditions')}}" >
-   <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Get</button>
-   
+  URL:: {{url('/').'/terms_and_conditions'}}
+    
+    <p><a href="{{url('/terms_and_conditions')}}">Get</a></p>
       </form>
    </div>
    

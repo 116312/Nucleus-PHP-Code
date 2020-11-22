@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('terms_and_conditions','ScreensDataController@termsandconditions');
 Route::get('/login/admin', 'Auth\LoginController@showAdminLoginForm')->name('admin');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 
