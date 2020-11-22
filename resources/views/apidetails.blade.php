@@ -102,10 +102,18 @@
       
    </div>
 
-    <h3>Privacy Policy</h3>
+   <!--  <h3>Privacy Policy</h3>
     <div>
   URL:: {{url('/').'/api/get-privacy-policy'}}
   <form method="POST" enctype="multipart/form-data" action="{{url('/api/get-privacy-policy')}}" >
+   <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Get</button>
+   
+      </form>
+   </div> -->
+   <h3>Terms and Conditions</h3>
+    <div>
+  URL:: {{url('/').'/api/get-terms-and-conditions'}}
+    <form method="POST" enctype="multipart/form-data" action="{{url('/api/get-terms-and-conditions')}}" >
    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">Get</button>
    
       </form>

@@ -1,4 +1,4 @@
-<section>
+F<section>
     <!-- Left Sidebar -->
     <aside id="leftsidebar" class="sidebar">
 
@@ -129,15 +129,15 @@
                 <li class="{{(isset($page) && $page && $page == 'privacy-policy' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
                         <i class="material-icons">alarm_on</i>
-                        <span>Privacy Policy</span>
+                        <span>Terms and Conditons</span>
                     </a>
                     <ul class="ml-menu">
                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'add-privacy-policy' ? 'active' : '')}}">
-                            <a href="{{ url('admin/add-privacy-policy')}}">Add Privacy Policy</a>
+                            <a href="{{ url('admin/add-privacy-policy')}}">Add Terms and Conditons</a>
                         </li>
 
                         <li class="{{(isset($sub_page) && $sub_page && $sub_page == 'show-privacy-policy' ? 'active' : '')}}">
-                            <a href="{{ url('admin/show-privacy-policy') }}">Show Privacy Policy</a>
+                            <a href="{{ url('admin/show-privacy-policy') }}">Show Terms and Conditons</a>
                         </li>
                     </ul>
                 </li>
