@@ -225,7 +225,7 @@ class UserController extends Controller
          'height_unit'=>$request->height_unit,
          'height'=>$request->height,
          'dob'=>$request->dob,
-         
+         'country'=>$request->country,
          'updated_at'=>Carbon::now(),
           ];
 

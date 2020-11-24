@@ -52,6 +52,9 @@
     <br />
     <br />
     Image(image)::*<input type="file"  name="image" >
+     <br />
+    <br />
+    Country(country)::*<input type="text"  name="country" >
 
 
 

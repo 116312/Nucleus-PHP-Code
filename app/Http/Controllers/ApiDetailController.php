@@ -18,6 +18,12 @@ class ApiDetailController extends Controller
 {
    
 
+
+  public function getAppVersionForm(){
+
+      return view('api.app-version-form');
+  }
+
    public function getUserTrainingAndPlanForm(){
           $users = User::all();
 

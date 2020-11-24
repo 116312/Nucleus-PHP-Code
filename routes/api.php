@@ -35,7 +35,8 @@ Route::group(['namespace' => 'Api'],function (){
    Route::post('get-social-privacy-setting','UserController@getuserssocialprivacysetting');
 
 
-
+//***************** APP Version Api ***********************************//
+   Route::post('save-version','AppVersionController@saveAppVersion');
 
 
 //********************** Categories Api *******************************//

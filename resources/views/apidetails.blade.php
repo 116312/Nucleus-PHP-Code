@@ -117,6 +117,14 @@
     <p><a href="{{url('/terms_and_conditions')}}">Get</a></p>
       </form>
    </div>
+
+    <h3>App Version</h3>
+    <div>
+
+    
+    <p><a href="{{url('/api-details/get-app-version-form')}}">Get App Version Form</a></p>
+      
+   </div>                                                                                       
    
 
 
