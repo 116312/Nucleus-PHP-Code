@@ -31,6 +31,9 @@
     User Email(email) ::*<input type="text"  name="email" required>
     <br />
     <br />
+    Country(country) ::*<input type="text"  name="country" required>
+    <br />
+    <br />
 
     Password(password) ::*<input type="password"  name="password" required>
     <br />

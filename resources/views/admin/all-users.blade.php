@@ -32,12 +32,14 @@
                                     <td>S No.</td>
                                     <td>User Name</td>
                                     <td>Mobile Number</td>
+                                    <td>Country</td>
                                     <td>Email</td>
                                     <td>Gender</td>
                                     <td>Date of Birth</td>
                                     <td>Profile Image</td>
                                     <td>Height</td>
                                     <td>Weight</td>
+                                    <
 
                                     <td>Is Subscribed User </td>
                                     <td>Product </td>
@@ -59,6 +61,7 @@
                                        <td>{{$key + 1}}</td>
                                        <td>{{$user->name}}</td>
                                        <td>{{$user->contact_no}}</td>
+                                        <td>{{$user->country}}</td>
                                        <td>{{$user->email}}</td>
                                        <td>{{$user->gender}}</td>
                                        <td>{{$user->dob}}</td>

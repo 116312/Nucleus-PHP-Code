@@ -78,6 +78,7 @@ class UserController extends Controller
                     'name' => $request->name,
                     'email' => $request->email,
                     'password' => bcrypt($request->password),
+                    'country'=>$request->country,
                     'contact_no' => $request->contact_no,
                    
                     'created_at' => Carbon::now(),
