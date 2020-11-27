@@ -35,8 +35,7 @@ Route::group(['namespace' => 'Api'],function (){
    Route::post('get-social-privacy-setting','UserController@getuserssocialprivacysetting');
 
 
-//***************** APP Version Api ***********************************//
-   Route::post('save-version','AppVersionController@saveAppVersion');
+
 
 
 //********************** Categories Api *******************************//
@@ -78,12 +77,11 @@ Route::post('get-subscription-plan','SubscriptionPlanController@getSubscriptionP
 //**************************** Subscription Plan *******************************//
 
 Route::post('get-privacy-policy','PrivacyPolicyController@getPrivacyPolicy');
-Route::post('get-terms-and-conditions','PrivacyPolicyController@getPrivacyPolicy');
 
 //*********************** User Subscription Details ********************//
 
 Route::post('submit-user-subscription','UserSubscriptionDetailsController@saveDetails');
-
+Route::post('feedback','feedbackController@feedback');
 
 
 });
