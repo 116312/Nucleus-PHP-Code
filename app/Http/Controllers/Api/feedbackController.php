@@ -1,12 +1,7 @@
-<?php
-namespace App\Http\Controllers\Api;
-
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Model\Category;
 use Response;
 use App\User;
 use App\Model\feedback;
+use Mail;
 use DB;
 
 use Illuminate\Support\Facades\Validator;
@@ -26,6 +21,12 @@ class feedbackController extends Controller
             $response['message']=$validator->errors($validator)->first();
             return Response::json($response,400);
         }
+        Mail::send([], [], function ($message) use($request) {
+            $message->to($request->to)
+              ->subject($request->subject)
+              // here comes what you want
+              ->setBody($request->content); // assuming text/plain
+          });
   $data  = new  feedback();
   $data->from =$request->from;
   $data->to =$request->to;
