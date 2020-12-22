@@ -19,10 +19,10 @@ class UserSubscriptionDetailsController extends Controller
  
   public function __construct()
     {
-        $userPlanDetails = UserSubscriptionPlanDetails::all();
+      /*  $userPlanDetails = UserSubscriptionPlanDetails::all();
         foreach($userPlanDetails as $details){
           $this->checkSubscriptionStatus($details);
-        }
+        }*/
     }
 
 	public function saveDetails(Request $request){
@@ -148,6 +148,23 @@ class UserSubscriptionDetailsController extends Controller
      }
  
 
+   }
+    //Date:-22-12-2020 by Mishra Ankit Kumar
+   public function getUserSubscriptionDetail(Request $request)
+   {
+        $userID=$request->userID;
+        $data = UserSubscriptionDetails::where('user_id',$userID)->first();
+        if($data!=null)
+        {
+        return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Detail ','data'=>$data]);
+        }
+        else
+        {
+             return Response::json(['code' => 200,'status' => false, 'message' => 'No Subscription']);
+        }
+      
+       
+       
    }
 
 }
