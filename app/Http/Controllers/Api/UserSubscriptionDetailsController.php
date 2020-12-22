@@ -19,10 +19,10 @@ class UserSubscriptionDetailsController extends Controller
  
   public function __construct()
     {
-        $userPlanDetails = UserSubscriptionPlanDetails::all();
+      /*  $userPlanDetails = UserSubscriptionPlanDetails::all();
         foreach($userPlanDetails as $details){
           $this->checkSubscriptionStatus($details);
-        }
+        }*/
     }
 
 	public function saveDetails(Request $request){
