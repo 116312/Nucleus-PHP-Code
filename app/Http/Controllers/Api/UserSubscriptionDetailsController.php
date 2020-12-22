@@ -149,5 +149,22 @@ class UserSubscriptionDetailsController extends Controller
  
 
    }
+    //Date:-22-12-2020 by Mishra Ankit Kumar
+   public function getUserSubscriptionDetail(Request $request)
+   {
+        $userID=$request->userID;
+        $data = UserSubscriptionDetails::where('user_id',$userID)->first();
+        if($data!=null)
+        {
+        return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Detail ','data'=>$data]);
+        }
+        else
+        {
+             return Response::json(['code' => 200,'status' => false, 'message' => 'No Subscription']);
+        }
+      
+       
+       
+   }
 
 }
