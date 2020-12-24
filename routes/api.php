@@ -82,6 +82,7 @@ Route::post('get-privacy-policy','PrivacyPolicyController@getPrivacyPolicy');
 
 Route::post('submit-user-subscription','UserSubscriptionDetailsController@saveDetails');
 Route::post('getUserSubscriptionDetail','UserSubscriptionDetailsController@getUserSubscriptionDetail');
+Route::post('cancelSubscriptionPlan','UserSubscriptionDetailsController@cancelSubscriptionPlan');
 Route::post('feedback','FeedbackController@feedback');
 
 

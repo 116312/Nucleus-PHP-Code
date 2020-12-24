@@ -156,15 +156,25 @@ class UserSubscriptionDetailsController extends Controller
         $data = UserSubscriptionDetails::where('user_id',$userID)->first();
         if($data!=null)
         {
-        return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Detail ','data'=>$data]);
+            $userSubscriptionDetailsId=$data->id;
+            $UserSubscriptionPlanDetails=UserSubscriptionPlanDetails::where('user_subscription_id',$userSubscriptionDetailsId)->first();
+            return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Detail ','data'=>$UserSubscriptionPlanDetails]);
         }
         else
         {
-             return Response::json(['code' => 200,'status' => false, 'message' => 'No Subscription']);
+             return Response::json(['code' => 400,'status' => false, 'message' => 'No Subscription']);
         }
       
-       
-       
+   }
+   public function cancelSubscriptionPlan(Request $request)
+   {
+       $UserSubscriptionPlanDetailsId=$request->UserSubscriptionPlanDetailsId;
+       $status=$request->status;
+       $UserSubscriptionPlanDetailsStatus=array(
+           "status"=>$status
+           );
+           UserSubscriptionPlanDetails::where('id',$UserSubscriptionPlanDetailsId)->update($UserSubscriptionPlanDetailsStatus);
+          return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Plan Details has been Changed.']); 
    }
 
 }
