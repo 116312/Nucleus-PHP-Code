@@ -10,7 +10,7 @@
     'locale' => 'en',
     'fallback_locale' => 'en',
     'faker_locale' => 'en_US',
-    'key' => 'base64:rbRC9Lc8ou1NNufk7Iob98mlK/FPOg+iCBDE9mGhJ5U=',
+    'key' => 'base64:awaiLlhrp20xbDTZbVSqMdoAWbb0gSzLdOGc9FK5pdk=',
     'cipher' => 'AES-256-CBC',
     'providers' => 
     array (
@@ -192,7 +192,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => '/var/www/html/nucleus_app/storage/framework/cache/data',
+        'path' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -269,7 +269,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'nucleus_app',
+        'database' => 'nuclues',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -279,9 +279,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'nucleus_app',
-        'username' => 'admin',
-        'password' => 'nucleus@123',
+        'database' => 'nuclues',
+        'username' => 'root',
+        'password' => '',
         'unix_socket' => '',
         'charset' => 'utf8mb4',
         'collation' => 'utf8mb4_unicode_ci',
@@ -299,9 +299,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'nucleus_app',
-        'username' => 'admin',
-        'password' => 'nucleus@123',
+        'database' => 'nuclues',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -314,9 +314,9 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'nucleus_app',
-        'username' => 'admin',
-        'password' => 'nucleus@123',
+        'database' => 'nuclues',
+        'username' => 'root',
+        'password' => '',
         'charset' => 'utf8',
         'prefix' => '',
         'prefix_indexes' => true,
@@ -358,12 +358,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/html/nucleus_app/storage/app',
+        'root' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => '/var/www/html/nucleus_app/storage/app/public',
+        'root' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\app/public',
         'url' => 'http://localhost/storage',
         'visibility' => 'public',
       ),
@@ -379,7 +379,7 @@
     ),
     'links' => 
     array (
-      '/var/www/html/nucleus_app/public/storage' => '/var/www/html/nucleus_app/storage/app/public',
+      'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\public\\storage' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -413,13 +413,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => '/var/www/html/nucleus_app/storage/logs/laravel.log',
+        'path' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => '/var/www/html/nucleus_app/storage/logs/laravel.log',
+        'path' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -469,7 +469,7 @@
       ),
       'emergency' => 
       array (
-        'path' => '/var/www/html/nucleus_app/storage/logs/laravel.log',
+        'path' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -481,11 +481,11 @@
       'smtp' => 
       array (
         'transport' => 'smtp',
-        'host' => 'smtp.office365.com',
-        'port' => '587',
-        'encryption' => 'tls',
-        'username' => 'app@nuccorepro.com',
-        'password' => 'nucleusteam',
+        'host' => 'smtp.mailtrap.io',
+        'port' => '2525',
+        'encryption' => NULL,
+        'username' => NULL,
+        'password' => NULL,
         'timeout' => NULL,
       ),
       'stream' => 
@@ -526,15 +526,15 @@
     ),
     'from' => 
     array (
-      'address' => 'app@nuccorepro.com',
-      'name' => 'Nucleus',
+      'address' => NULL,
+      'name' => 'Laravel',
     ),
     'markdown' => 
     array (
       'theme' => 'default',
       'paths' => 
       array (
-        0 => '/var/www/html/nucleus_app/resources/views/vendor/mail',
+        0 => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -613,7 +613,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => '/var/www/html/nucleus_app/storage/framework/sessions',
+    'files' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -633,9 +633,9 @@
   array (
     'paths' => 
     array (
-      0 => '/var/www/html/nucleus_app/resources/views',
+      0 => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\resources\\views',
     ),
-    'compiled' => '/var/www/html/nucleus_app/storage/framework/views',
+    'compiled' => 'C:\\Users\\Aquad002\\Desktop\\Laravel Project\\nucleus_app\\storage\\framework\\views',
   ),
   'flare' => 
   array (
@@ -670,7 +670,7 @@
   'trustedproxy' => 
   array (
     'proxies' => NULL,
-    'headers' => 94,
+    'headers' => 30,
   ),
   'tinker' => 
   array (

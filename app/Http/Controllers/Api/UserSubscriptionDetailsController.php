@@ -34,6 +34,7 @@ class UserSubscriptionDetailsController extends Controller
      'transaction_id'=> $request->transaction_id,
      'amount'=> $request->amount,
      'product'=> $request->product,
+     'receipt'=> $request->receipt,
      'created_at'=>Carbon::now(),
       ];
 
@@ -58,7 +59,7 @@ class UserSubscriptionDetailsController extends Controller
         ];
 
         $x = UserSubscriptionPlanDetails::insertGetId($plandetails);
-        $subscriptionworkoutcategories     = SubscriptionWorkoutCategory::where('subscription_details_id',$subscriptionPlanDetails->id)->with(['workoutcategory.premiumworkoutdetails.premiumworkout'])->get();
+        $subscriptionworkoutcategories = SubscriptionWorkoutCategory::where('subscription_details_id',$subscriptionPlanDetails->id)->with(['workoutcategory.premiumworkoutdetails.premiumworkout'])->get();
         
 
 
