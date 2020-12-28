@@ -19,10 +19,10 @@ class UserSubscriptionDetailsController extends Controller
  
   public function __construct()
     {
-        $userPlanDetails = UserSubscriptionPlanDetails::all();
+      /*  $userPlanDetails = UserSubscriptionPlanDetails::all();
         foreach($userPlanDetails as $details){
           $this->checkSubscriptionStatus($details);
-        }
+        }*/
     }
 
 	public function saveDetails(Request $request){
@@ -148,6 +148,33 @@ class UserSubscriptionDetailsController extends Controller
      }
  
 
+   }
+    //Date:-22-12-2020 by Mishra Ankit Kumar
+   public function getUserSubscriptionDetail(Request $request)
+   {
+        $userID=$request->userID;
+        $data = UserSubscriptionDetails::where('user_id',$userID)->first();
+        if($data!=null)
+        {
+            $userSubscriptionDetailsId=$data->id;
+            $UserSubscriptionPlanDetails=UserSubscriptionPlanDetails::where('user_subscription_id',$userSubscriptionDetailsId)->first();
+            return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Detail ','data'=>$UserSubscriptionPlanDetails]);
+        }
+        else
+        {
+             return Response::json(['code' => 400,'status' => false, 'message' => 'No Subscription']);
+        }
+      
+   }
+   public function cancelSubscriptionPlan(Request $request)
+   {
+       $UserSubscriptionPlanDetailsId=$request->UserSubscriptionPlanDetailsId;
+       $status=$request->status;
+       $UserSubscriptionPlanDetailsStatus=array(
+           "status"=>$status
+           );
+           UserSubscriptionPlanDetails::where('id',$UserSubscriptionPlanDetailsId)->update($UserSubscriptionPlanDetailsStatus);
+          return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Plan Details has been Changed.']); 
    }
 
 }

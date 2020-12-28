@@ -46,6 +46,20 @@
                                                 </select>
                                             </div>
                                         </div>
+                                         <label for="article_category_type">Select Video Free/Paid</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <select class="form-control show-tick" required name="IsPaid" >
+                                                    <option value="">-- Please select --</option>
+                                                      
+                                                        <option value="1">Paid</option>
+                                                        <option value="0">Free</option>
+                                                    
+                                                     
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
                                  <label for="article_category_type">Select Workout</label>
                                         <div class="form-group">
                                             <div class="form-line">
