@@ -17,6 +17,12 @@ F<section>
                         <span>Users</span>
                     </a>
                 </li>
+                  <li class="{{(isset($page) && $page && $page == 'users' ? 'active' : '')}}">
+                    <a href="{{ url('admin/all-users') }}">
+                        <i class="material-icons">people</i>
+                        <span>Users Subscription Details</span>
+                    </a>
+                </li>
 
                 <li class="{{(isset($page) && $page && $page == 'workout-cate' ? 'active' : '')}}">
                     <a href="javascript:void(0);" class="menu-toggle">
