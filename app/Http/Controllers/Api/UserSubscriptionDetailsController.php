@@ -34,6 +34,7 @@ class UserSubscriptionDetailsController extends Controller
      'transaction_id'=> $request->transaction_id,
      'amount'=> $request->amount,
      'product'=> $request->product,
+     'receipt'=> $request->receipt,
      'created_at'=>Carbon::now(),
       ];
 

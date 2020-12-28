@@ -50,6 +50,9 @@
     </select>
     <br/>
     <br/>
+  Receipt(receipt)::::*<input type="text" name="receipt" required>
+    <br/>
+    <br/>
 
    
 
