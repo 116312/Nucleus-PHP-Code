@@ -26,15 +26,18 @@ class UserSubscriptionDetailsController extends Controller
     }
 
 	public function saveDetails(Request $request){
+$receipt = null;
+if($request->receipt != null){
 
-
+$receipt = json_encode($request->receipt);
+}
       $savedata= [
      'user_id'=> $request->user_id,
      'payment_id'=> $request->payment_id,
      'transaction_id'=> $request->transaction_id,
      'amount'=> $request->amount,
      'product'=> $request->product,
-     'receipt'=> $request->receipt,
+     'receipt'=>$receipt,
      'created_at'=>Carbon::now(),
       ];
 
