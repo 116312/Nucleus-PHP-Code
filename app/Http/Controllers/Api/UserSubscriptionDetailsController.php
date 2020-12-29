@@ -180,7 +180,7 @@ $receipt = json_encode($request->receipt);
            UserSubscriptionPlanDetails::where('id',$UserSubscriptionPlanDetailsId)->update($UserSubscriptionPlanDetailsStatus);
           return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Plan Details has been Changed.']); 
    }
-  public function GetSubscriptionReceipt()
+  public function GetSubscriptionReceipt(Request $request)
    {
          $userID=$request->userID;
          $data = UserSubscriptionDetails::where('user_id',$userID)->first();
