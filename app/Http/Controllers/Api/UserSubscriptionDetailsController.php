@@ -37,7 +37,7 @@ $receipt = json_encode($request->receipt);
      'transaction_id'=> $request->transaction_id,
      'amount'=> $request->amount,
      'product'=> $request->product,
-     'receipt'=>$receipt,
+     'receipt'=> $receipt,
      'created_at'=>Carbon::now(),
       ];
 
