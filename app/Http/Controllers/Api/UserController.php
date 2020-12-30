@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Response;
 use App\User;
 use App\Model\UserSocialPrivacySetting;
+use App\Model\UserSubscriptionDetails;
+use App\Model\UserSubscriptionPlanDetails;
 use App\Model\UserTrainingType;
 use App\Model\UserTrainingGoal;
 use App\Model\UserDaysPerWeek;
