@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Response;
 use App\User;
 use App\Model\UserSocialPrivacySetting;
+use App\Model\UserTrainingType;
+use App\Model\UserTrainingGoal;
+use App\Model\UserDaysPerWeek;
+use App\Model\UserPlanVariation;
 use App\UserDevice;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
@@ -244,7 +248,24 @@ class UserController extends Controller
     public function getprofile(Request $request){
 
     $profile =  User::where('id',$request->user_id)->first();
-  return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile]);
+    $UserSubscriptionDetails = UserSubscriptionDetails::where('user_id',$request->user_id)->first();
+    //date:-30-12-2020 By :-Mishra Ankit Kumar
+    $type =UserTrainingType::where('user_id',$request->user_id)->first();
+    $goal =UserTrainingGoal::where('user_id',$request->user_id)->first();
+    $daysperweek = UserDaysPerWeek::where('user_id',$request->user_id)->first();
+    $planvariationdata = UserPlanVariation::where('user_id',$request->user_id)->first();
+
+    $planData = [
+    'type' =>$type,
+    'goal'=>$goal,
+    'daysperweek'=>$daysperweek,
+    'planvariationdata'=>$planvariationdata,
+
+
+    ];
+
+    
+    return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile,"UserSubscriptionDetails"=>$UserSubscriptionDetails,"planData"=>$planData]);
 
     }
 
