@@ -10,6 +10,7 @@ use App\User;
 use App\Model\UserSocialPrivacySetting;
 use App\Model\UserSubscriptionDetails;
 use App\Model\UserSubscriptionPlanDetails;
+use App\Model\SubscriptionPlan;
 use App\Model\UserTrainingType;
 use App\Model\UserTrainingGoal;
 use App\Model\UserDaysPerWeek;
@@ -251,7 +252,19 @@ class UserController extends Controller
 
     $profile =  User::where('id',$request->user_id)->first();
     $UserSubscriptionDetails = UserSubscriptionDetails::where('user_id',$request->user_id)->first();
-    //date:-30-12-2020 By :-Mishra Ankit Kumar
+    if($UserSubscriptionDetails=="null")
+     {
+     $UserSubscriptionDetailsId=$UserSubscriptionDetails->id;
+     $UserSubscriptionPlanDetails=UserSubscriptionPlanDetails::where('user_subscription_id',$userSubscriptionDetailsId)->first();
+     $subscription_plan_id=$UserSubscriptionPlanDetails->subscription_plan_id;
+     $subscription_plan = SubscriptionPlan::where('id',$subscription_plan_id)->first();
+     }
+     else
+      {
+         $UserSubscriptionPlanDetails=null;
+         $subscription_plan=null;
+       
+      }
     $type =UserTrainingType::where('user_id',$request->user_id)->first();
     $goal =UserTrainingGoal::where('user_id',$request->user_id)->first();
     $daysperweek = UserDaysPerWeek::where('user_id',$request->user_id)->first();
@@ -266,8 +279,7 @@ class UserController extends Controller
 
     ];
 
-    
-    return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile,"UserSubscriptionDetails"=>$UserSubscriptionDetails,"planData"=>$planData]);
+return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile,"UserSubscriptionDetails"=>$UserSubscriptionDetails,"planData"=>$planData,"UserSubscriptionPlanDetails"=>$UserSubscriptionPlanDetails,'subscription_plan'=>$subscription_plan]);
 
     }
 
