@@ -252,7 +252,7 @@ class UserController extends Controller
 
     $profile =  User::where('id',$request->user_id)->first();
     $UserSubscriptionDetails = UserSubscriptionDetails::where('user_id',$request->user_id)->first();
-    if($UserSubscriptionDetails!="null")
+     if(!empty($UserSubscriptionDetails))
      {
          
      $UserSubscriptionDetailsId=$UserSubscriptionDetails->id;
