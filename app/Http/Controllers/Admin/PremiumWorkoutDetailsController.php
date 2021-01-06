@@ -132,6 +132,17 @@ class PremiumWorkoutDetailsController extends Controller
 
 
     }
+    public function changedPaymentStatusPremiumWorkout(Request $request)
+    {
+       $IsPaid=$request->status;
+       $id=$request->id;
+       $updateData=array(
+           "IsPaid"=>$IsPaid
+           );
+         PremiumWorkoutDetails::where('id',$id)->update($updateData);
+        return back()->with('status',100)->with('type','success')->with('message','Payment mode has been changed');
+      
+    }
 
 
     public function update(Request $request,$id){

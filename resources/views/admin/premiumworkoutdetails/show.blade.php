@@ -34,6 +34,7 @@
                                     <td>Workout Description </td>
                                     <td>Image</td>
                                     <td>Chapters</td>
+                                    <td>Free/Paid Status</td>
                                 
                                     <td>Action</td>
                                   
@@ -63,10 +64,28 @@
                                             @endforeach
 
                                             @endif
-
-
-
-                                          </td>
+                                           </td>
+                                          
+                                           <td>
+                                            @if($details->IsPaid=='0')  
+                                          
+                                            <form class="form-horizontal" method="post" action="{{url('admin/changed-payment-status-premium-workout/1').'/'.$details->id}}" role="form">
+                                         @csrf
+                                               
+                                      <a href=""onclick="return confirm('Are you sure you want to chnaged  Paid Status Mode ?');"><button type="button" class="btn btn-primary waves-effect">Free</button></a>
+                                    
+                                            @endif
+                                             </form>
+                                      
+                                       @if($details->IsPaid=='1') 
+                                       
+                                         <form class="form-horizontal" method="post" action="{{url('admin/changed-payment-status-premium-workout/0').'/'.$details->id}}" role="form">
+                                         @csrf
+                                   <a href="" onclick="return confirm('Are you sure you want to chnaged  Paid Status Mode ?');"><button type="submit" class="btn btn-danger waves-effect">Paid</button></a>
+                                                @endif 
+                                                
+                                               </td>
+                                     </form>
                                          
                                           <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-workout-details').'/'.$details->id}}" role="form">
                                     @csrf

@@ -19,11 +19,11 @@ class CreateSubscriptionPlanDetailsTable extends Migration
             $table->foreign('subscription_category_id')->references('id')->on('subscription_category')->onDelete('cascade');
             $table->unsignedBigInteger('subscription_plan_id');
             $table->foreign('subscription_plan_id')->references('id')->on('subscription_plan')->onDelete('cascade');
-            $table->integer('original_price');
+            $table->string('original_price');
             $table->integer('offer_percentage');
             $table->integer('number_of_month');
-            $table->integer('per_month_price');
-            $table->integer('plan_duration_price'); 
+            $table->string('per_month_price');
+            $table->string('plan_duration_price'); 
             $table->timestamps();
         });
     }
