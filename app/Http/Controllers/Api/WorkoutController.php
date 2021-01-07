@@ -11,6 +11,7 @@ use App\Model\TrainingGoals;
 use App\Model\QuickClipWorkoutDetails;
 use App\User;
 use Response;
+use DB;
 class WorkoutController extends Controller
 {
     public function getworkoutbycategory(Request $request){
@@ -52,16 +53,13 @@ class WorkoutController extends Controller
     $data = [];
     $how_many_days = TrainingPlan::with('trainingplanvariation')->get();
     $bygoals = TrainingGoals::with('traininggoalsplan.trainingplan.trainingplanvariation','descriptions')->get();
-    
+    $user_plan_variation = DB::table('user_plan_variation')->where('user_id', $request->user_id)->first();
+   
     $data = [
     'how_many_days'=>$how_many_days,
     'bygoals'=>$bygoals,
+    "user_plan_variation"=>$user_plan_variation
     ];
-
-    
-
- return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','data'=>$data]);
-      
 
     }
 
