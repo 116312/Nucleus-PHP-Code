@@ -17,7 +17,7 @@
                                 Show Details
                             </h2>
                         </div>
-                        <div class="body">
+                        <div class="body table-responsive">
 
 
 
