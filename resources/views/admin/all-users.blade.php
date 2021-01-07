@@ -57,7 +57,8 @@
                                
                               
                                @foreach($users as $key => $user)
-                                   <tr>
+                                @if($user->usersubscriptiondetails != null)
+                                   <tr class="success">
                                        <td>{{$key + 1}}</td>
                                        <td>{{$user->name}}</td>
                                        <td>{{$user->contact_no}}</td>
@@ -68,7 +69,36 @@
                                        <td><img style="float:left!important" src="{{$user->image}}" height="100" width="100"></td>
                                        <td>{{$user->height}}</td>
                                        <td>{{$user->weight}}</td>
-                                       <td>@if($user->usersubscriptiondetails != null) YES @else No @endif</td>
+                                       <td>Yes</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif   </td>
+                                         <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionCategory::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_category_id)->first()->name}}@else NA @endif   </td>
+                                          <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionPlan::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_plan_id)->first()->name}}@else NA @endif   </td>
+                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->start_date}}@else NA @endif   </td>
+                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->end_date}}@else NA @endif   </td>
+                                       <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
+                                    @csrf
+                                       <td>
+
+                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                         <a href="" onclick="return confirm('Are you sure you want to show ?');"><button type="submit" class="btn btn-success waves-effect">View Detail</button></a>
+                                    </td>
+                                </form>
+                                   </tr>
+                                   @else
+                                     <tr>
+                                       <td>{{$key + 1}}</td>
+                                       <td>{{$user->name}}</td>
+                                       <td>{{$user->contact_no}}</td>
+                                        <td>{{$user->country}}</td>
+                                       <td>{{$user->email}}</td>
+                                       <td>{{$user->gender}}</td>
+                                       <td>{{$user->dob}}</td>
+                                       <td><img style="float:left!important" src="{{$user->image}}" height="100" width="100"></td>
+                                       <td>{{$user->height}}</td>
+                                       <td>{{$user->weight}}</td>
+                                       <td>No</td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif   </td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif   </td>
@@ -84,6 +114,7 @@
                                     </td>
                                 </form>
                                    </tr>
+                                   @endif 
                                @endforeach
                                 </tbody>
                             </table>
