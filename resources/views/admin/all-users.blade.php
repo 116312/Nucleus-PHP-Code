@@ -22,7 +22,7 @@
                                 Show Users
                             </h2>
                         </div>
-                        <div class="body">
+                        <div class="body table-responsive">
 
 
 
