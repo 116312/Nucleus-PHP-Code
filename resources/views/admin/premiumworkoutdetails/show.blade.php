@@ -31,7 +31,7 @@
                                     <td>Workout Level </td>
                                     <td>Price (in USD)</td>
                                     <td>Trainer Name </td>
-                                    <td>Workout Description </td>
+                                    <td>Workout Description</td>
                                     <td>Image</td>
                                     <td>Chapters</td>
                                     <td>Free/Paid Status</td>
@@ -69,30 +69,28 @@
                                            <td>
                                             @if($details->IsPaid=='0')  
                                           
-                                            <form class="form-horizontal" method="post" action="{{url('admin/changed-payment-status-premium-workout/1').'/'.$details->id}}" role="form">
-                                         @csrf
+                                          
                                                
-                                      <a href=""onclick="return confirm('Are you sure you want to chnaged  Paid Status Mode ?');"><button type="button" class="btn btn-primary waves-effect">Free</button></a>
+                                <a href="{{url('admin/changed-payment-status-premium-workout/1').'/'.$details->id}}" onclick="return confirm('Are you sure you want to chnaged  Paid Status Mode ?');"><button type="button" class="btn btn-primary waves-effect">Free</button></a>
                                     
                                             @endif
-                                             </form>
+                                            
                                       
                                        @if($details->IsPaid=='1') 
                                        
-                                         <form class="form-horizontal" method="post" action="{{url('admin/changed-payment-status-premium-workout/0').'/'.$details->id}}" role="form">
-                                         @csrf
-                                   <a href="" onclick="return confirm('Are you sure you want to chnaged  Paid Status Mode ?');"><button type="submit" class="btn btn-danger waves-effect">Paid</button></a>
+                                       
+                                   <a href="{{url('admin/changed-payment-status-premium-workout/0').'/'.$details->id}}" onclick="return confirm('Are you sure you want to chnaged  Paid Status Mode ?');"><button type="submit" class="btn btn-danger waves-effect">Paid</button></a>
                                                 @endif 
                                                 
                                                </td>
-                                     </form>
+                                   
                                          
                                           <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-workout-details').'/'.$details->id}}" role="form">
                                     @csrf
                                  <td>
-                                        <a href="{{url('admin/edit-premium-workout-details').'/'.$details->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a role="button" class="btn btn-primary waves-effect" href="{{url('admin/edit-premium-workout-details').'/'.$details->id}}">Edit</a>
                                       
-                                        <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                        <a class="btn btn-danger waves-effect" href="" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                     </td>
                                 </form>
                                          
