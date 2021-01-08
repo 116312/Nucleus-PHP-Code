@@ -38,4 +38,8 @@ class UserController extends Controller
      return back()->with('status',100)->with('type','success')->with('message','User deleted Successfully');
 
    }
+    public function getAllUserDetail(Request $request)
+   {
+       echo "Devlopment is going On";
+   }
 }
