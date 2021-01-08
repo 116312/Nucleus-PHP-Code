@@ -22,7 +22,7 @@
                                 Show Users
                             </h2>
                         </div>
-                        <div class="body table-responsive">
+                        <div class="body">
 
 
 
@@ -82,9 +82,10 @@
                                        <td>
 
                                          <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
-                                         <a href="" onclick="return confirm('Are you sure you want to show ?');"><button type="submit" class="btn btn-success waves-effect">View Detail</button></a>
+                                      </form>
+                                         <a href="{{url('admin/user-view-detail').'/'.$user->id}}" onclick="return confirm('Are you sure you want to show ?');"><button type="submit" class="btn btn-success waves-effect">View Detail</button></a>
                                     </td>
-                                </form>
+                               
                                    </tr>
                                    @else
                                      <tr>
