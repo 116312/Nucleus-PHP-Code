@@ -2,11 +2,12 @@
 @section('title', 'Show All Users')
 @section('admin-section')
     <style type="text/css">
-        #all-user-datatable_wrapper{
+        #all-user-datatable_wrapper , .over-flow_table{
             width: 100%;
             overflow: auto;
         }
     </style>
+    
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
@@ -16,7 +17,7 @@
             <!-- Vertical Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="card">
+                    <div class="card over-flow_table " >
                         <div class="header">
                             <h2>
                                 Show Users
@@ -83,7 +84,7 @@
 
                                          <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                       </form>
-                                         <a href="{{url('admin/user-view-detail').'/'.$user->id}}" onclick="return confirm('Are you sure you want to show ?');"><button type="submit" class="btn btn-success waves-effect">View Detail</button></a>
+                                         <a href="{{url('admin/user-view-detail').'/'.$user->id}}/{{ $user->usersubscriptiondetails->id }}" onclick="return confirm('Are you sure you want to show ?');"><button type="submit" class="btn btn-success waves-effect">View Detail</button></a>
                                     </td>
                                
                                    </tr>
