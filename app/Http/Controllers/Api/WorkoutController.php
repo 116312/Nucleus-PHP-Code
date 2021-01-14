@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Category;
 use App\Model\PremiumWorkoutDetails;
+use App\Model\UserSubscribedVideosDetails;
+use App\Model\UserSubscriptionDetails;
 use App\Model\TrainingPlan;
 use App\Model\TrainingGoals;
 use App\Model\QuickClipWorkoutDetails;
@@ -24,11 +26,34 @@ class WorkoutController extends Controller
 
 
                 $workouts = [];
+                $premiumworkouts1=array();
 
       $premiumworkouts = PremiumWorkoutDetails::where('category_id','!=',15)->orderBy('category_id','asc')->with('premiumworkout.subtitle','workoutcategory.unspecifiedcategoryimage','workouttype','chapters')->get();
-
       $quickclipworkouts = QuickClipWorkoutDetails::orderBy('category_id','asc')->with('quickclipworkoutclip.quickclips')->get();
-
+      $subscriptionUser=UserSubscriptionDetails::where('user_id',$request->user_id)->first();
+      $UserSubscriptionDetailID=$subscriptionUser->id;
+      foreach($premiumworkouts as $premi)
+      {
+        
+        $premium_workout_id=$premi->premium_workout_id;
+      
+        $wordCount = UserSubscribedVideosDetails::where([
+                    ['user_subscription_id', '=',$UserSubscriptionDetailID],
+                    ['premium_video_id', '=',$premium_workout_id]
+                ])->count();
+                
+                
+        if($wordCount)
+        {
+            $premi['status']=true;
+          
+        }
+        else
+        {
+             $premi['status']=false;  
+        }
+         $premiumworkouts1[]=$premi;    
+      }
      
 
 
