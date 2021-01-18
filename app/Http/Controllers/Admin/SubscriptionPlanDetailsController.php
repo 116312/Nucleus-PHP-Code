@@ -43,6 +43,7 @@ class SubscriptionPlanDetailsController extends Controller
           'plan_duration_price'=> $plan_duration_price,
           'product_id'=> $request->product_id,
           'description'=>$request->description,
+          'introductoryPrice'=>$request->introductoryPrice,
           'created_at'=>Carbon::now(),
 
          ];
