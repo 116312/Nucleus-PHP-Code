@@ -63,6 +63,13 @@
                                                class="form-control">
                                     </div>
                                   </div>
+                                   <label for="course_name">Introductory Price</label>
+                                 <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" required name="introductoryPrice" id="sequence_no"
+                                               class="form-control">
+                                    </div>
+                                  </div>
 
 
                                   <label for="course_name">Original Price (in dollars )</label>
