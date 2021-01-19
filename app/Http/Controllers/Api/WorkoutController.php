@@ -31,6 +31,8 @@ class WorkoutController extends Controller
       $premiumworkouts = PremiumWorkoutDetails::where('category_id','!=',15)->orderBy('category_id','asc')->with('premiumworkout.subtitle','workoutcategory.unspecifiedcategoryimage','workouttype','chapters')->get();
       $quickclipworkouts = QuickClipWorkoutDetails::orderBy('category_id','asc')->with('quickclipworkoutclip.quickclips')->get();
       $subscriptionUser=UserSubscriptionDetails::where('user_id',$request->user_id)->first();
+       if($subscriptionUser==!null)
+      {
       $UserSubscriptionDetailID=$subscriptionUser->id;
       foreach($premiumworkouts as $premi)
       {
@@ -54,6 +56,7 @@ class WorkoutController extends Controller
         }
          $premiumworkouts1[]=$premi;    
       }
+  }
      
 
 
