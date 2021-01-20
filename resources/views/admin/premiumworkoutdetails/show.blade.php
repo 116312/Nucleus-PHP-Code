@@ -85,14 +85,12 @@
                                                </td>
                                    
                                          
-                                          <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-workout-details').'/'.$details->id}}" role="form">
-                                    @csrf
+                                          
                                  <td>
-                                        <a role="button" class="btn btn-primary waves-effect" href="{{url('admin/edit-premium-workout-details').'/'.$details->id}}">Edit</a>
-                                      
-                                        <a class="btn btn-danger waves-effect" href="" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+    <a role="button" class="btn btn-primary waves-effect" href="{{url('admin/edit-premium-workout-details').'/'.$details->id}}">Edit</a>
+    <a class="btn btn-danger waves-effect" href="{{url('admin/delete-premium-workout-details').'/'.$details->id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
                                     </td>
-                                </form>
+                              
                                          
                                           
                                       
