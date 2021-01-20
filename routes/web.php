@@ -255,7 +255,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
    Route::get('show-premium-workout-details','PremiumWorkoutDetailsController@show');
    Route::get('edit-premium-workout-details/{id}','PremiumWorkoutDetailsController@edit');
    Route::post('update-premium-workout-details/{id}','PremiumWorkoutDetailsController@update');
-   Route::post('delete-premium-workout-details/{id}','PremiumWorkoutDetailsController@delete');
+   Route::get('delete-premium-workout-details/{id}','PremiumWorkoutDetailsController@delete');
+   Route::get('changed-payment-status-premium-workout/{status}/{id}','PremiumWorkoutDetailsController@changedPaymentStatusPremiumWorkout');
+   
 
 //****************************************** QuickClip Workout Details***********************************//
 
