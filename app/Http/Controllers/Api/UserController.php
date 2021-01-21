@@ -11,6 +11,8 @@ use App\Model\UserSocialPrivacySetting;
 use App\Model\UserSubscriptionDetails;
 use App\Model\UserSubscriptionPlanDetails;
 use App\Model\SubscriptionPlan;
+use App\Model\TrainingGoals;
+use App\Model\TrainingPlan;
 use App\Model\UserTrainingType;
 use App\Model\UserTrainingGoal;
 use App\Model\UserDaysPerWeek;
@@ -267,14 +269,40 @@ class UserController extends Controller
          $subscription_plan=null;
        
       }
+    $type1=array();
     $type =UserTrainingType::where('user_id',$request->user_id)->first();
-    $goal =UserTrainingGoal::where('user_id',$request->user_id)->first();
+    $Goal =UserTrainingGoal::where('user_id',$request->user_id)->first();
+    if(!empty($Goal))
+    {
+    $GoalId=$Goal->goal_id;
+    
+    $TrainingData = TrainingGoals::where('id',$GoalId)->first();
+    $title=$TrainingData->title;
+    $type['title']=$title; 
+    }
+    else
+    {
+        $type['title']=null;  
+    }
+    
     $daysperweek = UserDaysPerWeek::where('user_id',$request->user_id)->first();
-    $planvariationdata = UserPlanVariation::where('user_id',$request->user_id)->first();
-
+    if(!empty($daysperweek))
+    {
+    $days_per_week_id=$daysperweek->days_per_week_id;
+    $TrainingPlanName = TrainingPlan::where('id',$days_per_week_id)->first();
+    $TrainingPlanName =$TrainingPlanName->name;
+    $type['TrainingPlanName']=$TrainingPlanName;
+    }
+    else
+    {
+      $type['TrainingPlanName']=null;
+    }
+  
+    $type1=$type;
+    $planvariationdata=UserPlanVariation::where('user_id',$request->user_id)->first();
     $planData = [
-    'type' =>$type,
-    'goal'=>$goal,
+    'type' =>$type1,
+    'goal'=>$Goal,
     'daysperweek'=>$daysperweek,
     'planvariationdata'=>$planvariationdata,
 
