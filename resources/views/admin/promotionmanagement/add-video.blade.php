@@ -57,13 +57,21 @@
                                             <label for="article_category_type">Select Applicable for App</label>
                                           <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control show-tick" required name="applicable_for_app">
+                                                <select class="form-control show-tick" required name="applicable_for_app" id="selectBox" onchange="changeFunc();">
                                                     <option value="">-- Please select --</option>
                                                        <option value="Dacast Link">Dacast Link</option>
                                                        <option value="Uploaded video">Uploaded video</option>
+                                                       <option value="Other">Other</option>
                                                     </select>
                                             </div>
                                         </div>
+                                      
+                                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" style="display: none"  name="ExternalLink" id="textboxes"
+                                                           class="form-control" placeholder="Add External Link" required>
+                                                </div>
+                                            </div>
 									                              
 
                                 
@@ -75,5 +83,22 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript">
+    function changeFunc() {
+    var selectBox = document.getElementById("selectBox");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    if (selectedValue=="Other"){
+     $('#textboxes').show();
+   
+       }
+     else {
+
+$('#textboxes').hide();
+
+}
+}
+</script>
+
+@endsection
 
 @endsection
