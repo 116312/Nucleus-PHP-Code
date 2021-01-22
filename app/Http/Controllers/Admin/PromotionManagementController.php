@@ -147,6 +147,7 @@ class PromotionManagementController extends Controller
            'dacast_link'=> $request->dacast_link,
            'applicable_for_app'=>$request->applicable_for_app,
            'content_id'=>$request->content_id,
+           'external_link'=>$request->ExternalLink,
            'created_at'=>Carbon::now(),
  
  
