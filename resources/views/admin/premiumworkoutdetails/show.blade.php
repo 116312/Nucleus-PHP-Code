@@ -21,21 +21,20 @@
 
 
 
-                             <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
+                             <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable1">
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
                                     <td>Name</td>
                                     <td>Workout Category</td>
-                                    <td>Workout Type </td>
-                                    <td>Workout Level </td>
+                                    <td>Workout Type</td>
+                                    <td>Workout Level</td>
                                     <td>Price (in USD)</td>
-                                    <td>Trainer Name </td>
+                                    <td>Trainer Name</td>
                                     <td>Workout Description</td>
                                     <td>Image</td>
-                                    <td>Chapters</td>
+                                    <td style="width:330px !important">Chapters</td>
                                     <td>Free/Paid Status</td>
-                                
                                     <td>Action</td>
                                   
 
@@ -60,7 +59,7 @@
                                           <td>@if($details->chapters != null)
 
                                             @foreach($details->chapters as $chapter)
-                                            <li>{{$chapter->chapter}}</li>
+                                            <li style="width:300px">{{$chapter->chapter}}</li>
                                             @endforeach
 
                                             @endif
@@ -104,5 +103,12 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script>
+    $(function(){
+    $("#all-user-datatable1").dataTable();
+  })
+  </script>
 
 @endsection
