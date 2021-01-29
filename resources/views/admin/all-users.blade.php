@@ -24,14 +24,12 @@
                             </h2>
                         </div>
                         <div class="body">
-
-
-
-                            <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
+                       <table class="table table-bordered table-striped table-hover js-basic-example dataTable" id="all-user-datatable">
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
                                     <td>User Name</td>
+                                    <td>Registered Date</td>
                                     <td>Mobile Number</td>
                                     <td>Country</td>
                                     <td>Email</td>
@@ -40,11 +38,13 @@
                                     <td>Profile Image</td>
                                     <td>Height</td>
                                     <td>Weight</td>
-                                    <
+                                    
 
                                     <td>Is Subscribed User </td>
                                     <td>Product </td>
                                     <td>Subscription Date </td>
+                                    <td>Payment ID </td>
+                                    <td>Transaction ID</td>
                                     <td>Amount</td>
                                     <td>Subscription Category</td>
                                     <td>Subscription Plan </td>
@@ -62,8 +62,9 @@
                                    <tr class="success">
                                        <td>{{$key + 1}}</td>
                                        <td>{{$user->name}}</td>
+                                       <td>{{$user->created_at}}</td>
                                        <td>{{$user->contact_no}}</td>
-                                        <td>{{$user->country}}</td>
+                                       <td>{{$user->country}}</td>
                                        <td>{{$user->email}}</td>
                                        <td>{{$user->gender}}</td>
                                        <td>{{$user->dob}}</td>
@@ -71,13 +72,15 @@
                                        <td>{{$user->height}}</td>
                                        <td>{{$user->weight}}</td>
                                        <td>Yes</td>
-                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
+                                       <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->payment_id}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->transaction_id}}@else NA @endif   </td>
                                         <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif   </td>
-                                         <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionCategory::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_category_id)->first()->name}}@else NA @endif   </td>
-                                          <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionPlan::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_plan_id)->first()->name}}@else NA @endif   </td>
-                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->start_date}}@else NA @endif   </td>
-                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->end_date}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionCategory::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_category_id)->first()->name}}@else NA @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionPlan::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_plan_id)->first()->name}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->start_date}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->end_date}}@else NA @endif   </td>
                                        <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
                                     @csrf
                                        <td>
@@ -92,8 +95,9 @@
                                      <tr>
                                        <td>{{$key + 1}}</td>
                                        <td>{{$user->name}}</td>
+                                       <td>{{$user->created_at}}</td>
                                        <td>{{$user->contact_no}}</td>
-                                        <td>{{$user->country}}</td>
+                                       <td>{{$user->country}}</td>
                                        <td>{{$user->email}}</td>
                                        <td>{{$user->gender}}</td>
                                        <td>{{$user->dob}}</td>
@@ -101,13 +105,15 @@
                                        <td>{{$user->height}}</td>
                                        <td>{{$user->weight}}</td>
                                        <td>No</td>
-                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif   </td>
-                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif   </td>
-                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif   </td>
-                                         <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionCategory::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_category_id)->first()->name}}@else NA @endif   </td>
-                                          <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionPlan::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_plan_id)->first()->name}}@else NA @endif   </td>
-                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->start_date}}@else NA @endif   </td>
-                                            <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->end_date}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->product}}@else NA @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->created_at}}@else NA @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->payment_id}}@else NA @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->transaction_id}}@else NA @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->amount}}@else NA @endif</td>
+                                        <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionCategory::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_category_id)->first()->name}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{\App\Model\SubscriptionPlan::where('id',$user->usersubscriptiondetails->usersubscriptionplandetails->subscription_plan_id)->first()->name}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->start_date}}@else NA @endif   </td>
+                                        <td> @if($user->usersubscriptiondetails != null){{$user->usersubscriptiondetails->usersubscriptionplandetails->end_date}}@else NA @endif   </td>
                                        <form class="form-horizontal" method="post" action="{{url('admin/delete-users').'/'.$user->id}}" role="form">
                                     @csrf
                                        <td>
@@ -126,12 +132,16 @@
             </div>
         </div>
     </section>
-     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    
+
+
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
     <script>
     $(function(){
     $("#all-user-datatable").dataTable();
   })
   </script>
+    
 
 @endsection

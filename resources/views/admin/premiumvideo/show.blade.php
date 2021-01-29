@@ -26,7 +26,7 @@
 
 
 
-                             <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
+                             <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable1">
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
@@ -51,7 +51,7 @@
 
                                           <td>{{$video->name}}</td>
                                           <td>{{$video->language}}</td>
-                                          <td> <video width="320" height="240"   controls>
+                                          <td> <video width="130" height="100"   controls>
                                               <source src="{{$video->video}}" type="video/mp4" >
                                               <source src="{{$video->video}}" type="video/webm">
                                                 
@@ -83,5 +83,13 @@
             </div>
         </div>
     </section>
+      <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script>
+    $(function(){
+    $("#all-user-datatable1").dataTable();
+  })
+  </script>
+    
 
 @endsection
