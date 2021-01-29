@@ -10,6 +10,8 @@ use App\Model\UserSubscribedVideosDetails;
 use App\Model\UserSubscriptionDetails;
 use App\Model\TrainingPlan;
 use App\Model\TrainingGoals;
+use App\Model\UserDaysPerWeek;
+use App\Model\UserTrainingGoal;
 use App\Model\QuickClipWorkoutDetails;
 use App\User;
 use Response;
