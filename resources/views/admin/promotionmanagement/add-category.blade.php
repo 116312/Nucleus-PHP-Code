@@ -19,28 +19,34 @@
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/store-promo')}}" enctype="multipart/form-data">
                                 @csrf
-               <input type="hidden"  name="promo_type" value= "category" id="promo_type" class="form-control">
-									<label for="article_category_type">Select Workout Category</label>
-		                                <div class="form-group">
-		                                    <div class="form-line">
-		                                        <select class="form-control show-tick" required name="category_id" >
-		                                            <option value="">-- Please select --</option>
-		                                               @foreach($categories as $key => $cate)
-		                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
-                                                      @endforeach
-		                                             
-		                                        </select>
-		                                    </div>
-		                                </div>
-
-                                          <label for="course_name">Promotion Category Image</label>
+                                 <label for="course_name">Promotion Category Image</label>
                                             <div class="form-group">
                                                 <div class="form-line">
                                                     <input type="file"  name="promo_file" id="image"
                                                            class="form-control">
                                                 </div>
                                             </div>
-									                              
+               <input type="hidden"  name="promo_type" value= "category" id="promo_type" class="form-control">
+									<label for="article_category_type">Select Workout Category</label>
+		                                <div class="form-group">
+		                                    <div class="form-line">
+		                                        <select class="form-control show-tick" required name="category_id" id="selectBox" onchange="changeFunc();">
+		                                            <option value="">-- Please select --</option>
+		                                               @foreach($categories as $key => $cate)
+		                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
+                                                      @endforeach
+		                                              <option value="Other">Other</option>
+		                                        </select>
+		                                    </div>
+		                                </div>
+
+                                         
+									                            <div class="form-group">
+                                                <div class="form-line">
+                                                    <input type="text" style="display: none"  name="ExternalLink" id="textboxes"
+                                                           class="form-control" placeholder="Add External Link" required>
+                                                </div>
+                                            </div>  
 
                                 
                                 <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
@@ -51,5 +57,19 @@
             </div>
         </div>
     </section>
+ <script type="text/javascript">
+    function changeFunc() {
+    var selectBox = document.getElementById("selectBox");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    if (selectedValue=="Other"){
+     $('#textboxes').show();
+   
+       }
+     else {
 
+$('#textboxes').hide();
+
+}
+}
+</script>
 @endsection

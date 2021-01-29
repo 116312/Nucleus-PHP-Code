@@ -167,12 +167,20 @@ class PromotionManagementController extends Controller
        // Promotional Category
 
        if($request->promo_type == 'category'){
-     
+         $category_id = $request->category_id;
+         $applicable_for_app = 'categories';
+         if($category_id== 'Other'){
+         $category_id = '';
+         $applicable_for_app = $request->category_id;
+           
+         }
  
            $promocate = [
            
            'promo_id' => $promo_id,
-           'category_id' => $request->category_id,
+           'category_id' => $category_id,
+           'applicable_for_app'=>$applicable_for_app,
+           'external_link'=>$request->ExternalLink,
            'created_at'=>Carbon::now(),
  
            ];
@@ -259,6 +267,7 @@ class PromotionManagementController extends Controller
 
 
           $video_promotion = PromotionManagement::where('promo_type','video')->with('promofiles','promovideo')->get();
+         
 
         
           return view('admin.promotionmanagement.show-video',compact('page','subpage','video_promotion'));

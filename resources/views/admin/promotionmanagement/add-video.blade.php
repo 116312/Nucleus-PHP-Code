@@ -57,7 +57,7 @@
                                             <label for="article_category_type">Select Applicable for App</label>
                                           <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control show-tick" required name="applicable_for_app" id="selectBox" onchange="changeFunc();">
+                                            <select class="form-control show-tick" required name="applicable_for_app" id="selectBox" onchange="changeFunc();">
                                                     <option value="">-- Please select --</option>
                                                        <option value="Dacast Link">Dacast Link</option>
                                                        <option value="Uploaded video">Uploaded video</option>
@@ -101,4 +101,4 @@ $('#textboxes').hide();
 
 @endsection
 
-@endsection
+

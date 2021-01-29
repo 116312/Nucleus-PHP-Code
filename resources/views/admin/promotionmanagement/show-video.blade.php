@@ -56,8 +56,8 @@
                                      </video>
                                  @endif</td>
                                     
-                                     <td>{{$promo->promovideo->applicable_for_app}}</td>
-                                      <td>{{$promo->promovideo->content_id}}</td>
+                                     <td>@if($promo->promovideo->applicable_for_app != null){{$promo->promovideo->applicable_for_app}}@endif</td>
+                                      <td>@if($promo->promovideo->content_id != null){{$promo->promovideo->content_id}}@endif</td>
                                      <form class="form-horizontal" method="post" action="{{url('admin/delete-promo').'/'.$promo->id}}" role="form">
                                     @csrf
                                     <td>

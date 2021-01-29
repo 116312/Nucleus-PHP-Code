@@ -142,7 +142,7 @@ $receipt = json_encode($request->receipt);
    public function expireSubscription($userSubscriptionDetails){
 
      
-     UserSubscriptionPlanDetails::where('id',$userSubscriptionDetails->id)->update(['status'=>false]);
+    // UserSubscriptionPlanDetails::where('id',$userSubscriptionDetails->id)->update(['status'=>false]);
 
      $videoAcess = UserSubscribedVideosDetails::where('user_subscription_id',$userSubscriptionDetails->id)->get();
      foreach($videoAcess as $video){
@@ -178,6 +178,10 @@ $receipt = json_encode($request->receipt);
            "status"=>$status
            );
            UserSubscriptionPlanDetails::where('id',$UserSubscriptionPlanDetailsId)->update($UserSubscriptionPlanDetailsStatus);
+           if($request->status == false){
+        $user_subscription_id =  UserSubscriptionPlanDetails::where('id',UserSubscriptionPlanDetailsId)->first()->user_subscription_id;
+          $this->expireSubscription($user_subscription_id);
+           }
           return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Plan Details has been Changed.']); 
    }
   public function GetSubscriptionReceipt(Request $request)
