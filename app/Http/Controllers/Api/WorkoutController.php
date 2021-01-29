@@ -78,11 +78,43 @@ class WorkoutController extends Controller
    
    if($detail->type =='other'){
 
-    $data = [];
-    $how_many_days = TrainingPlan::with('trainingplanvariation')->get();
-    $bygoals = TrainingGoals::with('traininggoalsplan.trainingplan.trainingplanvariation','descriptions')->get();
-    $user_plan_variation = DB::table('user_plan_variation')->where('user_id', $request->user_id)->first();
+     $data = [];
+    $how_many_days =TrainingPlan::with('trainingplanvariation')->get();
+    $bygoals =TrainingGoals::with('traininggoalsplan.trainingplan.trainingplanvariation','descriptions')->get();
+    $user_plan_variation=DB::table('user_plan_variation')->where('user_id', $request->user_id)->first();
+    $daysperweek = UserDaysPerWeek::where('user_id',$request->user_id)->first();
+    if(!empty($daysperweek))
+    {
+    $days_per_week_id=$daysperweek->days_per_week_id;
+    $TrainingPlanName = TrainingPlan::where('id',$days_per_week_id)->first();
+    $TrainingPlanName =$TrainingPlanName->name;
+    $TrainingPlanName=$TrainingPlanName;
+    }
+    else
+    {
+      $TrainingPlanName=null;
+    }
+    $trainingplanvariation=array();
+    if(!empty($user_plan_variation))
+    {
+    $planVariationId=$user_plan_variation->plan_variation_id;
+    $trainingplanvariation=DB::table('training_plan_desription')->where('id',$planVariationId)->first();
+    $trainingPlanId=$trainingplanvariation->training_plan_id;
+    $trainingplanvariation=DB::table('training_plan_desription')->where('training_plan_id',$trainingPlanId)->get();
+    }
+    $Goal =UserTrainingGoal::where('user_id',$request->user_id)->first();
+    if(!empty($Goal))
+    {
+    $trainingGoalsId=$Goal->goal_id;
+    }
+    else
+    {
+        $trainingGoalsId=0;
+    }
    
+    
+    
+    
     $data = [
     'how_many_days'=>$how_many_days,
     'bygoals'=>$bygoals,
@@ -92,8 +124,11 @@ class WorkoutController extends Controller
 
     
 
- return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','data'=>$data]);
+ return Response::json(['code' => 200,'status' => true, 'message' => 'Training Plans and Goals','TrainingPlanName'=>$TrainingPlanName,'trainingGoalsId'=>$trainingGoalsId,'trainingplanvariation'=>$trainingplanvariation,'data'=>$data]);
      
+    
+
+
     
 
 
