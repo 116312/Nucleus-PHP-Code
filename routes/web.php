@@ -333,6 +333,7 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 //*************************************Assign Subscription*************************************//
 
     Route::get('assign-subscription/{userId}','AssignSubscriptionController@assignSubscription');
+    Route::post('add-assign-subscription/{userId}','AssignSubscriptionController@addAssignSubscription');
 
 
 

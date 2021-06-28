@@ -21,7 +21,7 @@
                             </h2>
                         </div>
                         <div class="body">
-                            <form method="post"  id="form_validation" action="{{url('admin/store-premium-videos')}}" enctype="multipart/form-data">
+                            <form method="post"  id="form_validation" action="{{url('admin/add-assign-subscription/')}}/{{$userId}}" enctype="multipart/form-data">
                                 @csrf
 
 
@@ -29,7 +29,7 @@
                          <label for="course_name">Select Subscription Category</label>
                                <div class="form-group">
                                     <div class="form-line">
-                                        <select class="form-control show-tick" id="workout_type_id"required name="subscription_category_id">
+                                        <select class="form-control show-tick" id="workout_type_id"required name="subscriptionCategoryId">
                                             <option value="">-- Please select --</option>
                                                @foreach($subscription_category as $cate)
                                                 <option value="{{$cate->id}}">{{$cate->name}}</option>
@@ -43,7 +43,7 @@
                          <label for="article_category_type">Select Subscription Plan</label>
                                         <div class="form-group">
                                             <div class="form-line">
-                                                <select class="form-control show-tick" required name="subscription_plan_id" >
+                                                <select class="form-control show-tick" required name="subscriptionPlanId" >
                                                     <option value="">-- Please select --</option>
                                                        @foreach($subscription_plan as $key => $plan)
                                                         <option value="{{$plan->id}}">{{$plan->name}}</option>
@@ -61,7 +61,7 @@
                                                 </div>
                                             </div>
 
-                       <button type="submit" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
+                       <button type="submit" name="addAssignSubscription" class="btn btn-primary m-t-15 waves-effect">SUBMIT</button>
                             </form>
                         </div>
                     </div>
