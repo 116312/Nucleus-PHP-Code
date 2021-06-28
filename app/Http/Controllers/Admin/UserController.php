@@ -18,21 +18,31 @@ class UserController extends Controller
     {
 
 
-        $this->middleware('auth:admin');
+      /*  $this->middleware('auth:admin');*/
 
 
     }
 
-
+   /**
+    *allUsers function use for getting all free users and Subscribed users
+    *$users = User::with(['usersubscriptiondetails.usersubscriptionplandetails','usersubscriptiondetails.usersubscriptionplandetails'])->orderBy('created_at','desc')->get();
+    *$users = User::get()->orderBy('created_at','desc');
+    *@return View || all-users 
+    */
    public function allUsers(){
-        $users = User::with(['usersubscriptiondetails.usersubscriptionplandetails','usersubscriptiondetails.usersubscriptionplandetails'])->orderBy('created_at','desc')->get();;
-        $page = 'users';
-     
-
-        return view('admin.all-users',compact('page','users'));
+       $users = User::getFreeUsers();
+       $totalFreeUsers=count($users);
+       $subscribedUsers=User::getAllSubscribedUsers();
+       $totalSubscribedUsers=count($subscribedUsers);
+      $page = 'users';
+      return view('admin.all-users',compact('page','users','totalFreeUsers','totalSubscribedUsers','subscribedUsers'));
     }
 
-
+   /**
+   *delete function use for delete user
+   * @param:-id || use for user id
+   * @return message
+   */ 
    public function delete($id){
      
      User::where('id',$id)->delete();
@@ -42,8 +52,7 @@ class UserController extends Controller
    }
   public function getAllUserDetail(Request $request)
    {
-       
-       $page = 'subscribed premium videos';
+       $page ='subscribed premium videos';
        $userId=$request->id;
        $usersubscriptiondetailsId=$request->usersubscriptiondetailsId;
        $premium_videos = DB::select("select premium_videos.name,user_subscribed_videos_details.id,user_subscribed_videos_details.access FROM user_subscribed_videos_details INNER JOIN premium_videos ON user_subscribed_videos_details.premium_video_id = premium_videos.id where user_subscription_id='$usersubscriptiondetailsId'");

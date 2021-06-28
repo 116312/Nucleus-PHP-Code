@@ -35,7 +35,7 @@
 		                                               @foreach($categories as $key => $cate)
 		                                                <option value="{{$cate->id}}">{{$cate->name}}</option>
                                                       @endforeach
-		                                              <option value="Other">Other</option>
+		                                            z  <option value="Other">Other</option>
 		                                        </select>
 		                                    </div>
 		                                </div>

@@ -26,18 +26,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
     Route::get('dashboard','DashboardController@dashboard');
     Route::get('all-users','UserController@allUsers');
-     Route::get('user-view-detail/{id}/{usersubscriptiondetailsId}','UserController@getAllUserDetail');
+    Route::get('user-view-detail/{id}/{usersubscriptiondetailsId}','UserController@getAllUserDetail');
     Route::get('changed-premium-video-access/{videoid}/{status}','UserController@changedPremiumVideoAccess');
     Route::post('delete-users/{id}','UserController@delete');
-
-
-
-
-
-
-
-
-
 
 //************************** Workout  Categories ********************************************* //
 
@@ -108,8 +99,6 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 //************************Subscription Plan *******************************************//
-
-   
 
    Route::get('add-subscription-plan','SubscriptionPlanController@add');
    Route::post('store-subscription-plan','SubscriptionPlanController@store');
@@ -341,9 +330,9 @@ Route::group(['namespace' => 'Admin','prefix' => 'admin'],function (){
 
 
 
+//*************************************Assign Subscription*************************************//
 
-
-
+    Route::get('assign-subscription/{userId}','AssignSubscriptionController@assignSubscription');
 
 
 

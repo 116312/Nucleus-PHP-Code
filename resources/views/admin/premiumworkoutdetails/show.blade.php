@@ -86,8 +86,10 @@
                                          
                                           
                                  <td>
+                                     <div class="action_btn">
     <a role="button" class="btn btn-primary waves-effect" href="{{url('admin/edit-premium-workout-details').'/'.$details->id}}">Edit</a>
     <a class="btn btn-danger waves-effect" href="{{url('admin/delete-premium-workout-details').'/'.$details->id}}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+    </div> 
                                     </td>
                               
                                          

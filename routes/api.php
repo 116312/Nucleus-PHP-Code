@@ -14,18 +14,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/user',function (Request $request)
+{
     return $request->user();
-
-
-
 });
 
 
 Route::group(['namespace' => 'Api'],function (){
 
    Route::post('register-user','UserController@register');
+   Route::post('sendEmailForSignUp','UserController@sendEmailForSignUp');
    Route::post('login-user','UserController@login');
+   Route::post('getAllusers','UserController@getAllusers');
    Route::post('social-login','UserController@socialLogin');
    Route::post('update-profile','UserController@updateprofile');
    Route::post('get-user-profile','UserController@getprofile');
@@ -33,10 +33,6 @@ Route::group(['namespace' => 'Api'],function (){
    Route::post('reset-password','UserController@resetPassword');
    Route::post('submit-social-privacy-setting','UserController@submitsocialprivacysettings');
    Route::post('get-social-privacy-setting','UserController@getuserssocialprivacysetting');
-
-
-
-
 
 //********************** Categories Api *******************************//
 
@@ -72,7 +68,9 @@ Route::post('get-user-traing-and-plan','TrainingAndPlanController@getTrainingPla
 
 Route::post('get-subscription-plan','SubscriptionPlanController@getSubscriptionPlan');
 
-
+//*************************** Favorite Video***********************************************//
+Route::post('add-favorite-video','FavoriteVideoController@addFavoriteVideo');
+Route::post('get-favorite-video','FavoriteVideoController@getFavoriteVideo');
 
 //**************************** Subscription Plan *******************************//
 
@@ -83,8 +81,12 @@ Route::post('get-privacy-policy','PrivacyPolicyController@getPrivacyPolicy');
 Route::post('submit-user-subscription','UserSubscriptionDetailsController@saveDetails');
 Route::post('getUserSubscriptionDetail','UserSubscriptionDetailsController@getUserSubscriptionDetail');
 Route::post('cancelSubscriptionPlan','UserSubscriptionDetailsController@cancelSubscriptionPlan');
+Route::get('expireSubscription','UserSubscriptionDetailsController@expireSubscription');
 Route::post('GetSubscriptionReceipt','UserSubscriptionDetailsController@GetSubscriptionReceipt');
 Route::post('feedback','FeedbackController@feedback');
 
+//*****************************Video Tracking****************************//
+
+Route::post('video-view','VideoTrackController@view');
 
 });

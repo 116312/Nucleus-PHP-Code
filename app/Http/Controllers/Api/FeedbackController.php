@@ -21,11 +21,11 @@ class FeedbackController extends Controller
          
         );
         $validator = Validator::make($request->all(),$validation);
-        if ($validator->fails()) {
+        if ($validator->fails()) 
+        {
             $response['message']=$validator->errors($validator)->first();
             return Response::json($response,400);
         }
-      
   $data  = new  feedback();
   $data->from =$request->from;
   $data->to =$request->to;
@@ -33,10 +33,10 @@ class FeedbackController extends Controller
   $data->content =$request->content;
   $data->save();
   Mail::send([], [], function ($message) use($request) {
-            $message->to($request->to)
-              ->subject($request->subject)
-              // here comes what you want
-              ->setBody($request->content); // assuming text/plain
+             $message->to($request->to);
+             $message->from($request->from);
+             $message->subject($request->subject);
+             $message->setBody($request->content);
           });
   return response()->json(["message"=>"feedback receive successfully",'data'=> $data]);
         

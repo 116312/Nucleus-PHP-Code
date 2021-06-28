@@ -17,7 +17,7 @@
                         </div>
                         <div class="content">
                             <div class="text">Total Users</div>
-                            <div class="number count-to" data-from="0" data-to="" data-speed="1000" data-fresh-interval="20"></div>
+                            <div class="number count-to" data-from="0" data-to="{{ $totalUsers }}" data-speed="1000" data-fresh-interval="20"></div>
                         </div>
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                         </div>
                         <div class="content">
                             <div class="text">Subscribed User</div>
-                            <div class="number count-to" data-from="0" data-to="" data-speed="1000" data-fresh-interval="20">243</div>
+                            <div class="number count-to" data-from="0" data-to="{{ $totalSubscribedUsers }}" data-speed="1000" data-fresh-interval="20">243</div>
                         </div>
                     </div>
                 </div>

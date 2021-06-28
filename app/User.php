@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use DB;
 
 class User extends Authenticatable
 {
@@ -69,6 +70,33 @@ class User extends Authenticatable
     public function usersubscriptiondetails(){
 
          return $this->hasOne(Model\UserSubscriptionDetails::class,'user_id');
+    }
+    /**
+     *getFreeUsers fuction use for get all Free Users
+     * @return @var $users
+     */
+    public static function getFreeUsers()
+    {
+         $users = DB::table("users")->select('*')
+            ->whereNOTIn('id',function($query){
+               $query->select('user_id')->from('user_subscription_details');
+            })->orderBy('created_at','desc')->get();
+            $users=$users->toArray();
+            return $users;
+    }
+    /**
+     *getAllSubscribedUsers use for get all subscribed users
+     * return @pram:-$subscribedUsers
+     */ 
+    public static function getAllSubscribedUsers()
+    {
+      $subscribedUsers = DB::table('user_subscription_details')
+                ->select('user_subscription_details.id as subscriptionId','user_subscription_details.user_id','user_subscription_details.payment_id'
+                ,'user_subscription_details.transaction_id','user_subscription_details.amount'
+                ,'user_subscription_details.product','user_subscription_details.Device_Type','user_subscription_details.receipt','users.name','users.email','users.contact_no','users.country','users.created_at','users.gender')
+                ->join('users', 'users.id', '=', 'user_subscription_details.user_id')
+                ->get();
+                return $subscribedUsers;
     }
 
 }

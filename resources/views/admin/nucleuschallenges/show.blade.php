@@ -69,11 +69,13 @@
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-nuc-chall').'/'.$chall->id}}" role="form">
                                     @csrf
                                                 <td>
+                                                    
+                                                      <div class="action_btn">
                                     <a href="{{url('admin/edit-nuc-chall').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                      <a href="{{url('admin/add-nucleus-challenge-prize').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">Add Prize to Level</button></a>
                                       <a href="{{url('admin/show-nucleus-challenge-prize').'/'.$chall->id}}"><button type="button" class="btn btn-primary waves-effect">View All Added Prize</button></a>
                                     <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
-                                                </td>
+                                          </div>      </td>
                                             </form> 
                                         </tr>
                                         @endforeach

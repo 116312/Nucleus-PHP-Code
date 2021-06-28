@@ -8039,4 +8039,51 @@ html.ie11 .dropdown-menu ul.menu li a {
 
 html.ie11 .bs-searchbox .form-control {
   width: 90%; }
+ul.nav.nav-tabs.newtab li a {
+    font-size: 16px;
+}  
+.nav-tabs.newtab > li > a:before {
+    border-bottom: 2px solid #3f51b5;
+}
+.nav-tabs.newtab li.active a {
+    color: #3f51b5 !important;
+}
+.card .header{border-bottom: 0;}
+
+.newtab.tabs_responsive{display: flex;
+    width: 100%;
+}
+
+
+#wrapper div.added_chapter {display:flex;margin-left:1px;}
+
+#wrapper div.added_chapter button.delete {    background-color: #d92c2c;
+    border: navajowhite;
+    color: #fff;
+    border-radius: -3px;
+    margin-left: 6px;}
+    
+    .action_btn a.btn    {display:block;
+    margin-bottom: 8px;
+}
+
+     .action_btn a button    {display:block;
+    margin-bottom: 8px;width:100%;
+}
+
+     .action_btn a {text-decoration: none;}
+
+#all-user-datatable1_filter label , #all-user-datatable2_filter label{    margin-left: auto;
+    display: table;
+}
+
+
+#wrapper .added_chapter.form-line input:focus {border-bottom: 2px solid rgb(31 145 243);}
+
+.card {    width: 100% !important;
+    overflow: auto !important;}
+    
+    #all-user-datatable2_wrapper #all-user-datatable2_length label {
+display: flex; width:33%;}
+
 

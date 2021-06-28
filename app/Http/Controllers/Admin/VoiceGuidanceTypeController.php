@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\VoiceGuidanceType;
@@ -40,9 +38,7 @@ class VoiceGuidanceTypeController extends Controller
 
 
       VoiceGuidanceType::insert($data);
-
-
-     return back()->with('status',100)->with('type','success')->with('message','Voice Guidance Type added successfully');
+      return back()->with('status',100)->with('type','success')->with('message','Voice Guidance Type added successfully');
     }
 
 

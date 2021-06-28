@@ -155,7 +155,7 @@
 
        $("#add").click(function (e) {
 //Append a new row of code to the "#items" div
-  $("#wrapper").append('<div ><input type="text" name="chapters[]" style="width:90%!important;" ><button  class="delete">Delete</button></div><br />');
+  $("#wrapper").append('<div class="added_chapter form-line"><input type="text" name="chapters[]" class="form-control" style="width:100%!important;" ><button  class="delete">Delete</button></div><br />');
 });
         $("#wrapper").on("click",".delete", function(e){ //user click on remove text
         e.preventDefault(); $(this).parent('div').remove();

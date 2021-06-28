@@ -19,7 +19,8 @@ class PremiumWorkoutDetailsController extends Controller
      **/
     
 
-    public function add(){
+    public function add()
+    {
 
 
     	$page = 'premium-workout-details';
@@ -69,10 +70,7 @@ class PremiumWorkoutDetailsController extends Controller
         'description'=>$request->description,
         'IsPaid'=>$request->IsPaid,
         'created_at'=> Carbon::now(),
-       
-       
-
-    	];
+         ];
 
 
     	 $premium_workout_details_id = PremiumWorkoutDetails::insertGetId($data);

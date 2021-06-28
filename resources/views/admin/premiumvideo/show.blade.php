@@ -66,11 +66,12 @@
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-premium-videos').'/'.$video->id}}" role="form">
                                     @csrf
                                  <td>
+                                     <div class="action_btn">
                                         <a href="{{url('admin/edit-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                           <a href="{{url('admin/add-subtitle-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">Add Subtitle</button></a>
                                             <a href="{{url('admin/show-subtitle-premium-videos').'/'.$video->id}}"><button type="button" class="btn btn-primary waves-effect">View All Added Subtitle</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
-                                    </td>
+                                   </div> </td>
                                 </form>
                                       
                                          </tr>

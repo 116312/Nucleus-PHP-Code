@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Model;
-
+use DB;
 use Illuminate\Database\Eloquent\Model;
 
 class UserSubscriptionDetails extends Model
@@ -30,5 +30,5 @@ class UserSubscriptionDetails extends Model
       return $this->hasMany('App\Model\UserSubscribedVideosDetails','user_subscription_id');
         
     }
-
+    
 }

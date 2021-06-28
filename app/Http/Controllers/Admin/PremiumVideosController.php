@@ -193,7 +193,7 @@ class PremiumVideosController extends Controller
 
         'name' => $request->name,
         'language' =>$request->language,
-         'dacast_link'=>$request->dacast_link,
+        'dacast_link'=>$request->dacast_link,
         'content_id'=>$request->content_id,
         'active_for_app'=>$request->active_for_app,
         'updated_at'=>Carbon::now(),

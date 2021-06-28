@@ -19,9 +19,8 @@ class SubscriptionPlanDetailsController extends Controller
         $page = 'subscription-plan-details';
         $sub_page = 'add-subscription-plan-details';
         $subscription_category = SubscriptionCategory::all();
-        $subscription_plan = SubscriptionPlan::all();   
-
-      return view('admin.subscriptionplandetails.add',compact('page','sub_page','subscription_category','subscription_plan'));
+        $subscription_plan = SubscriptionPlan::all();
+        return view('admin.subscriptionplandetails.add',compact('page','sub_page','subscription_category','subscription_plan'));
     
     }
 

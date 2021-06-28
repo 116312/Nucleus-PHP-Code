@@ -7,7 +7,7 @@
             overflow: auto;
         }
     </style>
-    <section class="content">
+<section class="content">
         <div class="container-fluid">
             <div class="block-header">
                 <h2>Subscription plan</h2>
@@ -23,21 +23,14 @@
                             </h2>
                         </div>
                         <div class="body">
-
-
-
-                             <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
+                  <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
                                     <td>Plan Name</td>
                                     <td>Plan Description</td>
-                                    
                                     <td>Action</td>
-
-                                   
-
-                                </tr>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                   
@@ -45,11 +38,11 @@
                                         <tr>
                                             <td>{{++$key}}</td>
                                             <td>{{$plan->name}}</td>
-                                            <td>{{$plan->description}}</td>
-                                            <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-plan').'/'.$plan->id}}" role="form">
+                    <td>{{$plan->description}}</td>
+                    <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-plan').'/'.$plan->id}}" role="form">
                                     @csrf
                                                 <td>
-                                                     <a href="{{url('admin/edit-subscription-plan').'/'.$plan->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
+                                        <a href="{{url('admin/edit-subscription-plan').'/'.$plan->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
                                                 </td>
                                             </form> 

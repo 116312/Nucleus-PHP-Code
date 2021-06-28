@@ -17,9 +17,8 @@ class CategoryController extends Controller
 
 
        if($user->gender == null){
-  
-          
-          $categories = Category::orderBy('sequence_no', 'asc')->with('unspecifiedcategoryimage')->get();
+           
+         $categories = Category::orderBy('sequence_no', 'asc')->with('unspecifiedcategoryimage')->get();
 
         }
 

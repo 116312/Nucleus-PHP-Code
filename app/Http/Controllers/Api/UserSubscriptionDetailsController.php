@@ -24,12 +24,24 @@ class UserSubscriptionDetailsController extends Controller
           $this->checkSubscriptionStatus($details);
         }*/
     }
-
+/**
+ * saveDetails function use for store subscription details
+ * in this function store subscription detail into different tabel
+ * like:-user_subscription_details,user_subscription_plan_details,user_subscribed_videos_details
+ * @param:-user_id | login user id
+ * @param:-payment_id | Payment Id
+ * @param:-transaction_id || Transaction Id 
+ * @param:-amount,product,receipt,
+ * @param:-deviceType || use for Device Type like IOS or Android
+ * @param:-subscription_category_id
+ * @param:-subscription_plan_id
+ * @return JSON
+ */
 	public function saveDetails(Request $request){
-$receipt = null;
-if($request->receipt != null){
+     $receipt = null;
+    if($request->receipt != null){
 
-$receipt = json_encode($request->receipt);
+     $receipt = json_encode($request->receipt);
 }
       $savedata= [
      'user_id'=> $request->user_id,
@@ -38,26 +50,22 @@ $receipt = json_encode($request->receipt);
      'amount'=> $request->amount,
      'product'=> $request->product,
      'receipt'=> $receipt,
+     'Device_Type'=>$request->deviceType,
      'created_at'=>Carbon::now(),
       ];
-
-      $id= UserSubscriptionDetails::insertGetId($savedata);
-
-
-
-
-
+     $user_id=$request->user_id;
+     $id= UserSubscriptionDetails::insertGetId($savedata);
      if($request->product == 'Subscription Plan'){
-      $subscriptionPlanDetails =  SubscriptionPlanDetails::where('subscription_category_id',$request->subscription_category_id)->where('subscription_plan_id',$request->subscription_plan_id)->with(['subscriptioncategory','subscriptionplan'])->first();
+     $subscriptionPlanDetails =  SubscriptionPlanDetails::where('subscription_category_id',$request->subscription_category_id)->where('subscription_plan_id',$request->subscription_plan_id)->with(['subscriptioncategory','subscriptionplan'])->first();
 
-
+      $endDate=Carbon::now()->addMonths($subscriptionPlanDetails->number_of_month);
       $plandetails = [
       'user_subscription_id'=>$id,	
       'subscription_category_id'=>$request->subscription_category_id,
       'subscription_plan_id'=>$request->subscription_plan_id,
       'created_at'=>Carbon::now(),
       'start_date'=>Carbon::now(),
-      'end_date'=>Carbon::now()->addMonths($subscriptionPlanDetails->number_of_month),
+      'end_date'=>$endDate->addDays(5),
      
         ];
 
@@ -137,23 +145,41 @@ $receipt = json_encode($request->receipt);
      } 
 
    }
+   /**
+    * expireSubscription is Cron job function 
+    * it is use for Automatic Video Access Stop when Subscription end_date Will be pass 
+    * @return void
+    */ 
+    public function expireSubscription(Request $request){
+       $userSubscriptionDetailsData=UserSubscriptionDetails::all();
+       foreach($userSubscriptionDetailsData as $SubscriptionDetailsData)
+       {
+         $userId=$SubscriptionDetailsData['user_id'];
+         $userSubscriptionDetailsId=$SubscriptionDetailsData['id'];
+         $UserSubscriptionPlanDetails=UserSubscriptionPlanDetails::where('user_subscription_id',$userSubscriptionDetailsId)->first();
+         $subscriptionEndDate=$UserSubscriptionPlanDetails['end_date'];
+         $date = new Carbon;
+         if($date > $subscriptionEndDate)
+         {
+             
+           $videoAcess = UserSubscribedVideosDetails::where('user_subscription_id',$userSubscriptionDetailsId)->get();
+           foreach($videoAcess as $video)
+           {
+            
+                 UserSubscribedVideosDetails::where('id',$video->id)->update(['access'=>false]);
 
-
-   public function expireSubscription($userSubscriptionDetails){
-
+           }
+          
+         } 
+       }
      
-    // UserSubscriptionPlanDetails::where('id',$userSubscriptionDetails->id)->update(['status'=>false]);
-
-     $videoAcess = UserSubscribedVideosDetails::where('user_subscription_id',$userSubscriptionDetails->id)->get();
-     foreach($videoAcess as $video){
-
-     UserSubscribedVideosDetails::where('id',$video->id)->update(['access'=>false]);
-
-     }
- 
 
    }
-    //Date:-22-12-2020 by Mishra Ankit Kumar
+    /**
+     * getUserSubscriptionDetail function use for get all Subscription detail
+     * @param:-user_id| use for Login User id
+     * @return Void
+     */
    public function getUserSubscriptionDetail(Request $request)
    {
         $userID=$request->userID;
@@ -170,6 +196,11 @@ $receipt = json_encode($request->receipt);
         }
       
    }
+   /**
+    *cancelSubscriptionPlan function use for Cancel user Subscription Plan
+    * @param:-UserSubscriptionPlanDetailsId 
+    * @return Void
+    */
    public function cancelSubscriptionPlan(Request $request)
    {
        $UserSubscriptionPlanDetailsId=$request->UserSubscriptionPlanDetailsId;
@@ -179,12 +210,17 @@ $receipt = json_encode($request->receipt);
            );
            UserSubscriptionPlanDetails::where('id',$UserSubscriptionPlanDetailsId)->update($UserSubscriptionPlanDetailsStatus);
            if($request->status == false){
-        $user_subscription_id =  UserSubscriptionPlanDetails::where('id',UserSubscriptionPlanDetailsId)->first()->user_subscription_id;
-          $this->expireSubscription($user_subscription_id);
+          $user_subscription_id =  UserSubscriptionPlanDetails::where('id',$UserSubscriptionPlanDetailsId)->first()->user_subscription_id;
+        /*  $this->expireSubscription($user_subscription_id);*/
            }
           return Response::json(['code' => 200,'status' => true, 'message' => 'User Subscription Plan Details has been Changed.']); 
    }
-  public function GetSubscriptionReceipt(Request $request)
+   /**
+    *GetSubscriptionReceipt functon use for get Subscription Receipt
+    * @userID | use for Login user Id
+    * @return void
+    */ 
+   public function GetSubscriptionReceipt(Request $request)
    {
          $userID=$request->userID;
          $data = UserSubscriptionDetails::where('user_id',$userID)->first();
@@ -198,6 +234,6 @@ $receipt = json_encode($request->receipt);
              return Response::json(['code' => 400,'status' => false, 'message' => 'No Subscription']);
         }
    }
-    
+   
 
 }

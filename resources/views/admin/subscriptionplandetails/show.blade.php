@@ -15,7 +15,7 @@
 
             <!-- Vertical Layout -->
             <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-md-c col-sm-12 col-xs-12">
                     <div class="card">
                         <div class="header">
                             <h2>
@@ -23,23 +23,20 @@
                             </h2>
                         </div>
                         <div class="body">
-
-
-
-                             <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
+                      <table class="table table-bordered table-striped table-hover dataTable" id="all-user-datatable">
                                 <thead>
                                 <tr>
                                     <td>S No.</td>
                                     <td>Subscription Category </td>
                                     <td>Subscription Plan</td>
                                     <td> Product ID </td>
-                                     <td> Descriptiom </td>
+                                     <td>Descriptiom </td>
                                     <td>Original Price</td>
                                     <td>Offer(in percentage)</td>
                                     <td>Per Month Price</td>
                                     <td>Plan Duration (in months)</td>
                                     <td>Plan Price</td>
-                                    <td>Additional Benifits</td>
+                                    <td>Benefits</td>
                                     
                                     <td>Action</td>
 
@@ -69,8 +66,10 @@
                                             <form class="form-horizontal" method="post" action="{{url('admin/delete-subscription-plan-details').'/'.$detail->id}}" role="form">
                                     @csrf
                                                 <td>
+                                                    <div class="action_btn">
                                                      <a href="{{url('admin/edit-subscription-plan-details').'/'.$detail->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                               </div>
                                                 </td>
                                             </form> 
                                         </tr>

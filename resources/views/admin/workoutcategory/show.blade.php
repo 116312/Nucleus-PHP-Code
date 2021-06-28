@@ -50,8 +50,10 @@
                                           <form class="form-horizontal" method="post" action="{{url('admin/delete-cate').'/'.$cate->id}}" role="form">
                                     @csrf
                                  <td>
+                                      <div class="action_btn">
                                         <a href="{{url('admin/edit-cate').'/'.$cate->id}}"><button type="button" class="btn btn-primary waves-effect">Edit</button></a>
                                         <a href="" onclick="return confirm('Are you sure you want to delete this item?');"><button type="submit" class="btn btn-danger waves-effect">Delete</button></a>
+                                        </div>
                                     </td>
                                 </form>
                                       

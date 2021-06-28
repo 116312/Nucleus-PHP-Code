@@ -10,46 +10,61 @@ use App\Model\UserSubscriptionDetails;
 use App\Model\UserSubscribedVideosDetails;
 use App\Model\UserSubscriptionPlanDetails;
 use App\Model\SubscriptionVideo;
+use App\Model\PremiumWorkoutDetails;
 use App\Model\SubscriptionPlanDetails;
 use App\Model\SubscriptionCategory;
 class SubscriptionPlanController extends Controller
 {
    
-
-
-
-  public function getSubscriptionPlan(Request $request){
-   
-   
+public function getSubscriptionPlan(Request $request){
    
    $video_id = $request->video_id;
-   $status = false;
+   $categoryId = $request->categoryId;
+   //$status = false;
    $data = [];
    $subscription_detail = UserSubscriptionDetails::where('user_id',$request->user_id)->get();
+  
+   
    $subscribedvideo_id = PremiumVideos::where('id',$request->video_id)->with(['subscriptionplandetails.subscriptioncategory','subscriptionplandetails.subscriptionplan','subscriptionplandetails.additionalbenifits'])->first();
  
    // Admin has not added any subscription plan for the video
-    if($subscribedvideo_id->subscriptionplandetails->count() == null){
+  $premiumVideoId=$subscribedvideo_id->id;
+  $premiumWorkoutDetails = PremiumWorkoutDetails::where('premium_workout_id',$premiumVideoId)->where("category_id",$categoryId)->first();
+  $IsPaid=$premiumWorkoutDetails->IsPaid;
 
-    $status = true;
-    $data = [
+  
+   if($subscribedvideo_id->subscriptionplandetails->count() == null)
+   {
+    if($IsPaid==1)
+    {
+         
+      $status = false;
+      $data=[
       'status' => $status,
-      
       'details' => $subscribedvideo_id,
-      
       ];
     return Response::json(['code' => 200,'status' => true, 'message' => 'Free Videos','data'=>$data]);
+    }
+    else
+    {
+      $status = true;
+      $data = [
+      'status' => $status,
+      'details' => $subscribedvideo_id,
+      ];
+    return Response::json(['code' => 200,'status' => true, 'message' => 'Free Videos','data'=>$data]); 
+    }
    
    }
    
    
    
    // if user is subscribed
-  
-   if($subscription_detail !=  null)
+ 
+ if(isset($subscription_detail[0]->id))
   {
-
-
+   
+    
   //check every subscriptions details
 
 
@@ -69,10 +84,10 @@ class SubscriptionPlanController extends Controller
       $status = true;
       $data = [
       'status' => $status,
-      
       'details' => $subscribedvideo_id,
       
       ];
+   
       
       return Response::json(['code' => 200,'status' => true, 'message' => 'User is Valid for the video','data'=> $data]);
       
@@ -85,6 +100,7 @@ class SubscriptionPlanController extends Controller
 
 } 
 
+
      $status =false;
        $data = [
       'status' => $status,
@@ -96,49 +112,34 @@ class SubscriptionPlanController extends Controller
 
   
 }
-
-
-    else{
-      $status =false;
-       $data = [
+else
+{
+ 
+if($IsPaid==1)
+    {
+      $status = false;
+      $data = [
       'status' => $status,
-      
       'details' => $subscribedvideo_id,
-      
       ];
-      return Response::json(['code' => 200,'status' => true, 'message' => 'User is not valid For the Video','data'=> $data]);
+    return Response::json(['code' => 200,'status' => true, 'message' => 'Free Videos','data'=>$data]);
+    }
+    else
+    {
+        
+           
+      $status = true;
+      $data = [
+      'status' => $status,
+      'details' => $subscribedvideo_id,
+      ];
+        
+    return Response::json(['code' => 200,'status' => true, 'message' => 'User is not valid For the Video','data'=>$data]); 
+     }
+     
       }   
    
    
-   
-  
-
-
-
-
-
-
-      
-    
-      
- 
-   
-   
-   
-   
-   
-  
-
-
-
-
-
-   
-
-
-
-
-
 }
 
 

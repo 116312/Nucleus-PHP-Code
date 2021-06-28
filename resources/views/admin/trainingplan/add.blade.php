@@ -18,7 +18,7 @@
                         </div>
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/store-training-plan')}}" enctype="multipart/form-data">
-                                @csrf
+                               {{csrf_field()}}
 
 
                                

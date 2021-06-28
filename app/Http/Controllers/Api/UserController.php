@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 use App\Mail\ForgotPasswordMail;
+use App\Mail\SignupEmail;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
@@ -24,12 +25,7 @@ use Storage;
 
 class UserController extends Controller
 {
-
-
-
-    
-
-    public function validateUser($data){
+     public function validateUser($data){
         $returnArray = [];
         
         $pass = $data->password;
@@ -44,29 +40,10 @@ class UserController extends Controller
         if($data->password == null){
             array_push($returnArray,'Please enter password');
         }
-
-
-
-
-
-
-     
-
-        
         return $returnArray;
     }
 
-
-
-
-
-
-
-        public function register(Request $request){
-          
-
-
-        
+    public function register(Request $request){
         $validate  = $this->validateUser($request);
 
         if(count($validate) > 0){
@@ -82,13 +59,17 @@ class UserController extends Controller
                 return Response::json(['code' => 400,'status' => false, 'message' => 'User Already Exist']);
             }
             else{
-
-                $insert = [
+                $email=$request->email;
+                $domains = array('.com','.co.uk','.com.br','.co.in','.de','.ru','.it','.net.au','.in','.co.uk','.com.au');
+                $pattern = "/^[a-z0-9._%+-]+@[a-z0-9.-]*(" . implode('|', $domains) . ")$/i";
+                if (preg_match($pattern, $email)) {
+                    $insert = [
                     'name' => $request->name,
                     'email' => $request->email,
                     'password' => bcrypt($request->password),
                     'country'=>$request->country,
                     'contact_no' => $request->contact_no,
+                    'dob' => $request->dateOfBirth,
                    
                     'created_at' => Carbon::now(),
                 ];
@@ -97,25 +78,18 @@ class UserController extends Controller
                 UserDevice::insert(['user_id' => $id,'device_id' => $request->device_id,'created_at' =>Carbon::now()]);
                 $user = User::find($id);
                 return Response::json(['code' => 200,'status' => true, 'message' => 'User register successfully','data'=>$user]);
+                } else {
+                 return Response::json(['code' => 208,'status' => true, 'message' => 'This Email id is not acceptabel']);
+                    }
+               
             }
 
         }
     
     }
-
-
-
-
-
-
-
-
-
-
-
-    public function login(Request $request){
+      public function login(Request $request){
         $user = User::where('email',$request->email)->first();
-
+        $user_id=$user['id'];
         if($user == null){
             return Response::json(['code' => 400,'status' => false, 'message' => 'User not register']);
         }
@@ -124,8 +98,30 @@ class UserController extends Controller
                 $devices = $user->userDevices()->get();
                 if($devices->count() < 2){
                     $check_device = $devices->firstWhere('device_id',$request->device_id);
-                    if($check_device != null){
-                        return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$user]);
+                 if($check_device != null){
+                        
+               /*  $UserSubscriptionDetails = UserSubscriptionDetails::where('user_id',$user_id)->first();
+               
+                 if(!empty($UserSubscriptionDetails))
+                 {
+                     
+                 $UserSubscriptionDetailsId=$UserSubscriptionDetails->id;
+                 $UserSubscriptionPlanDetails=UserSubscriptionPlanDetails::where('user_subscription_id',$UserSubscriptionDetailsId)->first();
+                
+                 $subscription_plan_id=$UserSubscriptionPlanDetails->subscription_plan_id;
+                 $subscription_plan = SubscriptionPlan::where('id',$subscription_plan_id)->first();
+                 $subscriptionName=$subscription_plan['name'];
+               
+                 
+                 }
+                 else
+                  {
+                     $UserSubscriptionPlanDetails=null;
+                     $subscription_plan=null;
+                   
+                  }*/
+                        
+        return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$user]);
                     }
                     else{
                         UserDevice::insert(['user_id' => $user->id,'device_id' => $request->device_id,'created_at' =>Carbon::now()]);
@@ -133,11 +129,35 @@ class UserController extends Controller
                     }
                 }
                 else{
+                    
                     $check_device = $devices->firstWhere('device_id',$request->device_id);
                     if($check_device != null){
+                        
+                /*   $UserSubscriptionDetails = UserSubscriptionDetails::where('user_id',$user_id)->first();
+                  if(!empty($UserSubscriptionDetails))
+                   {
+                     
+                 $UserSubscriptionDetailsId=$UserSubscriptionDetails->id;
+                 $UserSubscriptionPlanDetails=UserSubscriptionPlanDetails::where('user_subscription_id',$UserSubscriptionDetailsId)->first();
+                
+                 $subscription_plan_id=$UserSubscriptionPlanDetails->subscription_plan_id;
+                 $subscription_plan = SubscriptionPlan::where('id',$subscription_plan_id)->first();
+                 $subscriptionName=$subscription_plan['name'];
+               
+                 
+                 }
+                 else
+                  {
+                     $UserSubscriptionPlanDetails=null;
+                     $subscriptionName=null;
+                   
+                  }*/
+                        
+                        
                         return Response::json(['code' => 200,'status' => true, 'message' => 'User login successfully','data'=>$user]);
                     }
-                    else{
+                    else
+                    {
 
                         return Response::json(['code' => 200,'status' => true, 'message' => 'User login un-successfully for security reason','data'=>[]]);
                     }
@@ -204,15 +224,8 @@ class UserController extends Controller
             return Response::json(['code' => 200,'status' => true, 'message' => 'User register successfully','data'=>$user]);
         }
     }
-
-
-
-
-
-    public function updateprofile(Request $request){
-
-     
-        $imagePath = '';
+public function updateprofile(Request $request){
+         $imagePath = '';
 
          if($request->hasFile('image')){
           
@@ -224,32 +237,39 @@ class UserController extends Controller
           User::where('id',$request->user_id)->update(['image'=>$imagePath]);
           }
 
+            $check = User::where('email',$request->email)->first();
 
+            if($check != null){
 
-        $data = [
-         'name' => $request->name,
-         'contact_no' => $request->contact_no, 
-         'gender'=> $request->gender,
-         'weight'=> $request->weight, 
-         'weight_unit'=>$request->weight_unit,
-         'height_unit'=>$request->height_unit,
-         'height'=>$request->height,
-         'dob'=>$request->dob,
-         'country'=>$request->country,
-         'updated_at'=>Carbon::now(),
-          ];
-
-       User::where('id',$request->user_id)->update($data);
-       
-       $data = User::where('id',$request->user_id)->first();
-
-        return Response::json(['code' => 200,'status' => true, 'message' => 'User data updated successfully','data'=>$data]);
-
-
-    }
-
-
-
+                return Response::json(['code' => 400,'status' => false, 'message' => 'User Already Exist']);
+            }
+             $email=$request->email;
+                $domains = array('.com','.co.uk','.com.br','.co.in','.de','.ru','.it','.net.au','.in','.co.uk','.com.au');
+                $pattern = "/^[a-z0-9._%+-]+@[a-z0-9.-]*(" . implode('|', $domains) . ")$/i";
+                if (preg_match($pattern, $email)) 
+                {
+                 $data = [
+                  'name' => $request->name,
+                  'contact_no' => $request->contact_no, 
+                  'gender'=> $request->gender,
+                  'weight'=> $request->weight, 
+                  'weight_unit'=>$request->weight_unit,
+                  'height_unit'=>$request->height_unit,
+                  'height'=>$request->height,
+                  'dob'=>$request->dob,
+                  'country'=>$request->country,
+                  'fullName'=>$request->fullName,
+                  'updated_at'=>Carbon::now(),
+                ];
+           User::where('id',$request->user_id)->update($data);
+           $data = User::where('id',$request->user_id)->first();
+           return Response::json(['code' => 200,'status' => true, 'message' => 'User data updated successfully','data'=>$data]);
+            }
+          else
+            {
+                return Response::json(['code' => 208,'status' => true, 'message' => 'This Email id is not acceptabel']);     
+            }
+      }
     public function getprofile(Request $request){
 
     $profile =  User::where('id',$request->user_id)->first();
@@ -305,11 +325,9 @@ class UserController extends Controller
     'goal'=>$Goal,
     'daysperweek'=>$daysperweek,
     'planvariationdata'=>$planvariationdata,
-
-
     ];
 
-return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile,"UserSubscriptionDetails"=>$UserSubscriptionDetails,"planData"=>$planData,"UserSubscriptionPlanDetails"=>$UserSubscriptionPlanDetails,'subscription_plan'=>$subscription_plan]);
+  return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PRofile data','data'=>$profile,"UserSubscriptionDetails"=>$UserSubscriptionDetails,"planData"=>$planData,"UserSubscriptionPlanDetails"=>$UserSubscriptionPlanDetails,'subscription_plan'=>$subscription_plan]);
 
     }
 
@@ -417,5 +435,13 @@ return Response::json(['code' => 200,'status' => true, 'message' => 'Get User PR
     return Response::json(['code' => 200,'status' => true, 'message' => 'Privacy Setting Saved Successfully','data'=>$data]);
 
 
+    }
+    public function sendEmailForSignUp(Request $request)
+    {
+        $data=[
+         "name"=>"Ankit",
+         "verification_code"=>"1674367r43"
+        ];
+          Mail::to("qwertyankitmishra1651@gmail.com")->send(new SignupEmail($data));
     }
 }
