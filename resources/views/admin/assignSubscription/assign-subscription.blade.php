@@ -20,6 +20,11 @@
                               Assign Subscription
                             </h2>
                         </div>
+                        @if(session()->has('message'))
+                             <div class="alert alert-success">
+                             {{ session()->get('message') }}
+                            </div>
+                        @endif
                         <div class="body">
                             <form method="post"  id="form_validation" action="{{url('admin/add-assign-subscription/')}}/{{$userId}}" enctype="multipart/form-data">
                                 @csrf

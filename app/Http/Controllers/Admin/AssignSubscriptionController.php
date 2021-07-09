@@ -13,6 +13,8 @@ use App\Model\UserSubscriptionDetails;
 use App\Model\UserSubscriptionPlanDetails; 
 use App\Model\SubscriptionWorkoutCategory;
 use App\Model\UserSubscribedVideosDetails;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AssignSubscriptionMail;
 
 
 
@@ -45,7 +47,7 @@ class AssignSubscriptionController extends Controller
     */
     public function addAssignSubscription(Request $request ,$userId)
     {
-	   
+	 
     	$subscriptionCategoryId=$request->input("subscriptionCategoryId");
     	$subscriptionPlanId=$request->input("subscriptionPlanId");
     	$days=$request->input("days");
@@ -65,14 +67,13 @@ class AssignSubscriptionController extends Controller
            $subscriptionPlanDetails =  SubscriptionPlanDetails::where('subscription_category_id',$subscriptionCategoryId)->where('subscription_plan_id',$subscriptionPlanId)->with(['subscriptioncategory','subscriptionplan'])->first();
 
            $endDate=Carbon::now()->addMonths($subscriptionPlanDetails->number_of_month);
-           $plandetails = [
+           $plandetails =[
            'user_subscription_id'=>$id,	
            'subscription_category_id'=>$subscriptionCategoryId,
            'subscription_plan_id'=>$subscriptionPlanId,
            'created_at'=>Carbon::now(),
            'start_date'=>Carbon::now(),
            'end_date'=>Carbon::now()->addDays($days),
-     
             ];
 
             $x = UserSubscriptionPlanDetails::insertGetId($plandetails);
@@ -81,30 +82,31 @@ class AssignSubscriptionController extends Controller
             {
                         foreach($workoutcategory->workoutcategory->premiumworkoutdetails as $premiumworkoutdetails)
 								{       
-								         $videodetails = [];
+								        $videodetails = [];
 
 								        $videodetails = [
 
 								       'user_subscription_id' =>$id,
 								       'premium_video_id'=>$premiumworkoutdetails->premiumworkout->id,
 								       'created_at'=>Carbon::now(),
-								        
 								        ];
-								     
-								       $video_id =UserSubscribedVideosDetails::insertGetId($videodetails);
+								        $video_id =UserSubscribedVideosDetails::insertGetId($videodetails);
 								}
 
          
              }
 
-          /*  $details = [
+          /*$details = [
                 'transaction'=>UserSubscriptionDetails::find($id),
 			    'subscriptionPlan'=>UserSubscriptionPlanDetails::find($x),
 			    'uservideo'=>UserSubscribedVideosDetails::where('user_subscription_id',$id)->get(),
-			]; 
-		echo "<pre>";
-        print_r($details);
-        die;*/
+			];*/
+//        return redirect()->to('assign-subscription/{{$userId}}')->with('message','Subscription has been Assigned this user');
+             Mail::to('ashumehra768@outlook.com')->send(new AssignSubscriptionMail('Hello'));
+             return redirect()->to('admin/all-users')->with('message','Subscription has been Assigned this user');
+             
+        //return back()->with('status',100)->with('type','success')->with('message','Subscription has been Assigned this user');
+
 
          }
     	
