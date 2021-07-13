@@ -102,7 +102,7 @@ class AssignSubscriptionController extends Controller
 			    'uservideo'=>UserSubscribedVideosDetails::where('user_subscription_id',$id)->get(),
 			];*/
 //        return redirect()->to('assign-subscription/{{$userId}}')->with('message','Subscription has been Assigned this user');
-             Mail::to('ashumehra768@outlook.com')->send(new AssignSubscriptionMail('Hello'));
+//             Mail::to('ashumehra768@outlook.com')->send(new AssignSubscriptionMail('Hello'));
              return redirect()->to('admin/all-users')->with('message','Subscription has been Assigned this user');
              
         //return back()->with('status',100)->with('type','success')->with('message','Subscription has been Assigned this user');

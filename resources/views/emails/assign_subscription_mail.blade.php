@@ -131,7 +131,7 @@
 				<div class="filed-text-block">
 					<h1>Issue Date: </h1>
 					<p> 15/05/2021</p>
-					</div>
+				</div>
 					<div class="filed-text-block">
 					<h1>Valid Till: </h1>
 					<p> 20/05/2021</p>
