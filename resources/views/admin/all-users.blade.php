@@ -12,8 +12,13 @@
         <div class="container-fluid">
             <div class="block-header">
                 <h2>Users</h2>
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('message') }}
             </div>
-          
+        @endif
+            </div>
+           
             <!-- Vertical Layout -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
